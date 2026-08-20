@@ -1,11 +1,19 @@
 ---
 title: "About"
-permalink: "/about.html"
+permalink: "/about/"
 image: "/assets/images/screenshot.jpg"
 ---
-
-Welcome 
-
-Made with <i class="fa fa-heart text-danger"></i> by Sal @wowthemesnet. Thanks for your <a target="_blank" href="https://www.wowthemes.net/freebies-license/">support</a>!
-
-<a class="btn btn-danger" href="https://github.com/wowthemesnet/template-pintereso-bootstrap-jekyll/archive/master.zip"><i class="fa fa-download"></i> pintereso.zip</a> <a target="_blank" class="btn btn-warning" href="https://www.wowthemes.net/donate/"><i class="fa fa-coffee"></i> Buy me a coffee?</a>
+<div class="container mt-4 mb-5">
+  <h1 class="font-weight-bold title">About Me</h1>
+  <p>
+    I'm a Marketing Operations professional specializing in Salesforce Marketing Cloud Account Engagement (Pardot),
+    with experience in Salesforce configuration, Tableau data visualization, and geospatial mapping.
+  </p>
+  <p>
+    I'm currently focused on marketplace, seller experience, and digital event/experiential marketing work,
+    and I care about joining a company with strong labor practices and an ethical product.
+  </p>
+  <p>
+    [Add a sentence or two here about your background, past roles, or what drives you professionally.]
+  </p>
+</div>
