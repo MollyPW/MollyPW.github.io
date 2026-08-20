@@ -1,41 +1,60 @@
 ---
-title: "Categories"
+title: "Projects"
 layout: default
-permalink: "/categories.html"
+permalink: "/projects/"
 ---
-
 <section class="mt-4 mb-5">
-    
-    <div class="container mb-1">
-        <h1 class="font-weight-bold title">Categories</h1>    
-        <div class="row">
-        {% include menu-categories.html %}
+  <div class="container mb-4">
+    <h1 class="font-weight-bold title">Projects</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="{{ site.baseurl }}/assets/images/projects/utm-link-builder.jpg" class="card-img-top" alt="UTM Link Builder screenshot">
+          <div class="card-body">
+            <h3>UTM Link Builder</h3>
+            <p>A free, no-code UTM link builder for marketers. Builds campaign URLs from approved source, medium, campaign, and content values (including link-location tracking, e.g. header vs. footer), saves reusable presets by campaign type, and keeps attribution data clean and consistent across a team.</p>
+            <a href="https://mollypw.github.io/UTM-Link-Builder" target="_blank" class="btn btn-outline-dark">View Project</a>
+          </div>
         </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="{{ site.baseurl }}/assets/images/projects/print-doctor.jpg" class="card-img-top" alt="Print Doctor screenshot">
+          <div class="card-body">
+            <h3>Print Doctor</h3>
+            <p>A browser-based tool for diagnosing why an old family photo has faded or shifted color, and generating exact step-by-step repair instructions for Photoshop or GIMP.</p>
+            <a href="https://mollypw.github.io/Print-Doctor" target="_blank" class="btn btn-outline-dark">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="{{ site.baseurl }}/assets/images/projects/letter-archivist.jpg" class="card-img-top" alt="Letter Archivist screenshot">
+          <div class="card-body">
+            <h3>Letter Archivist</h3>
+            <p>A local app for preserving family letters: scans, transcribes, dates, and binds them into one searchable PDF with cited images — built in the hope that other archival and genealogical hobbyists will build on and improve it.</p>
+            <a href="https://github.com/MollyPW/letter-archivist" target="_blank" class="btn btn-outline-dark">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="{{ site.baseurl }}/assets/images/projects/freeze.jpg" class="card-img-top" alt="Freeze screenshot">
+          <div class="card-body">
+            <h3>Freeze</h3>
+            <p>An Android accessibility-service app that freezes the screen so you can trace an image displayed on it without touches registering — a digital lightbox for tracing photos, art references, or documents directly off the screen.</p>
+            <a href="https://github.com/MollyPW/Freeze" target="_blank" class="btn btn-outline-dark">View Project</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-
-<div class="container-fluid">
-    <div class="card-columns">
-    {% for category in site.categories %}
-    </div> 
-    
-    <h3 class="mt-4 display-4" id="{{ category[0] | downcase }}"><small class="text-muted">#</small> {{ category[0] }}</h3><hr>
-    
-    <div class="card-columns">
-
-        {% assign pages_list = category[1] %}
-        {% for post in pages_list %}
-          {% if post.title != null %}
-              {% if group == null or group == post.group %}
-                {% include card-post.html %}
-              {% endif %}
-          {% endif %}
-        {% endfor %}
-        {% assign pages_list = nil %}
-        {% assign group = nil %}
-
-    {% endfor %}
-    </div>
-</div>
-    
+  </div>
 </section>
