@@ -13,7 +13,8 @@ image: "/assets/images/screenshot.jpg"
     I'm currently focused on marketplace, seller experience, and digital event/experiential marketing work,
     and I care about joining a company with strong labor practices and an ethical product.
   </p>
-  <p>
-    [Add a sentence or two here about your background, past roles, or what drives you professionally.]
+   <p>
+    Outside of work, I run a small shop selling Geegaws, Trinkets, Tchotchkes, and historic embroidery and beading patterns —
+    you can find it on <a href="https://www.etsy.com/shop/DopamineMoment" target="_blank">Etsy</a>.
   </p>
 </div>
