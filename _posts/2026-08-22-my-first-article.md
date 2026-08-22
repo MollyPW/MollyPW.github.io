@@ -8,7 +8,7 @@ But if you find yourself pulling exports out of MCAE and Salesforce and squintin
 
 The good news is that the hard part usually isn't technical. You don't need new tooling for it. You mostly need to know what each number is counting before you set it in a column next to another number. Which sounds obvious written down, and is very easy to skip.
 
-Why the numbers don't line up
+<h2>Why the numbers don't line up</h2>
 Naming is the mismatch everybody expects. MCAE's List Email report gives you HTML Open Rate. Something else in your stack calls the same idea Opens, or Unique Opens, or whatever a spreadsheet somebody has maintained since 2019 calls it. Renaming columns is tedious and it's fine, you can do that in your sleep.
 
 The harder version is that those reports don't carry the same metrics in the first place. List Email is the rich one. Template Emails has much more limited analytic options, so a metric you lean on in one place simply isn't available in the other, and there's nothing to map it to. When that happens you have to calculate the missing metric yourself out of whatever counts the thinner report does give you.
@@ -17,17 +17,18 @@ Which is where the bottom half of the fraction starts to matter. Every rate is a
 
 The way I get around all of this is to stop trusting the rate columns entirely. I pull the raw counts, so sent, delivered, bounces, unique opens, unique clicks, opt-outs, and then calculate every percentage myself in the merged file. One formula, one denominator, applied to every source. It's faster than auditing what each report meant by its own rate column, and when somebody asks what a number is divided by, the formula is right there.
 
-Getting the data out of MCAE
+<h2>Getting the data out of MCAE</h2>
 Which means the raw counts are what you're actually going after, not the pre-calculated rate columns.
 
-In the Account Engagement Lightning app:
-Account Engagement Reports > Marketing Assets > Emails > List Emails > Tools
+<h3>In the Account Engagement Lightning app:</h3>
+<ul>
+  <li></li>Account Engagement Reports > Marketing Assets > Emails > List Emails > Tools</ul>
 
-From there, "Export custom table to CSV" or "Export all items to CSV."
+<li>From there, "Export custom table to CSV" or "Export all items to CSV."</li>
 
-You need the Administrator, Marketing, or Sales Manager role to export at all.
-
-Three things about that export are worth knowing before you rely on it.
+<li>You need the Administrator, Marketing, or Sales Manager role to export at all.</li>
+</ul>
+<h3></h3>Three things about that export are worth knowing before you rely on it.
 
 Percentages come out as decimals. A 27% open rate exports as 0.27. If your template already formats that column as a percentage you get 27%. If it doesn't, you get 0.27 sitting next to a column of whole numbers, and you will not notice until somebody asks why open rate is under 1%. Convert it once, at ingest, and don't think about it again.
 
