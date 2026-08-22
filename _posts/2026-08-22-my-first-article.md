@@ -1,1 +1,5 @@
-2026-08-22-my-first-article.md
+---
+title: "[Your article title]"
+layout: post
+---
+[Paste or write your article content here.]
