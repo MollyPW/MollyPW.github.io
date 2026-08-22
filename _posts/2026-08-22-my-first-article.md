@@ -22,7 +22,7 @@ Which means the raw counts are what you're actually going after, not the pre-cal
 
 <h3>In the Account Engagement Lightning app:</h3>
 <ul>
-  <li></li>Account Engagement Reports > Marketing Assets > Emails > List Emails > Tools</ul>
+  <li>Account Engagement Reports > Marketing Assets > Emails > List Emails > Tools</li>
 
 <li>From there, "Export custom table to CSV" or "Export all items to CSV."</li>
 
@@ -30,21 +30,23 @@ Which means the raw counts are what you're actually going after, not the pre-cal
 </ul>
 <h3></h3>Three things about that export are worth knowing before you rely on it.
 
-Percentages come out as decimals. A 27% open rate exports as 0.27. If your template already formats that column as a percentage you get 27%. If it doesn't, you get 0.27 sitting next to a column of whole numbers, and you will not notice until somebody asks why open rate is under 1%. Convert it once, at ingest, and don't think about it again.
+**Percentages come out as decimals.** A 27% open rate exports as 0.27. If your template already formats that column as a percentage you get 27%. If it doesn't, you get 0.27 sitting next to a column of whole numbers, and you will not notice until somebody asks why open rate is under 1%. Convert it once, at ingest, and don't think about it again.
 
-In Excel: select the column, then Home > Number Format > Percentage. That displays 0.27 as 27% and leaves the underlying value alone, which is what you want if anything downstream is doing math on it.
+**In Excel:** select the column, then Home > Number Format > Percentage. That displays 0.27 as 27% and leaves the underlying value alone, which is what you want if anything downstream is doing math on it.
 
-In Power BI: Column tools > Format > Percentage.
+**In Power BI:** Column tools > Format > Percentage.
 
-"Export all items" means all items. Every metric, for every list email ever sent out of that business unit. It isn't a deal breaker, but if you came for one month of stats you will be swimming in data you didn't ask for. Yikes!
+<h4>"Export all items" means all items. </h4>
+Every metric, for every list email ever sent out of that business unit. It isn't a deal breaker, but if you came for one month of stats you will be swimming in data you didn't ask for. Yikes!
 
-Customizing the table changes the export. "Export custom table to CSV" gives you whatever columns are showing right now. So if you reordered the table last week, or applied a specific "sent on" filter, this month's table is a different shape than last month's. There's a "Reset table to default" option under Tools. 
+<h4>Customizing the table changes the export. </h4>
+"Export custom table to CSV" gives you whatever columns are showing right now. So if you reordered the table last week, or applied a specific "sent on" filter, this month's table is a different shape than last month's. There's a "Reset table to default" option under Tools. 
 
 One more thing that isn't in that export at all. For bounce detail, skip the List Email Statistics table. The Email Bounce Report is what you want. It covers soft and hard bounces across all send types for the past year and it includes the bounce reason, which is the whole point. The reason tells you whether you're looking at a list quality problem or a receiving server problem, and those get handled completely differently. 
 
 For detailed- regular bounce reporting (say for specific error types) I recommend cultivating a friendship with your org's Looker/Tableau/Datorama/Marketing Cloud Intelligence Analyst and asking them to help create a custom dimension report for you.
 
-Getting engagement data out of Salesforce Sales
+<h2>Getting engagement data out of Salesforce Sales</h2>
 This is where the most bad advice gets repeated.
 
 The Campaign with Campaign Members type report does not carry email engagement metrics. It carries campaign membership. If you build your report on that report type you'll spend an afternoon hunting for fields that were never there.
@@ -57,59 +59,64 @@ Two prerequisites will stop you cold. Connected Campaigns and Engagement History
 
 There's also a known issue that presents as a data problem. Non-admin users see blank engagement metrics on the List Email object in these reports. The fix is changing org-wide default sharing on the List Email object from Private to Public Read Only.
 
-Normalize before you merge
+<h2>Normalize before you merge</h2>
 The requirements here are small and boring and I'm not going to pretend otherwise. Especially when you are pulling reports on prospect records.
 
 Lowercase and trim every email address. Convert every date to ISO 8601, so YYYY-MM-DD, because Salesforce export formats follow the user's locale settings and the person running the export this month might not be the one who ran it last month. Standardize company name formatting. One column schema across every file.
 
 For example: Before normalization these are treaded as two records:
-
+<code>
 jane.doe@acme.com  | Acme Corp | 08/01/2026
 Jane.Doe@ACME.COM  | ACME CORP | 2026-08-01 
-After, they're one.
+</code>
+After normalization they collapse into one. Without it, they survive as duplicates and inflate every metric in your report.
 
-Here's how to get there. Copy the contents of your working column into a new helper column next to each field you're normalizing. Make your corrections/change your field formatting, then paste the values back over the original when you're done.
+Here's how to get there. 
+<ol>
+  <li>Copy the contents of your working column into a new helper column next to each field you're normalizing.</li> 
+   <li>Make your corrections/change your field formatting</li>
+  <li>then paste the values back over the original when you're done</li>
+</ol>
+<h3>Using the above two Jane Doe records as an example:</h3>
 
-Using the above two Jane Doe records as an example:
+**Email address, lowercase and trimmed of stray spaces:
+**
+<code>=TRIM(LOWER(A2))</code>
 
-Email address, lowercase and trimmed of stray spaces:
-
-=TRIM(LOWER(A2))
-
-Company name, same treatment:
-
-=TRIM(UPPER(B2))
+**Company name, same treatment:
+**
+<code>=TRIM(UPPER(B2))</code>
 
 Dates are the fiddly one, because it depends on whether Excel parsed the export as a real date or left it as text. Click the cell and look at how it sits. Dates right-align, text left-aligns.
 
-If it's a real date:
+**If it's a real date:
+**
+<code>=TEXT(C2,"yyyy-mm-dd")</code>
 
-=TEXT(C2,"yyyy-mm-dd")
+**If it's text:
+**
+<code>=TEXT(DATEVALUE(C2),"yyyy-mm-dd")</code>
 
-If it's text:
-
-=TEXT(DATEVALUE(C2),"yyyy-mm-dd")
-
-Then select your helper columns, copy, and Paste Special > Values over the originals. Do this before the merge, not after, because a formula referencing a column you're about to delete will break in a way that's tedious to unpick.
+Then select your helper columns, copy, and Paste Special > Values over the originals. **Do this before the merge, not after**, because a formula referencing a column you're about to delete will break in a way that's tedious to unpick.
 
 I can hear you wail: But Molly, data cleaning is boring - I want to get to the fun stuff! Yes yes, I understand. However, skip normalization and those two rows survive the merge as separate records. Your record count is now one too high for that person, so any per-person count you report are all overstated by however many duplicates you carried in. You'll also have two rows with conflicting company name and date values for the same address, and whichever one happens to sort first is the one that ends up in your summary. Which is a dedup problem, and dedup in MCAE has a wrinkle worth its own section below.
 
 While you're at it, carry a source system column and campaign name on every row from the very beginning. Works great when you're most of a year into a dataset, somebody questions a single number in a leadership meeting, and you need to explain the data without re-pulling everything. If you don't or your intrepid leader asks follow up questions, repeat after me: "I don't have that data ready at the moment. I will follow up with you on that."
 
-Where AI helps, and where it doesn't
+<h2>Where AI helps, and where it doesn't</h2>
 I do use AI in this workflow. Not the way most tutorials describe it.
 
-Don't paste prospect-level data into a general purpose chatbot.
+<h3>Don't paste prospect-level data into a general purpose chatbot.</h3>
 Email addresses are personal data. Whether moving them into a given tool is allowed is a question for whoever owns data governance where you work, and the answer usually turns on what agreement is in place with that vendor rather than on how careful you personally intend to be. Microsoft Copilot under an enterprise agreement is a genuinely different governance posture than a consumer account. Know which one you're sitting in before you paste anything or share super duper company secrets. Your IT team should be able to help you with this. 
 
 Aggregating first gets you most of the way out of the problem. Send-level and campaign-level rows carry no individual records: campaign name, date, sent, delivered, bounces, unique opens, unique clicks, opt-outs, complaints. Almost every reporting question you have can be answered at that grain, which is good, because that grain is also the safe one.
 
 Most of the way, though, not all of it. Aggregating reduces identifiability without automatically eliminating it. The ICO (Information Commissioner's Office [UK GDPR enforcement])treats identifiability as a spectrum and applies a "motivated intruder" test, asking whether a determined person with resources could work out who's in the data. A row summarizing the open rate of an email sent to a list of 40,000 prospects is fine by anyone's reading. A row summarizing a send to eleven named accounts in one territory is a different conversation. Use judgment at the small end.
 
-Don't use a model as your extraction or math layer. 
+<h3>Don't use a model as your extraction or math layer. </h3>
 Asking a model to read several thousand rows and hand back structured output with correct numbers is asking it to do the thing it's worst at, and the output looks right either way.
 
-There's a really useful paper on this called "Lost in the Middle," by Nelson Liu and colleagues. They tested how well models find one specific piece of information depending on where it sits in a long input. Anything near the very top or the very bottom gets found. Anything in the middle gets missed, and the falloff is steep. They saw the same pattern in every model family they tried.
+There's a really useful paper on this called "[Lost in the Middle](https://arxiv.org/abs/2307.03172)," by Nelson Liu and colleagues. They tested how well models find one specific piece of information depending on where it sits in a long input. Anything near the very top or the very bottom gets found. Anything in the middle gets missed, and the falloff is steep. They saw the same pattern in every model family they tried.
 
 Which is exactly what you're asking for when you paste in eleven months of sends and say "tell me which one looks off." The weird row is hardly ever the first one or the last one.
 
