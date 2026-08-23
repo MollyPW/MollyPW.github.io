@@ -123,10 +123,8 @@ Which is exactly what you're asking for when you paste in eleven months of sends
 Excel, Power Query and Python don't have this problem. Same input, same output, every single time, and when they break they break loudly instead of handing you a confident wrong answer.
 
 There's still a real job for AI here, just later in the process. Once you've aggregated the data and you trust the numbers, hand it the table and let it write the summary and point at what's worth a second look. Writing and judgment is the part it's actually good at. Here's a prompt for that, on aggregated data only:
-
-You are helping me write the summary section of a monthly email
-performance report. I am providing aggregated, send-level data.
-No personal data is included.
+<pre><code>
+You are helping me write the summary section of a monthly email performance report. I am providing aggregated, send-level data. No personal data is included.
 
 About this file:
 - It was exported from [SOURCE] on [DATE] and covers [DATE RANGE].
@@ -155,34 +153,32 @@ Rules:
 
 Data:
 {{PASTE_AGGREGATED_TABLE_HERE}} 
-The "about this file" block is the part that actually matters, and it's the part everybody skips. Tell it what the export is, when it was pulled, what period it covers, what every column is named and what that column is counting. Without it the model will make reasonable-sounding assumptions about which column is which and which rows belong to the period you asked about, and you will not be able to tell from the output that it guessed.
+</code></pre>
+The **"about this file" block is the part that actually matters**, and it's the part everybody skips. Tell it what the export is, when it was pulled, what period it covers, what every column is named and what that column is counting. Without it the model will make reasonable-sounding assumptions about which column is which and which rows belong to the period you asked about, and you will not be able to tell from the output that it guessed.
 
 For the baselines, don't reach for a published industry benchmark. Calculate your own from the list send data you already have. I will average CTR and CTOR across the available send history and use those figures as the definition of a successful send, so if the trailing two-year CTR sat at 4.9%, a send landing at 7% will be considered a clear win. 
 
-What counts as meaningful variance from that baseline is a judgment call and it should be, because it depends on what the channel is being asked to do. A reactivation send and a monthly promotional send do not deserve the same tolerance.
+What counts as meaningful **variance from that baseline is a judgment call** and it should be, because it depends on what the channel is being asked to do. A reactivation send and a monthly promotional send do not deserve the same tolerance.
 
 This same setup handles the two comparisons that are genuinely tedious by hand. Swap the "write" instructions for either of these:
+<code>
+Compare performance across the segments in this file. Group the sends by [SEGMENT COLUMN] and tell me which segments are above and below the baselines above, using only the figures provided. </code>
+<code>These sends all belong to campaign [NAME] and are scattered through the file. Pull them into one list in date order and tell me how performance moved across the sequence. </code>
 
-Compare performance across the segments in this file. Group the
-sends by [SEGMENT COLUMN] and tell me which segments are above
-and below the baselines above, using only the figures provided. 
-These sends all belong to campaign [NAME] and are scattered
-through the file. Pull them into one list in date order and tell
-me how performance moved across the sequence. 
 Run it twice on the same table and compare the two summaries before you trust either one. If the model is inventing numbers, hallucinating, or experiencing conversational drift, that's usually where it shows. Then check the summary against the table before it goes anywhere. I validated every AI-generated output against source reporting before I used it, every time, and that step is what makes the whole approach defensible when somebody asks where a number came from. Never forget to CYA - cover your ass.
 
-Two things that will make your report wrong
-Open rate isn't a clean metric anymore.
+<h2>Two things that will make your report wrong</h2>
+<h3>Open rate isn't a clean metric anymore.</h3>
 Since Apple Mail Privacy Protection shipped with iOS 15, Apple preloads remote content through its proxy servers for anybody who has it turned on. That registers an open whether or not a human ever saw the message. Published estimates of how much of total open volume that accounts for vary a lot depending on audience mix, and the honest answer is you can't separate machine opens from human opens in standard MCAE reporting.
 
 Salesforce has acknowledged this directly. MCAE has an Open Rules Audit page that identifies which of your automations depend on open data, specifically so you can move them onto more reliable signals. If you have engagement programs or scoring branching on opens, go run it. Metrics Guard is a separate tool, and it filters bursts of scanner and bot activity out of your metrics with no setup at all, though Salesforce is clear it doesn't catch everything and that it evaluates open and click thresholds separately.
 
 The workaround is the same baseline approach from the prompt above. Trend open rate against your own send history rather than a published benchmark, and lead with click-through rate and click-to-open rate. Those require an action a proxy server won't take. When open rate moves and click rate stays flat, it's usually measurement noise, and saying so in the report before anyone asks saves a whole meeting.
 
-Use Google Postmaster Tools v2 to see the number Gmail is judging you on.
+<h3>Use Google Postmaster Tools v2 to see the number Gmail is judging you on.</h3>
 MCAE records complaints that come back through provider feedback loops, which hand over the complaining recipient's address so it can be logged against that prospect. Gmail doesn't work that way. Seeing a 0% spam complaint rate on your list email reports doesn't mean your emails are golden.
 
-Google does run a feedback loop, but it's header-based and aggregate. You embed a Feedback-ID header with identifiers you pick (talk to Salesforce Support if you need clarification on this), and Google reports spam rates per identifier in the Postmaster Tools (version 2) dashboard, and only when an identifier clears both a volume threshold and a distinct-complaint threshold. You never get the address of anyone who complained OR the specific email send that triggered the complaint. Google is also explicit that the data covers @gmail.com recipients only.
+Google does run a feedback loop, but it's header-based and aggregate. You embed a Feedback-ID header with identifiers you pick (talk to Salesforce Support if you need clarification on this), and Google reports spam rates per identifier in the Postmaster Tools (version 2) dashboard, and only when an identifier clears both a volume threshold and a distinct-complaint threshold. **You never get the address of anyone who complained OR the specific email send that triggered the complaint**. Google is also explicit that the data covers @gmail.com recipients only.
 
 So Gmail complaints never arrive in MCAE as individual records, and the thresholds Google enforces are written against the Postmaster number. Remember that sends above 0.30% are a policy violation that will send your future emails to Spam Jail.
 
@@ -194,19 +190,22 @@ Keep the @gmail.com scope in mind when you're sizing that gap, too. Recipients o
 
 If you're not in Postmaster Tools yet, that's a bigger gap than anything else in this article. It's free and it takes a DNS record.
 
-What actually goes in the report
+<h2>What actually goes in the report</h2>
 Personally, I like making a PowerPoint Slide - it's easy to build, easy to share, and easy to iterate for repeatable reports. 
 
-Report Structure:
-Executive summary at the top. 
-Three to five bullets, findings only, no methodology details. 
-A KPI snapshot covering delivery, engagement, list health and complaints. Trend against the prior period (because a single period on its own can't be interpreted). Then anomalies, with the reason if you know it and an honest note if you don't.
+<h3>Report Structure:</h3>
+<ul>
+  <li>Executive summary at the top. </li>
+  <li>Three to five bullets, findings only, no methodology details. </li>
+  <li>A KPI snapshot covering delivery, engagement, list health and complaints. Trend against the prior period (because a single period on its own can't be interpreted). Then anomalies, with the reason if you know it and an honest note if you don't.
+</li>
+</ul>
 
 Flat one-row-per-send files are for analysis and downstream imports. The summary view is what leadership sees. Sending an executive the raw file and hoping interpretation happens on their end is how reporting loses credibility, and that's hard to win back.
 
 Every metric should trace to a source record. Most of the time nobody checks. The time somebody does is the time it counts.
 
-Where this goes next
+<h2>Where this goes next</h2>
 Everything above is a manual process. That's fine for a quarterly report and it gets old fast if you need it monthly.
 
 It can be automated. There are people who are genuinely good at piping MCAE data into Power BI, Looker or Tableau on a schedule, and I'm not one of them yet, so I'm not going to pretend I can walk you through it.
@@ -215,4 +214,4 @@ What I can tell you is the part that doesn't change once you automate it.
 
 Say you build a lens in Tableau combining List Email data with Template Email data. You're still capped by the thinner of the two sources. Template reporting has the slim analytics options, so the combined view can only show you what both sides are able to supply. Pointing a more powerful tool at the data doesn't conjure up metrics that were never collected in the first place.
 
-You can't compare apples to oranges if the oranges don't exist.
+**You can't compare apples to oranges if the oranges don't exist.**
