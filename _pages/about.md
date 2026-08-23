@@ -1,7 +1,7 @@
 ---
 title: "About"
 permalink: "/about/"
-image: "/assets/images/screenshot.jpg"
+image: "assets/images/sal.jpg"
 ---
 <div class="container mt-4 mb-5">
   <h1 class="font-weight-bold title">About Me</h1>
