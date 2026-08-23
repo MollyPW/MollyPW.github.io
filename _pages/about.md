@@ -1,7 +1,7 @@
 ---
 title: "About"
 permalink: "/about/"
-image: "assets/images/sal.jpg"
+image: <img src="{{ site.baseurl }}/assets/images/sal.jpg" alt="Molly Purcell-Weatherwalks" class="rounded-circle mb-4" width="150">
 ---
 <div class="container mt-4 mb-5">
   <h1 class="font-weight-bold title">About Me</h1>
