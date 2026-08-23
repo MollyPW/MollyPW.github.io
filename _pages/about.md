@@ -1,12 +1,11 @@
 ---
-title: "About"
+title: "About Me"
 permalink: "/about/"
 image: </assets/images/sal.jpg" alt="Molly Purcell-Weatherwalks" class="rounded-circle mb-4" width="150">
 ---
 <div class="container mt-4 mb-5">
-  <h1 class="font-weight-bold title">About Me</h1>
+  <h1 class="font-weight-bold title">Nobody investigates a number that's going up.</h1>
 
-<h2>Nobody investigates a number that's going up.</h2>
 <P>
 That's how an API quietly generated duplicate records in our marketing database for months. Our mailable audience grew beautifully — right up until it blew past our account limit and tripped an alarm. I got handed the question. The integration wasn't matching on email address, and the duplicates turned out to be the the start of a long journey,
 
