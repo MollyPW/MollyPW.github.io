@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 permalink: "/about/"
-image: </assets/images/sal.jpg" alt="Molly Purcell-Weatherwalks" class="rounded-circle mb-4" width="150">
+image: <img class="rounded-circle mr-2" src="{{site.baseurl}}/{{site.avatar}}" width="100"><span class="align-middle">
 ---
 <div class="container mt-4 mb-5">
   <h1 class="font-weight-bold title">Nobody investigates a number that's going up.</h1>
