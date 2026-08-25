@@ -8,11 +8,12 @@ image: <img class="rounded-circle mr-2" src="{{site.baseurl}}/{{site.avatar}}" w
 
 <P>
 That's how an API quietly generated duplicate records in our marketing database for months. Our mailable audience grew beautifully — right up until it blew past our account limit and tripped an alarm. I got handed the question. The integration wasn't matching on email address, and the duplicates turned out to be the the start of a long journey,
+<br><br>
 
 I'm a marketing operations and CRM analyst, which mostly means I'm the person who finds out why the number is wrong. A broken data point hates to see me coming.
-
+<br><br>
 Over the past decade I've owned Salesforce Marketing Cloud Account Engagement (MCAE/Pardot) environments, lead pipeline architecture, segmentation and suppression logic, and email deliverability. My favorite work sits at the seam between systems — where the CRM says one thing, the marketing platform says another, and someone has to determine which is lying.
-
+<br><br>
 A few things I've done:
 <ul>
 <li>Took ownership of a broken lead pipeline, traced the failure across four source systems, and found 99.6% of incoming prospect records missing a single field that blocked qualification entirely. Fixed it. Inside sales got real leads again.</li>
