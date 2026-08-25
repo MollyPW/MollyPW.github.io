@@ -12,13 +12,20 @@ That's how an API quietly generated duplicate records in our marketing database 
 
 I'm a marketing operations and CRM analyst, which mostly means I'm the person who finds out why the number is wrong. A broken data point hates to see me coming.
 <br><br>
-Over the past decade I've owned Salesforce Marketing Cloud Account Engagement (MCAE/Pardot) environments, lead pipeline architecture, segmentation and suppression logic, and email deliverability. My favorite work sits at the seam between systems — where the CRM says one thing, the marketing platform says another, and someone has to determine which is lying.
+Over the past decade I've successfully owned Salesforce Marketing Cloud Account Engagement (MCAE/Pardot) environments, lead pipeline architecture, segmentation and suppression logic, and email deliverability. My favorite work sits at the seam between tools — where the CRM says one thing, the marketing platform says another, and someone has to determine which system is lying.
 <br><br>
-A few things I've done:
-<ul>
-<li>Took ownership of a broken lead pipeline, traced the failure across four source systems, and found 99.6% of incoming prospect records missing a single field that blocked qualification entirely. Fixed it. Inside sales got real leads again.</li>
+Some of my favorite challenges have been:
 
-<li>Ran an IP warming program under conditions no deliverability guide would endorse: no subject matter expert, live campaigns throughout, untested creative, and a week lost when the from-address we'd been handed turned out to be one we weren't cleared to use. Gmail flagged us anyway. I now know exactly which of those was fatal, and how to refuse it next time.</li>
+<h3>The CRM stopped receiving qualified leads from MCAE</h3>
+<H4>Action</H4>
+I traced the failure across four source systems, and found 99.6% of incoming prospect records missing a single field that blocked qualification entirely. Then worked with the Dev team to close the data gap, consulted with Sales on a research pipeline, and got sign off from Business on the new pipeline flow.
+<h4>Result</h4>
+The inside sales team received leads again and everyone was happy.
+
+<h3></h3>
+<H4>Action</H4>
+<h4>Result</h4>
+Ran an IP warming program under conditions no deliverability guide would endorse: no subject matter expert, live campaigns throughout, untested creative, and a week lost when the from-address we'd been handed turned out to be one we weren't cleared to use. Gmail flagged us anyway. I now know exactly which of those was fatal, and how to refuse it next time.</li>
 
 <li>Reconciled how our lead process was documented to work against how the automations actually behaved, then built the flow chart that made the gap legible. It became the reference we used with leadership and sales.</li>
 
