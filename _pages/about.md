@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 permalink: "/about/"
-image: /assets/images/sal.jpg
+image: 
 ---
 <img src="/assets/images/sal.jpg" style="width:200px; height:200px; border-radius:50%; object-fit:cover;">
 <div class="container mt-4 mb-5">
