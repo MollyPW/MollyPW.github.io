@@ -10,7 +10,7 @@ image: <img class="rounded-circle mr-2" src="{{site.baseurl}}/{{site.avatar}}" w
 That's how an API quietly generated duplicate records in our marketing database for months. Our mailable audience grew beautifully — right up until it blew past our account limit and tripped an alarm. I got handed the question. The integration wasn't matching on email address, and the duplicates turned out to be the the start of a long journey,
 <br><br>
 
-I'm a marketing operations and CRM analyst, which mostly means I'm the person who finds out why the number is wrong. Broken data points try to run - but I'm faster.
+I'm a marketing operations and CRM analyst, which mostly means I'm the person who finds out why the number is wrong. Broken data points can try to run - but I'm faster.
 <br><br>
 Over the past decade I've successfully owned Salesforce Marketing Cloud Account Engagement (MCAE/Pardot) environments, lead pipeline architecture, segmentation and suppression logic, and email deliverability. My favorite work sits at the seam between tools — where the CRM says one thing, the marketing platform says another, and someone has to determine which system is lying.
 <br><br>
