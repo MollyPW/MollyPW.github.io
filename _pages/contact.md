@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Contact Me"
 permalink: "/contact/"
 ---
 <div class="container mt-4 mb-5">
