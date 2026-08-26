@@ -189,7 +189,7 @@
 
   <header>
     <p class="eyebrow">Sample MCAE/Pardot Nurture Program Design</p>
-    <h1>TrueTail Pet Insurance: coverage-match nurture program</h1>
+    <h1>TrueTail Pet Insurance: Coverage Match Nurture</h1>
     <p class="sub">A single welcome email routes new pet parents into one of five species-specific nurture tracks based on first-party click behavior — no guessing, no generic follow-up. Built to demonstrate multi-program MCAE/Pardot architecture: page-action based segmentation, completion-action enrollment, action-rule suppression, and ad-hoc list overrides for manual sales requests.</p>
     <span class="fictional-tag">Fictional brand — illustrative data only</span>
   </header>
