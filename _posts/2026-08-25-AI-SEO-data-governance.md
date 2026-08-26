@@ -2,7 +2,6 @@
 title: "My Foolproof* System for Combining MCAE and Salesforce Email Data"
 layout: post
 ---
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
