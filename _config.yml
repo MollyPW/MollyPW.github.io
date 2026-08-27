@@ -1,8 +1,8 @@
 # Site
 name: 'Molly Purcell-Weatherwalks'
 description: 'Marketing Operations & CRM Analyst'
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/logo.png'
+logo: 'assets/images/logo.svg'
+favicon: 'assets/images/logo.svg'
 url: 'https://mollypw.github.io'
 baseurl: ''
 avatar: 'assets/images/sal.jpg'
