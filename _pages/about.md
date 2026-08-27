@@ -43,6 +43,6 @@ What I'm after: a remote CRM, marketing operations, or marketing systems analyst
 
   </p>
    <p>
-    Outside of work, I restore antique furnitue and run a small shop selling Geegaws, Trinkets, Tchotchkes — you can find it on <a href="https://www.etsy.com/shop/DopamineMoment" target="_blank">Etsy</a>.
+    Outside of work, I restore antique furniture and run a small shop selling Geegaws, Trinkets, Tchotchkes — you can find it on <a href="https://www.etsy.com/shop/DopamineMoment" target="_blank">Etsy</a>.
   </p>
 </div>
