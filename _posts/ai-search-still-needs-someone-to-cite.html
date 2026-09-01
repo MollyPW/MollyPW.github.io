@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Search Still Needs Someone to Cite. It Might Be You.</title>
+<meta name="description" content="As reputable publishers block AI crawlers, the citation gap they leave behind is open to whoever stays crawlable, structured, and accurate - including small brands. A look at the technical and marketing-ops side of AI search visibility.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Search Still Needs Someone to Cite. It Might Be You.",
+  "author": { "@type": "Person", "name": "Molly Purcell" },
+  "datePublished": "2026-09-01",
+  "publisher": { "@type": "Organization", "name": "Molly Purcell" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy:      #1D3557;
+    --red:       #E63946;
+    --steel:     #457B9D;
+    --teal:      #A8DADC;
+    --offwhite:  #F1FAEE;
+    --gold:      #C9A227;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--offwhite);
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--navy);
+    line-height: 1.65;
+  }
+
+  .article-shell {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .article-card {
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 48px clamp(24px, 6vw, 64px);
+  }
+
+  h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.25;
+    text-align: left;
+    margin: 0 0 32px;
+  }
+
+  h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 22px;
+    margin: 40px 0 16px;
+  }
+
+  p {
+    font-size: 17px;
+    margin: 0 0 20px;
+  }
+
+  p.thesis {
+    font-weight: 700;
+  }
+
+  a {
+    color: var(--steel);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  a:hover, a:focus {
+    color: var(--navy);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+  }
+
+  pre.code-block {
+    background: var(--offwhite);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    margin: 0 0 20px;
+  }
+
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.6;
+    white-space: pre;
+  }
+
+  .site-logo {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    pointer-events: none;
+  }
+
+  @media (max-width: 480px) {
+    .article-card { padding: 32px 20px; }
+    .site-logo { width: 36px; height: 36px; right: 16px; bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="article-shell">
+  <article class="article-card">
+    <h1>AI Search Still Needs Someone to Cite. It Might Be You.</h1>
+
+    <p>Reddit <a href="https://techcrunch.com/2024/06/25/reddits-upcoming-changes-attempt-to-safeguard-the-platform-against-ai-crawlers">updated its robots.txt in 2024</a> to block nearly every crawler that won't commit to leaving Reddit content out of AI training. The New York Times <a href="https://www.editorandpublisher.com/stories/the-new-york-times-blocks-openais-web-crawler,245366">blocked OpenAI's crawler</a> the year before that, then <a href="https://ipwatchdog.com/2025/12/08/new-york-times-sues-perplexity-ai-latest-ip-case-genai-companies/">sued Perplexity</a> for allegedly ignoring the block outright. A <a href="https://arxiv.org/abs/2510.10315">peer-reviewed study presented at the ACM Web Conference 2026</a> found the pattern goes well beyond a few high-profile holdouts: 60% of reputable news sites now disallow at least one AI crawler in their robots.txt, up from 23% in September 2023 - compared to just 9.1% of misinformation sites.</p>
+
+    <p>Every one of those sites is opting out of the one thing that decides whether an AI answer engine can cite them: being crawlable. When a high-authority source blocks the crawler, the AI still has to cite someone. If it can't cite Reddit or the Times, it goes looking for whoever's left standing - and &ldquo;whoever's left standing&rdquo; is increasingly whoever wrote something specific, well-structured, and actually reachable.</p>
+
+    <p>I first flagged this as a single line in my own AI SEO one-pager - marked as a bet, not a finding - and wanted to dig into it properly here.</p>
+
+    <p>For example: ask an AI search tool something like &ldquo;is there a Reddit community dedicated to rating keyboards?&rdquo; Reddit's the obvious source, and it's blocked. So the AI goes looking for whoever's left standing: maybe a keyboard enthusiast's blog with a running post on their favorite places to talk mechanical keyboards. Two years ago, that blog would've been buried under three pages of Reddit results. Now it might be the citation.</p>
+
+    <p>I can hear the objection already: isn't that just SEO with extra steps? Yes, and: traditional SEO was a ranking problem - you were competing against every other page chasing the same query, in a field that was enormous. This is an access problem too.</p>
+
+    <p class="thesis">The pool of citable sources shrinks every time a major publisher locks its robots.txt, and the businesses willing to stay open to crawlers are competing for a shrinking pool relative to how much people are searching.</p>
+
+    <p>That's not just a hunch. A <a href="https://arxiv.org/abs/2604.27790">SIGIR 2026 study of 11,500 real search queries</a> found that websites blocking Google's AI crawler are significantly less likely to be retrieved by AI Overviews - even when the content is otherwise fully accessible to them.</p>
+
+    <p>Picture a spelling bee where five of the ten students have been eliminated. Someone still needs to win the bee so the other students remain on the stage, waiting for their next word. Their student&rsquo;s chances to win just increased, not because their spelling skills increased, but because half their competition is gone. <a href="https://arxiv.org/abs/2605.23684">Researchers auditing generative search engines found the same dynamic playing out for real</a>: across four AI search tools and hundreds of real queries, roughly 16% of the sources being cited were themselves AI-generated content, standing in for the sources that locked their doors.</p>
+
+    <h2>What &ldquo;crawlable&rdquo; actually means, technically</h2>
+
+    <p>Being open in robots.txt is table stakes, not the whole job. Three things also have to be true.</p>
+
+    <p>The content has to reach the page as plain, readable HTML - not locked behind a form, not rendered only in JavaScript after the page loads. Most AI crawlers still skip JavaScript entirely: <a href="https://visively.com/kb/ai/ai-crawlers-javascript-rendering">research tracking real crawler traffic</a> found that even when bots like GPTBot and Claude's crawler download a page's JavaScript files, they read them as plain text rather than running them - so any content that only appears after the script executes stays invisible no matter how often the file itself gets fetched. A form gate is a harder stop than that: no email address, no content, whether the visitor is a person or a bot.</p>
+
+    <p>The page has to tell the AI what it's looking at. That's what structured data does - usually written as JSON-LD, <a href="https://www.cognizo.ai/blog/how-use-schema-markup-get-cited-ai-search">the format Google and Microsoft have both confirmed they use</a> for this. A minimal example on an article page looks something like:</p>
+
+    <pre class="code-block"><code>{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Search Still Needs Someone to Cite. It Might Be You.",
+  "author": { "@type": "Person", "name": "Molly Purcell" },
+  "datePublished": "2026-09-01",
+  "publisher": { "@type": "Organization", "name": "Your Company" }
+}</code></pre>
+
+    <p>That block hands the AI a name, a date, and an entity to attach the claims to, instead of asking it to guess authorship from a byline buried in the page footer.</p>
+
+    <p>And the content has to cite its own sources, specifically. This is the part people skip. &ldquo;Studies show&hellip;&rdquo; gives an AI nothing to verify or attach a citation to. &ldquo;Reddit updated its robots.txt in 2024&rdquo; gives it a checkable claim with a name and a date attached - the kind of specific, attributable fact that both AI systems and human readers treat as more credible than a vague appeal to authority. Every claim above links to where it came from - an article arguing for specific, checkable sources should probably have some of its own.</p>
+
+    <h2>Where marketing ops actually comes in</h2>
+
+    <p>This is where I'd push back on framing this as purely a content or SEO team problem. In practice, none of the three things above get decided by whoever writes the blog post. They get decided by whoever owns the templates.</p>
+
+    <p>If your gated content lives behind a Pardot or Marketo form, marketing ops is the one who decided that form sits in front of the content instead of after it - and that's the single biggest crawlability decision on the page, made before a single word gets written. Whether your landing pages ship with Article or FAQPage schema isn't a one-off content edit either; it's a template-level change, which makes it a marketing ops and web/dev handoff, not something a writer can add to a page on their own.</p>
+
+    <p>So &ldquo;make your content crawlable&rdquo; turns out to be an operations question just as much as a content one: does your marketing automation platform generate clean, unlocked HTML by default, or does it wrap everything in a form gate? Is schema baked into your landing page templates, or does it not exist anywhere in your stack? Those get decided by whoever configures the platform - months before there's any content to worry about citing.</p>
+
+    <p>This isn't a hypothetical deadline, either. Starting <a href="https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/">September 15, 2026, Cloudflare is changing its default settings</a>: any &ldquo;mixed-use&rdquo; crawler - including Googlebot, which crawls for both regular search indexing and AI features - gets blocked by default on any page that carries ads, unless someone actively reconfigures it. If your company's site runs on Cloudflare and nobody's touched that setting, you're either about to lose crawl access you didn't know you had, or you already have - and it happened at the infrastructure layer, not the content layer, which is exactly the point of this section.</p>
+
+    <h2>Where smaller brands actually have the advantage</h2>
+
+    <p>There's a sharper version of this opportunity than &ldquo;get cited.&rdquo; Columbia's Tow Center for Digital Journalism <a href="https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php">tested eight AI search tools</a> - ChatGPT, Perplexity, Gemini, Copilot, Grok, and others - by asking them to summarize real news stories, and found they got it wrong 60% of the time on average. Perplexity was the most accurate at a 37% error rate; ChatGPT was wrong 67% of the time; Grok was wrong 94% of the time. When these tools did cite a source, the citation frequently pointed to a syndicated copy of the story instead of the original, or to a dead URL - Gemini and Grok did this on more than half their citations.</p>
+
+    <p>That's a lot of confident wrongness, and it matters more, not less, for a small brand than for a news story - because there's no competing &ldquo;other publisher&rdquo; who can correct the record on your own product. If an AI tells someone your return policy is 30 days when it's actually 60, or walks them through an outdated fix for a known issue, there is exactly one entity on the internet positioned to be the accurate source instead: you. A small brand that keeps its product pages, FAQ, and support docs genuinely accurate, specific, and crawlable isn't just angling for a citation anymore. It's often the only accurate source available for the AI to draw from at all - which is a different, and arguably better, kind of leverage than competing with the New York Times for a citation slot.</p>
+
+    <p>None of this is proven yet. I don't have a study showing &ldquo;opt-in crawlability equals more AI citations&rdquo; - what I have is a pattern I keep noticing, and it rhymes with something that already happened once, with an actual date attached this time. Schema.org itself only exists because Google, Microsoft, and Yahoo jointly launched it in 2011 to solve exactly this problem: search engines that couldn't reliably interpret what a page was about. The sites that adopted structured markup early got a real head start in how search engines represented them. This might be the same shift, happening one layer up the stack.</p>
+
+    <p>The tooling is still catching up, too. Google is <a href="https://searchengineland.com/google-search-console-ai-performance-reports-and-controls-to-block-your-content-in-ai-responses-479298">rolling out a Search Console toggle</a> that lets publishers opt out of AI Overviews specifically while keeping their regular search ranking intact - the flip side of the bet this piece is making. But <a href="https://digiday.com/media/googles-ai-opt-out-leaves-publishers-with-a-choice-they-cant-safely-use/">Digiday reports</a> that almost nobody can use it safely yet, because Google won't share the AI-specific referral data publishers would need to judge whether opting out actually costs them anything. The controls are arriving faster than the information needed to use them well, on both sides of this bet.</p>
+
+    <p>If you're weighing whether to block AI crawlers on principle or leave the door open hoping to get cited, that's a real trade-off, and I don't think there's a universally right answer yet. But if you're already leaning toward staying open: the payoff for making your content genuinely well-structured just went up, and that's not a content team's call to make alone anymore. You're not competing with every other page anymore. You're one of the last shops still open on a block where everyone else pulled the shutters down - assuming operations actually left the front door unlocked.</p>
+  </article>
+</main>
+
+<svg class="site-logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="#C9A227" stroke-width="1">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="119" cy="137" r="99" stroke-width="1.5"></circle>
+    <path d="M74 172 V80 C74 66 90 64 98 76 L120 112 L142 76 C150 64 166 66 166 80 V172" stroke-width="10"></path>
+    <path d="M74 104 H46 M74 133 H58 M74 162 H46" stroke-width="6"></path>
+    <path d="M166 104 H184 C196 104 196 130 184 130 H166" stroke-width="6"></path>
+    <path d="M62 188 C74 212 94 212 104 190 C112 172 128 172 136 190 C146 212 166 212 178 188" stroke-width="6"></path>
+  </g>
+</svg>
+
+</body>
+</html>
