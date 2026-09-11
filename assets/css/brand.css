@@ -197,3 +197,7 @@ footer.footer .text-danger {
 .card .text-muted {
   color: var(--steel) !important;
 }
+/* ---- Card body paragraph text: steel-on-white (legal contrast on the card's white bg) ---- */
+.card p {
+  color: var(--steel);
+}
