@@ -1,5 +1,5 @@
 ---
-title: "AI SEO and Marketing Operations"
+title: "AI SEO is a data governance problem"
 layout: post
 ---
 <html lang="en">
