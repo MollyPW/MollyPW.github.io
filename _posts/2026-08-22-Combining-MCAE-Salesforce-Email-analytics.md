@@ -1,7 +1,7 @@
 ---
 title: "My Foolproof* System for Combining MCAE and Salesforce Email Data"
 layout: post
-image: "assets/images/Combine-MCAE-Email-Data.png"
+image: "assets/images/My Foolproof System for Combining MCAE and Salesforce Email Data.png"
 ---
 So, this isn't foolproof, and it isn't a tutorial on how MCAE reporting works under the hood. It's the process I use for combining MCAE and Salesforce email data into one quarterly report. I'm not a data engineer. A fair amount of what's below comes straight out of Salesforce's own documentation, which is better than people give it credit for once you know which article you need.
 
