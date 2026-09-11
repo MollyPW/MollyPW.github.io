@@ -16,3 +16,49 @@ description: "Marketing Operations & CRM Analyst who finds out why the number is
     </div>
   </div>
 </section>
+
+<section class="mb-5">
+  <div class="container-fluid">
+    <div class="card-columns">
+
+      <div class="card">
+        <img src="{{ site.baseurl }}/assets/images/utm-link-builder.jpg" class="card-img-top" alt="UTM Link Builder screenshot">
+        <div class="card-body">
+          <h3>UTM Link Builder</h3>
+          <p>A free, no-code UTM link builder for marketers, with reusable presets and consistent attribution.</p>
+          <a href="https://mollypw.github.io/UTM-Link-Builder" target="_blank" class="btn btn-outline-dark btn-sm">View Project</a>
+        </div>
+      </div>
+
+      {% for post in site.posts limit: 4 %}
+      <div class="card">
+        <div class="card-body">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-outline-dark btn-sm">Read Post</a>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="card">
+        <img src="{{ site.baseurl }}/assets/images/print-doctor.jpg" class="card-img-top" alt="Print Doctor screenshot">
+        <div class="card-body">
+          <h3>Print Doctor</h3>
+          <p>Diagnoses why an old family photo faded or shifted color, and generates exact repair steps for Photoshop or GIMP.</p>
+          <a href="https://mollypw.github.io/Print-Doctor" target="_blank" class="btn btn-outline-dark btn-sm">View Project</a>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="{{ site.baseurl }}/assets/images/freeze.jpg" class="card-img-top" alt="Freeze screenshot">
+        <div class="card-body">
+          <h3>Freeze</h3>
+          <p>An Android accessibility-service app that freezes the screen so you can trace an image off it directly.</p>
+          <a href="https://github.com/MollyPW/Freeze" target="_blank" class="btn btn-outline-dark btn-sm">View Project</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
