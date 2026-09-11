@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrating SMS in MCAE: Two Paths to Consider</title>
-</head>
-<body>
-    <article>
+---
+title: "Integrating SMS in MCAE: Two Paths to Consider"
+layout: post
+---
         <h1>Integrating SMS in MCAE: Two Paths to Consider</h1>
         
         <p>I've never actually built this, but if someone asked me how I'd bolt SMS onto a customer journey inside MCAE, here's the two paths I'd map out.</p>
@@ -38,13 +33,3 @@
         <p>Good to know: Mogli strongly advises users to build in a 5-minute delay so they don't blow through processing limits. Reasonable people build in buffers. I respect that - everyone needs boundaries.</p>
         
         <p>No universal native feature doesn't mean no feature. It means someone on the team gets to be a little annoying about architecture for a week. 🥳</p>
-        
-        <p>Which one would you reach for first? 👀</p>
-        
-        <p>
-            #MarketingOps #Pardot #SalesforceMCAE #MarTech
-        </p>
-
-    </article>
-</body>
-</html>
