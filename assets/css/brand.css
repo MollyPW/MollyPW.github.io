@@ -179,3 +179,9 @@ label {
   font-weight: 700;
   border-bottom: 2px solid var(--red);
 }
+/* ---- Trailhead icon: match size/color of the font-icon social links ---- */
+.footer-icon-img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
