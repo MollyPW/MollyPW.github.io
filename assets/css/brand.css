@@ -188,3 +188,12 @@ label {
 footer.footer .text-danger {
   color: var(--red) !important;
 }
+/* ---- Page/Post layout background: brand off-white, not the theme's default grey ---- */
+.bg-gray200 {
+  background-color: var(--offwhite) !important;
+}
+
+/* ---- Secondary/muted text on white cards: brand steel instead of default grey ---- */
+.card .text-muted {
+  color: var(--steel) !important;
+}
