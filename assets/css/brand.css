@@ -185,3 +185,6 @@ label {
   height: 18px;
   filter: brightness(0) invert(1);
 }
+footer.footer .text-danger {
+  color: var(--red) !important;
+}
