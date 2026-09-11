@@ -31,13 +31,7 @@ description: "Marketing Operations & CRM Analyst who finds out why the number is
       </div>
 
       {% for post in site.posts limit: 4 %}
-      <div class="card">
-        <div class="card-body">
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-outline-dark btn-sm">Read Post</a>
-        </div>
-      </div>
+        {% include card-post.html %}
       {% endfor %}
 
       <div class="card">
