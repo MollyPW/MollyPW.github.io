@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The foolproof* IP warming checklist</title>
+<meta name="description" content="Every to-do a brand needs to finish before, during, and after an IP warming project, with dates counted back from launch day.">
+<meta property="og:title" content="The foolproof* IP warming checklist">
+<meta property="og:description" content="Every to-do a brand needs to finish before, during, and after an IP warming project, with dates counted back from launch day.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{--navy:#1D3557;--red:#E63946;--steel:#457B9D;--teal:#A8DADC;--offwhite:#F1FAEE;--gold:#C9A227;--white:#FFFFFF;--line:rgba(29,53,87,.22);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (max-width:600px){.card{padding:18px 16px}.item{grid-template-columns:30px 1fr;column-gap:10px;padding:12px 4px}.wrap{padding:0 14px}.logo{width:44px;height:44px;padding:4px}.progressbar .wrap{flex-wrap:wrap;gap:6px 12px}.progressbar progress{flex-basis:100%;order:3}.resetbtn{margin-left:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--offwhite);color:var(--navy);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:1.0625rem;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.sr-only,.sr-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--navy);color:var(--white);padding:10px 16px;border-radius:8px;z-index:20}
+.skip:focus{top:12px}
+a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:4px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--offwhite);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+
+/* hero: two zones, white headline zone then a torn seam into a teal control strip */
+.hero-top{background:var(--white);padding:56px 0 34px}
+.eyebrow{margin:0 0 10px;color:var(--steel);font-weight:700;font-size:.95rem}
+h1{margin:0;font-weight:800;font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.06;letter-spacing:-.02em;max-width:18em}
+h1 .ast{color:var(--red)}
+.byline{margin:16px 0 0;color:var(--navy);font-weight:500}
+.seam{display:block;width:100%;height:26px;background:var(--teal);margin:0}
+.seam svg{display:block;width:100%;height:26px}
+.hero-strip{background:var(--teal);padding:8px 0 34px}
+.hero-strip p.sub{margin:0 0 22px;font-size:1.15rem;max-width:44em}
+.controls{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:700;font-size:.95rem}
+input[type=date],input[type=number],input[type=text],textarea{font:inherit;color:var(--navy);background:var(--white);border:2px solid var(--navy);border-radius:8px;padding:10px 12px;min-height:46px}
+textarea{width:100%;resize:vertical}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;background:var(--navy);color:var(--white);border:2px solid var(--navy);border-radius:10px;padding:10px 18px;min-height:46px}
+.btn.secondary{background:var(--white);color:var(--navy)}
+.btn.small{min-height:38px;padding:6px 14px;font-size:.92rem}
+.btn:hover{box-shadow:0 0 0 3px var(--gold)}
+.hint{margin:8px 0 0;font-size:.92rem}
+
+/* sticky progress */
+.progressbar{position:sticky;top:0;z-index:6;background:var(--offwhite);border-bottom:1px solid var(--line)}
+.progressbar .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.progressbar label{font-weight:700;white-space:nowrap}
+.progressbar span.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+progress{flex:1;height:14px;border-radius:8px;overflow:hidden;border:0;background:var(--teal);appearance:none;-webkit-appearance:none}
+progress::-webkit-progress-bar{background:var(--teal)}
+progress::-webkit-progress-value{background:var(--navy)}
+progress::-moz-progress-bar{background:var(--navy)}
+.resetbtn{margin-left:auto}
+
+main{padding:30px 0 70px}
+main .wrap{display:flex;flex-direction:column;gap:26px}
+.intro p{margin:0 0 12px;max-width:46em;font-size:1.12rem}
+.callout{background:var(--teal);color:var(--navy);border-radius:12px;padding:18px 22px}
+.callout .ct{margin:0 0 6px;font-size:1.05rem;font-weight:700}
+.callout p{margin:0}
+.gate{background:var(--white);border:2px solid var(--navy);border-radius:12px;padding:20px 24px}
+.gate h2{margin:0 0 8px;font-size:1.35rem}
+.gate p{margin:0}
+
+/* timeline */
+.timeline ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,1fr);gap:0;position:relative}
+.timeline ol::before{content:"";position:absolute;left:5.5%;right:5.5%;top:13px;height:3px;background:var(--navy);opacity:.35}
+.timeline li{position:relative;text-align:center;padding:0 4px}
+.timeline ol a{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;font-size:.85rem;font-weight:700;line-height:1.25;padding:2px}
+.timeline ol a:hover .tl-label{text-decoration:underline}
+.dot{width:26px;height:26px;border-radius:50%;background:var(--teal);border:3px solid var(--navy);display:block;position:relative;z-index:1}
+.is-post .dot{background:var(--white)}
+.is-launch .dot{background:var(--navy);box-shadow:0 0 0 4px var(--offwhite),0 0 0 7px var(--gold)}
+.tl-date{font-weight:500;font-size:.8rem;min-height:1.2em}
+.jump{margin:18px 0 0;text-align:center}
+
+/* cards */
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 28px}
+.phead{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:end}
+.when{grid-column:1/-1;margin:0;color:var(--steel);font-weight:700;font-size:1rem}
+.phead h2{margin:0;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.15;font-weight:800;letter-spacing:-.01em;grid-column:1/-1}
+.dates{margin:4px 0 0;color:var(--steel);font-weight:500}
+.count{margin:4px 0 0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.blurb{margin:14px 0 8px;max-width:48em}
+.group{margin-top:22px}
+.group h3{margin:0 0 4px;font-size:1.2rem;font-weight:700;padding-bottom:6px;border-bottom:3px solid var(--teal)}
+.items{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:32px 1fr;column-gap:12px;padding:12px 10px;border-radius:10px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item input{grid-row:1/3;width:26px;height:26px;margin:2px 0 0;accent-color:var(--navy);cursor:pointer}
+.item label{font-weight:700;cursor:pointer;line-height:1.35}
+.item .det{margin:3px 0 0;grid-column:2}
+.item.done{background:var(--teal)}
+
+.tablewrap{overflow-x:auto;margin-top:20px;border:1px solid var(--line);border-radius:10px}
+.tablewrap.short{max-height:320px;overflow-y:auto}
+table{border-collapse:collapse;width:100%}
+caption{text-align:left;font-weight:700;padding:12px 14px;background:var(--offwhite)}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+thead th{background:var(--offwhite);font-weight:700}
+table.plain th[scope=row]{font-weight:700}
+table.rulestable{min-width:820px}
+.rulestable thead th{vertical-align:bottom}
+.rulestable thead th span{margin-left:6px;font-size:1.05rem}
+.rulestable thead th small{display:block;font-weight:500;margin-top:2px}
+.rulestable .h-grow{background:var(--teal)}
+.rulestable .h-hold{background:var(--offwhite)}
+.rulestable .h-back{background:var(--navy);color:var(--white)}
+.rulestable svg{vertical-align:-3px}
+.rulestable td:last-child{border-left:4px solid var(--red)}
+.tag{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;padding:2px 8px;border-radius:99px}
+.tag.pub{background:var(--teal)}
+.tag.rot{background:var(--white);border:1px solid var(--navy)}
+.note{margin:16px 0 0;font-weight:500}
+.rulekey{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px}
+.rulekey li{display:flex;gap:10px;align-items:flex-start}
+.rulekey svg{flex:none;margin-top:5px}
+
+.playbook{border-left:8px solid var(--red)}
+.playbook h2{color:var(--navy)}
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.steps li{display:flex;gap:14px;background:var(--offwhite);border-radius:12px;padding:14px 16px}
+.steps .num{flex:none;font-size:2rem;line-height:1;font-weight:800;color:var(--red);width:2ch;text-align:center}
+.steps h3{margin:0 0 2px;font-size:1.05rem}
+.steps p{margin:0}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+.codebox{margin-top:22px}
+.codehead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.codehead h3{margin:0;font-size:1.05rem}
+pre{margin:0;background:var(--navy);color:var(--offwhite);border-radius:10px;padding:16px 18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.55;overflow-x:auto}
+
+.tools .tool{margin-top:26px;padding-top:22px;border-top:3px solid var(--teal)}
+.tools h3{margin:0 0 6px;font-size:1.3rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:14px 0}
+@media (max-width:820px){.grid4{grid-template-columns:1fr 1fr}.timeline ol{grid-template-columns:1fr;gap:6px}.timeline ol::before{left:23px;right:auto;top:12px;bottom:12px;width:3px;height:auto}.timeline li{text-align:left}.timeline ol a{flex-direction:row;align-items:center;gap:12px}.tl-date{margin-left:auto}}
+.field.small{max-width:340px;margin-top:12px}
+.result{margin-top:16px;background:var(--offwhite);border:1px solid var(--line);border-radius:10px;padding:14px 18px;min-height:3em}
+.result p{margin:0 0 8px}.result p:last-child{margin:0}
+.bands{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+.bands div{border-radius:10px;padding:10px 14px;background:var(--white);border:2px solid var(--navy)}
+.bands div.s{background:var(--teal)}
+.bands b{display:block}
+@media (max-width:640px){.bands{grid-template-columns:1fr}}
+.chart{display:flex;align-items:flex-end;gap:2px;height:170px;margin-top:18px;padding:10px 10px 0;border-bottom:3px solid var(--navy);background:var(--offwhite);border-radius:10px 10px 0 0}
+.chart i{flex:1;min-width:2px;background:var(--navy);border-radius:2px 2px 0 0;display:block}
+.axis{display:flex;justify-content:space-between;font-weight:500;font-size:.9rem;margin-top:6px}
+
+.sources ul{margin:12px 0 0;padding-left:1.2em}
+.sources li{margin:6px 0}
+.small-print{font-size:.92rem;margin-top:14px}
+footer{padding:0 0 60px;text-align:center;font-size:.95rem}
+.logo{position:fixed;right:24px;bottom:24px;width:56px;height:56px;padding:6px;background:var(--offwhite);border-radius:50%;pointer-events:none;z-index:4}
+.logo svg{width:100%;height:100%;display:block}
+.printonly{display:none}
+
+@media print{
+  @page{size:Letter;margin:.6in .55in}
+  html{font-size:11.5px}
+  body{background:var(--white);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .progressbar,.controls,.btn,.btnrow,.tools,.skip,.jump,.timeline .tl-date,.resetbtn,.codehead .btn,.sr-live{display:none!important}
+  .hero-top{padding:0 0 10px}
+  h1{font-size:2.3rem}
+  .seam svg{height:16px}
+  .hero-strip{padding:4px 0 14px}
+  .hero-strip p.sub{margin:0}
+  main{padding:14px 0 0}
+  .card{break-inside:avoid;border:1px solid var(--navy);padding:16px 18px;box-shadow:none}
+  .item,.steps li,.callout,.gate,tr,.codebox{break-inside:avoid}
+  .phase>.phead,.rules>.phead,.playbook>.phead{break-after:avoid}
+  .timeline ol{grid-template-columns:repeat(9,1fr)}
+  .timeline ol::before{left:5.5%;right:5.5%;top:13px;bottom:auto;width:auto;height:3px}
+  .timeline li{text-align:center}.timeline ol a{flex-direction:column}
+  .tablewrap{overflow:visible;border:1px solid var(--navy)}
+  table.rulestable{min-width:0;font-size:.85em}
+  .steps{grid-template-columns:1fr 1fr}
+  .printonly{display:block;break-before:page}
+  .printonly h2{margin:16px 0 6px;font-size:1.3rem}
+  .printonly table{font-size:.85em}
+  .logo{display:block;right:-.42in;bottom:-.36in;width:38px;height:38px;padding:3px}
+  .hint,.count,footer{display:none!important}
+  #measure,#playbook{break-inside:auto}
+  .phead,.blurb,.group h3{break-after:avoid}
+  .blurb{break-inside:avoid}
+  .printonly h2.pb{break-before:page}
+  .printonly table{border-collapse:collapse}
+  .printonly th,.printonly td{border:1px solid rgba(29,53,87,.45)}
+  .printonly td{height:26px}
+  .printonly table.tracker td{height:17px;padding:2px 8px}
+  .printonly table.tracker th{padding:4px 8px}
+  .playbook .tablewrap{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the checklist</a>
+
+<header>
+  <div class="hero-top"><div class="wrap">
+    <p class="eyebrow">Email deliverability for marketing ops</p>
+    <h1>The foolproof<span class="ast">*</span> IP warming checklist</h1>
+    <p class="byline">By Molly Purcell-Weatherwalks</p>
+  </div></div>
+  <div class="seam" aria-hidden="true"><svg viewBox="0 0 1200 26" preserveAspectRatio="none" focusable="false"><path d="M0,0 L0,11.7 L20,17.2 L40,18.9 L60,14.7 L80,8.4 L100,16.0 L120,15.2 L140,19.0 L160,7.6 L180,10.7 L200,12.8 L220,18.4 L240,18.7 L260,7.7 L280,11.5 L300,9.3 L320,7.2 L340,17.1 L360,15.2 L380,6.2 L400,6.9 L420,5.6 L440,16.9 L460,14.5 L480,18.2 L500,19.9 L520,5.6 L540,14.0 L560,11.5 L580,6.6 L600,20.1 L620,21.6 L640,21.3 L660,7.6 L680,14.3 L700,15.1 L720,14.1 L740,14.3 L760,17.4 L780,9.8 L800,9.6 L820,7.3 L840,20.0 L860,8.5 L880,20.3 L900,12.2 L920,8.9 L940,18.1 L960,12.0 L980,7.0 L1000,18.8 L1020,4.0 L1040,15.7 L1060,5.7 L1080,6.1 L1100,4.2 L1120,9.0 L1140,18.5 L1160,14.3 L1180,13.6 L1200,13.1 L1200,0 Z" fill="#FFFFFF"/></svg></div>
+  <div class="hero-strip"><div class="wrap">
+    <p class="sub">Every to-do a brand needs to finish before, during, and after an IP warming project, with dates counted back from launch day.</p>
+    <div class="controls">
+      <div class="field"><label for="launch-date">Your launch date (Day 0)</label><input type="date" id="launch-date"></div>
+      <div class="btnrow">
+        <a class="btn" href="IP-Warming-Checklist.docx" download>Download Word (.docx)</a>
+        <a class="btn secondary" href="IP-Warming-Checklist.pdf" download>Download PDF</a>
+        <button type="button" class="btn secondary" onclick="window.print()">Print this page</button>
+      </div>
+    </div>
+    <p class="hint">Pick a launch date and every phase below fills in with real calendar dates. Your checkmarks and date are saved in this browser only.</p>
+    <noscript><p class="hint">Checkboxes still work without JavaScript, but saving and the calculators need it.</p></noscript>
+  </div></div>
+</header>
+
+<div class="progressbar" role="region" aria-label="Your progress">
+  <div class="wrap">
+    <label for="overall">Your progress</label>
+    <progress id="overall" value="0" max="65"></progress>
+    <span class="n" id="pcount" aria-live="polite">0 of 65 done</span>
+    <button type="button" class="btn secondary small resetbtn" id="reset">Clear all checkmarks</button>
+  </div>
+</div>
+
+<main id="main">
+<div class="wrap">
+  <div class="intro"><p>IP warming is the slow, slightly nerve-wracking process of teaching mailbox providers that your sending is safe by starting small, sending to the people who love you most, and growing volume only when the numbers say you may.</p><p>Use this list from top to bottom. Every phase is dated by counting back from launch day (Day 0), so pick your launch date and the calendar dates fill in.</p></div>
+  <aside class="callout"><p class="ct">A quick vocabulary note</p><p>MAGY stands for Microsoft, Apple, Google, and Yahoo. Those four are mailbox providers (the place your subscriber's inbox lives). Your ESP is the platform you send from, like Salesforce MCAE, Marketing Cloud, or HubSpot. Warming happens with the mailbox providers, so this checklist splits your list and your numbers by MAGY, and uses ESP only for the tool you send with.</p></aside>
+  <section class="gate" aria-labelledby="gate-h"><h2 id="gate-h">Do you actually need to warm? Check this first</h2><p>You need a warming plan when any of these is true: you are sending from a new dedicated IP, a new sending domain or subdomain, or a new ESP, or you are restarting after a long silence, or you plan to multiply your volume in a short time. On a shared IP pool your ESP has already warmed the pool, but a brand-new sending domain still has to earn its own reputation with Google and Microsoft. Not sure which one you are? Ask your ESP support this exact question: &quot;Are we on a dedicated IP or a shared pool, and does our new sending domain need a warm-up plan?&quot;</p></section>
+  <nav class="timeline" aria-label="Timeline of phases">
+  <h2 class="sr-only">Timeline</h2>
+  <ol>
+  <li class="is-pre"><a href="#decide"><span class="dot" aria-hidden="true"></span><span class="tl-label">4 weeks before</span><span class="tl-date" data-start="-28" data-end="-22"></span></a></li><li class="is-pre"><a href="#measure"><span class="dot" aria-hidden="true"></span><span class="tl-label">3 weeks before</span><span class="tl-date" data-start="-21" data-end="-15"></span></a></li><li class="is-pre"><a href="#dns"><span class="dot" aria-hidden="true"></span><span class="tl-label">2 weeks before</span><span class="tl-date" data-start="-14" data-end="-8"></span></a></li><li class="is-pre"><a href="#verify"><span class="dot" aria-hidden="true"></span><span class="tl-label">1 week before</span><span class="tl-date" data-start="-7" data-end="-1"></span></a></li><li class="is-launch"><a href="#launch"><span class="dot" aria-hidden="true"></span><span class="tl-label">Launch day</span><span class="tl-date" data-start="0" data-end="0"></span></a></li><li class="is-post"><a href="#w12"><span class="dot" aria-hidden="true"></span><span class="tl-label">Weeks 1 and 2</span><span class="tl-date" data-start="1" data-end="14"></span></a></li><li class="is-post"><a href="#w34"><span class="dot" aria-hidden="true"></span><span class="tl-label">Weeks 3 and 4</span><span class="tl-date" data-start="15" data-end="28"></span></a></li><li class="is-post"><a href="#w58"><span class="dot" aria-hidden="true"></span><span class="tl-label">Weeks 5 to 8</span><span class="tl-date" data-start="29" data-end="56"></span></a></li><li class="is-post"><a href="#grad"><span class="dot" aria-hidden="true"></span><span class="tl-label">Week 9 and on</span><span class="tl-date" data-start="57" data-end=""></span></a></li>
+  </ol>
+  <p class="jump">Jump straight to the <a href="#playbook">scale-back playbook</a> or the <a href="#rules">grow, hold, and scale-back rules</a>.</p>
+</nav>
+  <section class="card phase" id="decide" aria-labelledby="decide-h" data-phase="decide"><header class="phead">
+    <p class="when">4 weeks before</p>
+    <h2 id="decide-h">Decide and get everyone on the same page</h2>
+    <p class="dates" data-start="-28" data-end="-22" data-default="Day -28 to -22">Day -28 to -22</p>
+    <p class="count" data-count-for="decide"></p>
+  </header>
+  <p class="blurb">Nothing technical yet. This week is about a written goal, one accountable person, and a send calendar that nobody else can touch.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="d1" data-item aria-describedby="d1-d">
+  <label for="d1">Confirm you need a warm-up (see the box above)</label>
+  <p class="det" id="d1-d">Get the answer from your ESP in writing: dedicated IP or shared pool, and whether the new domain needs a plan.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d2" data-item aria-describedby="d2-d">
+  <label for="d2">Write your goal in one sentence</label>
+  <p class="det" id="d2-d">For example: &quot;Reach 50,000 sends per day by [date] with complaints under 0.1%.&quot; If you cannot fill in the blanks, you are not ready to start.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d3" data-item aria-describedby="d3-d">
+  <label for="d3">Name one owner and one backup for go, hold, and scale-back calls</label>
+  <p class="det" id="d3-d">These two people can pause a send without asking permission. Put their names at the top of your tracker.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d4" data-item aria-describedby="d4-d">
+  <label for="d4">Freeze the send calendar for every team that uses this domain or IP</label>
+  <p class="det" id="d4-d">Sales sequences, event invites, and that &quot;quick&quot; newsletter all count. One unplanned send is the fastest way to wreck a ramp. Tell people now, in writing, with the end date.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d5" data-item aria-describedby="d5-d">
+  <label for="d5">Export 6 to 12 months of send history from your ESP</label>
+  <p class="det" id="d5-d">You need one row per send: date, audience, delivered, unique clicks, hard bounces, unsubscribes, complaints. Next week you turn this file into your baseline click rate, the number you will hold every future send up against: a warm-up send is a success when its click rate beats that baseline, not when it beats last week's send.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d6" data-item aria-describedby="d6-d">
+  <label for="d6">Ask your ESP what warm-up help it offers</label>
+  <p class="det" id="d6-d">Some platforms have automatic throttling or a daily send cap you can set. Ask your account rep or support, and send them this checklist so they know what you are planning.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="d7" data-item aria-describedby="d7-d">
+  <label for="d7">Start the ticket for Google Postmaster Tools access now, separately from your DNS ticket</label>
+  <p class="det" id="d7-d">This is worth flagging in week 1 because it is slow: every single person who needs a Postmaster dashboard has to verify against your domain individually, which usually means its own DNS record and its own IT ticket per person. If Google ever puts you in the penalty box, they are not going to call you first. They assume you were already watching Postmaster and ignored the warning signs, so this needs to be live before you send anything, not after.</p>
+</li></ul></section>
+<section class="card phase" id="measure" aria-labelledby="measure-h" data-phase="measure"><header class="phead">
+    <p class="when">3 weeks before</p>
+    <h2 id="measure-h">Measure, segment, and pick your content</h2>
+    <p class="dates" data-start="-21" data-end="-15" data-default="Day -21 to -15">Day -21 to -15</p>
+    <p class="count" data-count-for="measure"></p>
+  </header>
+  <p class="blurb">The data week. By the end you know what &quot;good&quot; looks like for your list, who your best subscribers are at each mailbox provider, and which emails go first.</p><div class="group"><h3>Find your click baseline</h3><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="m1" data-item aria-describedby="m1-d">
+  <label for="m1">Clean the send history before you calculate anything</label>
+  <p class="det" id="m1-d">Drop tests and any send to a tiny audience. Keep sends to comparable audiences, because a webinar reminder and a cold newsletter do not share a baseline.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="m2" data-item aria-describedby="m2-d">
+  <label for="m2">Filter out bot clicks</label>
+  <p class="det" id="m2-d">Corporate security scanners click every link within seconds of delivery, and that inflates B2B click rates. If your ESP offers bot or scanner filtering, turn it on for this pull. If it does not, remove clicks that land within a few seconds of the send, or where every link was clicked in the same second.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="m3" data-item aria-describedby="m3-d">
+  <label for="m3">Calculate unique click rate for every send</label>
+  <p class="det" id="m3-d">Unique clickers divided by delivered (not sent). Do not use open rate here; Apple Mail Privacy Protection makes opens unreliable.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="m4" data-item aria-describedby="m4-d">
+  <label for="m4">Take the median of your last 10 to 12 comparable sends</label>
+  <p class="det" id="m4-d">Median, not average, so one viral send cannot drag your baseline up. This number is your baseline.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="m5" data-item aria-describedby="m5-d">
+  <label for="m5">Calculate it again for each mailbox provider and for your engaged segment</label>
+  <p class="det" id="m5-d">Your warm-up audience will be your best subscribers, so judge it against their history, not the whole database. Use the baseline calculator on the web page, or Worksheet 1 at the back of this file.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="m6" data-item aria-describedby="m6-d">
+  <label for="m6">Write down your success bands</label>
+  <p class="det" id="m6-d">Starting points, tune them for your list: Success is at or above your baseline, Watch is 75% to 99% of baseline, Concern is below 75%. A send is a success only when its click rate lands in the Success band and its complaint and bounce numbers are green.</p>
+</li></ul></div><div class="group"><h3>Find your most engaged subscribers at each mailbox provider</h3><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="s1" data-item aria-describedby="s1-d">
+  <label for="s1">Bucket every address by mailbox provider (MAGY)</label>
+  <p class="det" id="s1-d">Consumer domains are easy (see the table below). Corporate domains need an MX record lookup, because a company address can sit on Google Workspace or Microsoft 365. Ask your data or ops person to run MX lookups in bulk. Anything hiding behind a gateway (Proofpoint, Mimecast) goes in its own &quot;Corporate gateway&quot; bucket and gets warmed on its own.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="s2" data-item aria-describedby="s2-d">
+  <label for="s2">Define &quot;engaged&quot; with clicks and real actions, never opens</label>
+  <p class="det" id="s2-d">Clicked a link, replied, filled out a form, visited a key page, attended an event, or bought. Opens are machine-generated for a large share of Apple Mail users, so an Apple &quot;open&quot; proves very little.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="s3" data-item aria-describedby="s3-d">
+  <label for="s3">Sort each provider's people into tiers</label>
+  <p class="det" id="s3-d">Tier 1: real activity in the last 30 days. Tier 2: 31 to 90 days. Tier 3: 91 to 180 days. Parked: anything older, or never engaged. Parked people do not get mail during the warm-up.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="s4" data-item aria-describedby="s4-d">
+  <label for="s4">Build your suppression list and apply it to every tier</label>
+  <p class="det" id="s4-d">Hard bounces, unsubscribes, past complainers, role addresses (info@, sales@, admin@), and anything from a purchased, scraped, or unverified import. Old, quiet addresses are where spam traps live.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="s5" data-item aria-describedby="s5-d">
+  <label for="s5">Count Tier 1 at each provider and check it covers your first two weeks</label>
+  <p class="det" id="s5-d">If your Yahoo Tier 1 is 300 people, your first Yahoo sends are 300 people. That is fine. Each provider judges you separately, so spread every day's volume across all four in proportion to their share of your list.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="s6" data-item aria-describedby="s6-d">
+  <label for="s6">Optional: run Tier 2 and Tier 3 through an email verification service</label>
+  <p class="det" id="s6-d">Cheap insurance for older segments. Do it now so the results are back before launch.</p>
+</li></ul></div><div class="group"><h3>Choose the content that goes first</h3><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="c1" data-item aria-describedby="c1-d">
+  <label for="c1">Pull your top 5 sends by unique click rate that also had low unsubscribes and no complaint spikes</label>
+  <p class="det" id="c1-d">Judge by the whole picture. A big click rate with a complaint spike is a send to avoid, not to repeat.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="c2" data-item aria-describedby="c2-d">
+  <label for="c2">Pick 2 or 3 evergreen pieces to rotate through weeks 1 and 2</label>
+  <p class="det" id="c2-d">Content your best people already expect and like: the newsletter they ask about, your most-downloaded guide, an event follow-up. Save hard promotions and discount blasts for later.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="c3" data-item aria-describedby="c3-d">
+  <label for="c3">Keep every warm-up email light and clean</label>
+  <p class="det" id="c3-d">Mostly text, one main call to action, two or three links, no attachments, no URL shorteners, links on your own branded tracking domain, and a plain-text version. Send from a real name people recognize, with a reply-to inbox that a human reads.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="c4" data-item aria-describedby="c4-d">
+  <label for="c4">Choose your &quot;safest send&quot; now</label>
+  <p class="det" id="c4-d">Your single lowest-risk email: highest click rate, lowest complaints, no promotion. This is your fallback if you ever have to scale back, and you do not want to be choosing it in a panic.</p>
+</li></ul></div><div class="group"><h3>Decide your timeline and growth percentage</h3><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="t1" data-item aria-describedby="t1-d">
+  <label for="t1">Choose your ramp length</label>
+  <p class="det" id="t1-d">Most plans run 4 to 8 weeks, and many reach full volume in 4 to 6. A bigger target volume or a thinner engaged list pushes you longer. Use the ramp planner on the web page, or the example ramp in Worksheet 2 at the back of this file, to see the numbers.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="t2" data-item aria-describedby="t2-d">
+  <label for="t2">Pick your growth percentage per send day</label>
+  <p class="det" id="t2-d">My starting points, not industry laws: cautious is 10% to 15%, standard is 20% to 30%, fast is 50% and up (only for a clean list on an established domain). You only grow after a green day, so plan for a few hold days on top.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="t3" data-item aria-describedby="t3-d">
+  <label for="t3">Lock your sending days and time window</label>
+  <p class="det" id="t3-d">Same days, same time window, every week. Providers learn your pattern, and a steady rhythm is easier to read in your tracker.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="t4" data-item aria-describedby="t4-d">
+  <label for="t4">Write your go, hold, and scale-back rules and get them approved</label>
+  <p class="det" id="t4-d">Use the grow, hold, and scale-back table as a starting draft. The rule of the game: decide the thresholds now, while you are calm, and follow them later, when you are not.</p>
+</li></ul></div><div class="tablewrap" role="region" aria-label="Which mailbox provider is this address? (MAGY lookup)" tabindex="0"><table class="plain"><caption>Which mailbox provider is this address? (MAGY lookup)</caption><thead><tr><th scope="col">Provider</th><th scope="col">Consumer domains</th><th scope="col">Corporate addresses (MX record host)</th></tr></thead><tbody><tr><th scope="row">Microsoft</th><td>outlook.com, hotmail.com, live.com, msn.com</td><td>MX host ends in mail.protection.outlook.com (Microsoft 365)</td></tr><tr><th scope="row">Apple</th><td>icloud.com, me.com, mac.com</td><td>Rare. Also remember Apple Mail Privacy Protection can affect any address read in the Apple Mail app.</td></tr><tr><th scope="row">Google</th><td>gmail.com, googlemail.com</td><td>MX host ends in google.com or googlemail.com (Google Workspace)</td></tr><tr><th scope="row">Yahoo</th><td>yahoo.com, ymail.com, rocketmail.com, aol.com (AOL is part of Yahoo)</td><td>Rare for corporate addresses</td></tr></tbody></table></div><aside class="callout"><p class="ct">Illustrative numbers, not real data</p><p>Say your last 12 sends to your engaged segment had unique click rates between 1.6% and 3.4%, and the median is 2.4%. Your bands are: Success at 2.4% or higher, Watch from 1.8% to 2.3%, Concern below 1.8%. A warm-up send that lands at 2.6% with complaints under 0.1% is a success. A send at 2.0% is a hold, not a disaster.</p></aside></section>
+<section class="card phase" id="dns" aria-labelledby="dns-h" data-phase="dns"><header class="phead">
+    <p class="when">2 weeks before</p>
+    <h2 id="dns-h">Call IT and set up your monitoring</h2>
+    <p class="dates" data-start="-14" data-end="-8" data-default="Day -14 to -8">Day -14 to -8</p>
+    <p class="count" data-count-for="dns"></p>
+  </header>
+  <p class="blurb">DNS changes take an IT ticket, an approval or two, and time to spread across the internet. Two weeks is the minimum. If your IT queue is slow, file this ticket at the 4 week mark instead.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="i1" data-item aria-describedby="i1-d">
+  <label for="i1">Send IT the DNS ticket (template below)</label>
+  <p class="det" id="i1-d">SPF, DKIM (usually CNAME records from your ESP), DMARC, your branded tracking or link domain (CNAME), the bounce or return-path domain if your ESP uses one, and the Google Postmaster Tools verification record.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i2" data-item aria-describedby="i2-d">
+  <label for="i2">Ask IT for one SPF record only</label>
+  <p class="det" id="i2-d">A domain can have exactly one SPF record. If IT adds a second one instead of editing the first, SPF breaks for everybody. The ESP's <code>include:</code> goes inside the existing record.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i3" data-item aria-describedby="i3-d">
+  <label for="i3">Start DMARC at <code>p=none</code> with a reporting address you can actually read</label>
+  <p class="det" id="i3-d">Google and Yahoo require DMARC for bulk senders. Starting at <code>p=none</code> lets you collect reports first and tighten later, once you know every legitimate sender is passing.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i4" data-item aria-describedby="i4-d">
+  <label for="i4">Confirm your Google Postmaster Tools access is live (the ticket you opened 2 weeks ago)</label>
+  <p class="det" id="i4-d">Postmaster Tools shows the domain reputation and spam rate that Google actually judges you on. Your ESP's complaint number is not that number. Expect little or no data at low volume; that is normal, so keep checking. If nobody filed that ticket yet, file it today, and expect it to be the slowest item on this whole list.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i5" data-item aria-describedby="i5-d">
+  <label for="i5">Sign up for Microsoft SNDS and JMRP, and the Yahoo Complaint Feedback Loop</label>
+  <p class="det" id="i5-d">SNDS and JMRP need a dedicated IP. Apple has no public reputation dashboard, so for Apple you lean on your own bounce, click, and complaint data.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i6" data-item aria-describedby="i6-d">
+  <label for="i6">Build your daily tracker</label>
+  <p class="det" id="i6-d">One row per send day, one copy per mailbox provider: sent, delivered, hard bounce %, complaint %, unsubscribe %, unique click %, deferrals, and your decision (grow, hold, or scale back). A printable version is Worksheet 2 at the back of the Word and PDF downloads.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="i7" data-item aria-describedby="i7-d">
+  <label for="i7">Set your check times</label>
+  <p class="det" id="i7-d">Bounces show up within the hour. Complaints and Postmaster data lag by a day or more. Put a reminder on the calendar for 1 hour and 24 hours after every send, and a third at 48 hours during the first two weeks.</p>
+</li></ul><div class="codebox"><div class="codehead"><h3 id="codedns039-h">Copy and paste this into your IT ticket</h3><button type="button" class="btn small" data-copy="codedns039">Copy text</button></div><pre id="codedns039" tabindex="0" role="region" aria-labelledby="codedns039-h">Hi [IT contact],
+
+We are starting to send marketing email from [sending domain] through [ESP name] and need these DNS records live by [date, at least 7 days before launch]:
+
+1. SPF: add [ESP include value] to the existing SPF record for [domain]. Please edit the current record. We can only have one.
+2. DKIM: add the DKIM records our ESP generated (attached). They are usually CNAME records.
+3. DMARC: add a TXT record at _dmarc.[domain] with policy p=none and reporting address [mailbox you read].
+4. Tracking domain: add a CNAME for [links.domain] pointing to [ESP-provided value].
+5. Bounce or return-path domain: add the CNAME our ESP provided (if applicable).
+6. Google Postmaster Tools: add the TXT verification record (attached).
+
+Please reply as each one goes live so we can test. Thank you so much!</pre><p class="sr-live" role="status" aria-live="polite" id="codedns039-s"></p></div></section>
+<section class="card phase" id="verify" aria-labelledby="verify-h" data-phase="verify"><header class="phead">
+    <p class="when">1 week before</p>
+    <h2 id="verify-h">Verify everything and rehearse the pause button</h2>
+    <p class="dates" data-start="-7" data-end="-1" data-default="Day -7 to -1">Day -7 to -1</p>
+    <p class="count" data-count-for="verify"></p>
+  </header>
+  <p class="blurb">Trust nothing until you have tested it. This is the week you find out what IT actually added, not what the ticket asked for.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="v1" data-item aria-describedby="v1-d">
+  <label for="v1">Send a test to a Gmail address you control and read the raw headers</label>
+  <p class="det" id="v1-d">In Gmail, open the message, click the three dots, and choose Show original. SPF, DKIM, and DMARC should all say PASS, and the DKIM domain should match your From domain.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v2" data-item aria-describedby="v2-d">
+  <label for="v2">Confirm the one-click unsubscribe header is in that test message</label>
+  <p class="det" id="v2-d">Look for <code>List-Unsubscribe</code> and <code>List-Unsubscribe-Post: List-Unsubscribe=One-Click</code>. Google and Yahoo require this for bulk marketing email, and you still want a visible unsubscribe link in the footer.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v3" data-item aria-describedby="v3-d">
+  <label for="v3">Check your sending domain and IP against public blocklists</label>
+  <p class="det" id="v3-d">Search your domain and IP in a blocklist lookup tool. A new dedicated IP should be clean, and a reused one sometimes is not.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v4" data-item aria-describedby="v4-d">
+  <label for="v4">Send your final email to test addresses at each of the four providers</label>
+  <p class="det" id="v4-d">Check inbox versus spam, mobile rendering, and click every single link. Fix anything odd before it is in front of 500 real people.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v5" data-item aria-describedby="v5-d">
+  <label for="v5">Load Tier 1 segments per provider and apply the suppression list</label>
+  <p class="det" id="v5-d">Then count them. The numbers should match your ramp plan for Day 1 through Day 5.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v6" data-item aria-describedby="v6-d">
+  <label for="v6">Rehearse the pause</label>
+  <p class="det" id="v6-d">Find the pause, cancel, or throttle control in your ESP. Make sure your owner and backup both have permission to use it, and have both click through it once.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v7" data-item aria-describedby="v7-d">
+  <label for="v7">Confirm someone reads the reply-to inbox every day</label>
+  <p class="det" id="v7-d">Replies are a positive signal, and unhappy replies are an early warning that shows up before the complaint numbers do.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="v8" data-item aria-describedby="v8-d">
+  <label for="v8">Send stakeholders a one-paragraph heads up</label>
+  <p class="det" id="v8-d">Launch date, that the calendar is frozen, who owns go and stop calls, and where they can see progress. Pro tip: include the total number of mailable prospects in your database. Leadership never remembers that number on their own and will ask you for it the moment you mention any of this.</p>
+</li></ul></section>
+<section class="card phase" id="launch" aria-labelledby="launch-h" data-phase="launch"><header class="phead">
+    <p class="when">Launch day</p>
+    <h2 id="launch-h">Day 0: the first send</h2>
+    <p class="dates" data-start="0" data-end="0" data-default="Day 0">Day 0</p>
+    <p class="count" data-count-for="launch"></p>
+  </header>
+  <p class="blurb">Small on purpose. The goal of day one is a clean row in your tracker.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="l1" data-item aria-describedby="l1-d">
+  <label for="l1">Send to Tier 1 only, at your planned starting volume</label>
+  <p class="det" id="l1-d">For a new dedicated IP, a few hundred to about a thousand sends is a common starting point. Split it across the four providers by their share of your list.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="l2" data-item aria-describedby="l2-d">
+  <label for="l2">Send at the time you will keep using</label>
+  <p class="det" id="l2-d">If your ESP can throttle delivery, spread the send across a window instead of one burst.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="l3" data-item aria-describedby="l3-d">
+  <label for="l3">Check bounces at 1 hour, then complaints and deferrals at 24 hours</label>
+  <p class="det" id="l3-d">Log every number in the tracker by provider.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="l4" data-item aria-describedby="l4-d">
+  <label for="l4">Write down the decision before the next send: grow, hold, or scale back</label>
+  <p class="det" id="l4-d">Use the grow, hold, and scale-back table, and note why in one line.</p>
+</li></ul></section>
+  <section class="card rules" id="rules" aria-labelledby="rules-h">
+  <header class="phead">
+    <p class="when">Read before Day 1, use after every send</p>
+    <h2 id="rules-h">Grow, hold, or scale back: your rules of the road</h2>
+  </header>
+  <p class="blurb">Check these numbers at every provider after every send. Any single scale-back trigger wins over any number of green ones. Some thresholds are published by the mailbox providers, and the rest are rules of thumb that I want you to tune for your own list.</p>
+  <div class="tablewrap" role="region" aria-label="Grow, hold, and scale back thresholds" tabindex="0">
+  <table class="rulestable">
+    <caption>Thresholds for each signal, checked per mailbox provider</caption>
+    <thead><tr>
+      <th scope="col">Signal</th>
+      <th scope="col" class="h-grow"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 L16 15 H2 Z" fill="currentColor"/></svg><span>Grow</span><small>all true, 2 sends in a row</small></th>
+      <th scope="col" class="h-hold"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" fill="currentColor"/></svg><span>Hold</span><small>any one is true</small></th>
+      <th scope="col" class="h-back"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M9 16 L2 3 H16 Z" fill="currentColor"/></svg><span>Scale back</span><small>any one is true</small></th>
+    </tr></thead>
+    <tbody>
+    <tr><th scope="row">Spam complaint rate<span class="tag pub">Published: Google and Yahoo</span></th><td>Below 0.10%</td><td>0.10% to 0.19% on one send</td><td>0.20% or higher on any send, or 0.10% or higher on two sends in a row. At 0.30% stop sending to that provider and investigate.</td></tr><tr><th scope="row">Hard bounce rate<span class="tag rot">Rule of thumb</span></th><td>Below 2%</td><td>2% to 4%</td><td>Above 4%</td></tr><tr><th scope="row">Unsubscribe rate<span class="tag rot">Rule of thumb</span></th><td>Below 0.5%</td><td>0.5% to 1%</td><td>Above 1%</td></tr><tr><th scope="row">Unique click rate vs your baseline<span class="tag rot">Rule of thumb</span></th><td>Success band (at or above baseline)</td><td>Watch band (75% to 99% of baseline)</td><td>Concern band (below 75% of baseline) on two sends in a row</td></tr><tr><th scope="row">Deferrals, throttling, and rejections<span class="tag pub">Published: Microsoft</span></th><td>None</td><td>Some temporary 4xx deferrals that clear on retry</td><td>Sustained deferrals, or any block or permanent rejection (for example Microsoft's 550 5.7.515 for non-compliant bulk mail)</td></tr><tr><th scope="row">Seed test inbox placement (if you use one)<span class="tag rot">Rule of thumb</span></th><td>Mostly inbox</td><td>Some spam-folder placement</td><td>Mostly spam folder at one provider. Treat seed tests as directional only.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Small sends need extra care: at 500 delivered, a single complaint is 0.2%. Read small sends by trend and by count across several sends, and do not panic over one percentage from one tiny send.</p>
+  <ul class="rulekey">
+    <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 L16 15 H2 Z" fill="currentColor"/></svg><span>GROW: increase to your next planned volume by your chosen percentage.</span></li>
+    <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" fill="currentColor"/></svg><span>HOLD: repeat yesterday's volume, or step back one level, and change nothing else.</span></li>
+    <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M9 16 L2 3 H16 Z" fill="currentColor"/></svg><span>SCALE BACK: start the playbook below, right now.</span></li>
+  </ul>
+</section>
+  <section class="card playbook" id="playbook" aria-labelledby="playbook-h">
+  <header class="phead">
+    <p class="when">When the numbers turn</p>
+    <h2 id="playbook-h">The scale-back playbook</h2>
+  </header>
+  <p class="blurb">Your numbers just crossed a scale-back line. Breathe, and then work these steps in order. The goal is to leave Spam Jail before the provider decides you belong there.</p>
+  <ol class="steps">
+    <li><span class="num" aria-hidden="true">1</span><div><h3>Stop growing today</h3><p>Do not send a bigger volume than your last green send. Your owner or backup makes the call and writes down the time.</p></div></li><li><span class="num" aria-hidden="true">2</span><div><h3>Find out where it is failing</h3><p>Split the numbers by mailbox provider. If only one provider is unhappy, scale back only that provider and keep the others where they are.</p></div></li><li><span class="num" aria-hidden="true">3</span><div><h3>Cut that provider's volume</h3><p>Go back to the last volume that was green, or roughly half of where you were, whichever is lower. Send to Tier 1 only.</p></div></li><li><span class="num" aria-hidden="true">4</span><div><h3>Send your safest send</h3><p>Use the fallback email you chose three weeks before launch. No promotions, no new content.</p></div></li><li><span class="num" aria-hidden="true">5</span><div><h3>Pause completely if you hit a hard line</h3><p>At 0.30% complaints, or blocks and rejections from a provider, pause that provider for 2 to 3 days while you diagnose. A rule of thumb, so ask your ESP if they suggest longer.</p></div></li><li><span class="num" aria-hidden="true">6</span><div><h3>Diagnose the cause</h3><p>Use the symptom table that follows these steps. Change one thing at a time so you know what fixed it.</p></div></li><li><span class="num" aria-hidden="true">7</span><div><h3>Re-ramp slower</h3><p>Restart at about half of the volume where trouble began, cut your growth percentage in half (for example 20% down to 10%), and require three clean sends in a row before each increase.</p></div></li><li><span class="num" aria-hidden="true">8</span><div><h3>Ask for help from a human</h3><p>Contact your ESP's deliverability support first. For blocks, use the mailbox provider's sender support form. Send them your sending domain and IP, the dates, and a few example bounce messages.</p></div></li><li><span class="num" aria-hidden="true">9</span><div><h3>Write it down</h3><p>One paragraph in your tracker: what happened, what you changed, what you would do differently. Then update your thresholds.</p></div></li>
+  </ol>
+  <div class="tablewrap" role="region" aria-label="Symptoms, causes, and fixes" tabindex="0">
+  <table class="plain">
+    <caption>Symptom, likely cause, and what to do</caption>
+    <thead><tr><th scope="col">What you see</th><th scope="col">Likely cause</th><th scope="col">What to do</th></tr></thead>
+    <tbody><tr><th scope="row">Complaints jump right after you add a new tier</th><td>The tier is too stale or never opted in the way you thought</td><td>Pull that tier out and re-check where those addresses came from</td></tr><tr><th scope="row">Hard bounces jump</th><td>Old or mistyped addresses</td><td>Verify the segment and suppress bounces before the next send</td></tr><tr><th scope="row">Deferrals at only one provider</th><td>Your volume is higher than that provider trusts you with yet</td><td>Cut that provider's volume and grow again slowly</td></tr><tr><th scope="row">Microsoft rejects mail with 550 5.7.515</th><td>Non-compliant bulk mail: authentication or required headers are failing</td><td>Check SPF, DKIM, DMARC, and alignment; fix and retest before resuming</td></tr><tr><th scope="row">Clicks drop everywhere but complaints look fine</th><td>Content or subject line is not landing</td><td>Return to your safest send and test one change at a time</td></tr><tr><th scope="row">Clicks and inbox placement drop only at Google</th><td>Reputation slipping at one provider</td><td>Check Postmaster Tools trends, cut volume, keep only Tier 1</td></tr></tbody>
+  </table></div>
+</section>
+  <section class="card phase" id="w12" aria-labelledby="w12-h" data-phase="w12"><header class="phead">
+    <p class="when">Weeks 1 and 2</p>
+    <h2 id="w12-h">Best subscribers only, and grow slowly</h2>
+    <p class="dates" data-start="1" data-end="14" data-default="Days 1 to 14">Days 1 to 14</p>
+    <p class="count" data-count-for="w12"></p>
+  </header>
+  <p class="blurb">Some plans put this at roughly 5% to 10% of the total list by the end of week 2. Yours might differ, and that is okay. The rule that does not change: grow only after clean sends.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="w1a" data-item aria-describedby="w1a-d">
+  <label for="w1a">Send to Tier 1 only, rotating your 2 or 3 evergreen emails</label>
+  <p class="det" id="w1a-d">Nothing new in week 1. New audience, new content, and new volume all at once makes it impossible to tell what caused a problem.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w1b" data-item aria-describedby="w1b-d">
+  <label for="w1b">Grow by your chosen percentage only after two clean send days in a row</label>
+  <p class="det" id="w1b-d">Clean means every metric in the Grow column of the grow, hold, and scale-back table, at every provider you are sending to.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w1c" data-item aria-describedby="w1c-d">
+  <label for="w1c">Compare every send to your success bands, by provider</label>
+  <p class="det" id="w1c-d">Success, Watch, or Concern. Log it.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w1d" data-item aria-describedby="w1d-d">
+  <label for="w1d">Confirm hard bounces suppress automatically, and handle replies the same day</label>
+  <p class="det" id="w1d-d">A hard-bounced address you email again is a small self-inflicted wound.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w1e" data-item aria-describedby="w1e-d">
+  <label for="w1e">If a provider starts deferring your mail (temporary 4xx errors), hold that provider's volume</label>
+  <p class="det" id="w1e-d">Deferrals are a provider telling you to slow down. Do not resend faster to &quot;catch up&quot;. Let your ESP retry on its own schedule.</p>
+</li></ul></section>
+<section class="card phase" id="w34" aria-labelledby="w34-h" data-phase="w34"><header class="phead">
+    <p class="when">Weeks 3 and 4</p>
+    <h2 id="w34-h">Introduce Tier 2, one variable at a time</h2>
+    <p class="dates" data-start="15" data-end="28" data-default="Days 15 to 28">Days 15 to 28</p>
+    <p class="count" data-count-for="w34"></p>
+  </header>
+  <p class="blurb">Volume is higher now, which means bigger consequences. Change one thing at a time so you always know what moved the numbers.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="w3a" data-item aria-describedby="w3a-d">
+  <label for="w3a">Add Tier 2 only after Tier 1 has been green for a full week</label>
+  <p class="det" id="w3a-d">Add it in slices, not all at once, and start with the provider that has looked healthiest.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w3b" data-item aria-describedby="w3b-d">
+  <label for="w3b">Change only one of these per send: volume, audience, or content</label>
+  <p class="det" id="w3b-d">If you change two, you cannot tell which one caused the problem.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w3c" data-item aria-describedby="w3c-d">
+  <label for="w3c">Judge Tier 2 against Tier 2's own history</label>
+  <p class="det" id="w3c-d">Its click rate will sit below Tier 1's. That is expected. Hold if it falls into the Watch band, and worry if it lands in Concern twice in a row.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w3d" data-item aria-describedby="w3d-d">
+  <label for="w3d">Add a second content type only when the last three sends were steady</label>
+  <p class="det" id="w3d-d">A gentle step: another newsletter-style send, not a big promotion.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w3e" data-item aria-describedby="w3e-d">
+  <label for="w3e">Check Google Postmaster Tools, Microsoft SNDS, and Yahoo feedback loop data</label>
+  <p class="det" id="w3e-d">They lag, so read the trend over several days and not one data point.</p>
+</li></ul></section>
+<section class="card phase" id="w58" aria-labelledby="w58-h" data-phase="w58"><header class="phead">
+    <p class="when">Weeks 5 to 8</p>
+    <h2 id="w58-h">Tier 3, your normal content, and full volume</h2>
+    <p class="dates" data-start="29" data-end="56" data-default="Days 29 to 56">Days 29 to 56</p>
+    <p class="count" data-count-for="w58"></p>
+  </header>
+  <p class="blurb">Sources describe this stretch as the time you head toward full sending capacity. Your calendar may run longer or shorter than 8 weeks, and a longer ramp is a fine outcome.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="w5a" data-item aria-describedby="w5a-d">
+  <label for="w5a">Add Tier 3 last, in small slices</label>
+  <p class="det" id="w5a-d">Expect lower click rates. Judge them against Tier 3's own baseline and watch complaints and bounces closely.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w5b" data-item aria-describedby="w5b-d">
+  <label for="w5b">Bring your normal content mix back, one type at a time</label>
+  <p class="det" id="w5b-d">Promotions come back gradually, and never on the same day you add a new audience slice.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w5c" data-item aria-describedby="w5c-d">
+  <label for="w5c">Reach target volume, then hold it for two full weeks with everything green</label>
+  <p class="det" id="w5c-d">Only then call the warm-up done.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="w5d" data-item aria-describedby="w5d-d">
+  <label for="w5d">Keep Parked subscribers out of the main stream</label>
+  <p class="det" id="w5d-d">Anyone with no activity in 180 days gets their own small re-engagement plan, warmed like a mini launch, and not a sudden blast.</p>
+</li></ul></section>
+  <section class="card phase" id="grad" aria-labelledby="grad-h" data-phase="grad"><header class="phead">
+    <p class="when">Week 9 and on</p>
+    <h2 id="grad-h">Graduation and keeping the reputation you earned</h2>
+    <p class="dates" data-start="57" data-end="" data-default="Day 57 and on">Day 57 and on</p>
+    <p class="count" data-count-for="grad"></p>
+  </header>
+  <p class="blurb">Warm-up ends. Reputation upkeep never does.</p><ul class="items"><li class="item" data-row>
+  <input type="checkbox" id="g1" data-item aria-describedby="g1-d">
+  <label for="g1">Confirm two full weeks at target volume with every signal green</label>
+  <p class="det" id="g1-d">Then tell the stakeholders the freeze is over, and update the send calendar with the new normal.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="g2" data-item aria-describedby="g2-d">
+  <label for="g2">Keep a steady sending rhythm</label>
+  <p class="det" id="g2-d">Long gaps let reputation cool. If you must pause for a while, plan a mini warm-up when you restart.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="g3" data-item aria-describedby="g3-d">
+  <label for="g3">Move monitoring to weekly and add a quarterly review</label>
+  <p class="det" id="g3-d">Postmaster Tools, SNDS, DMARC reports, bounce and complaint trends. Once your DMARC reports look clean, plan to tighten the policy from <code>p=none</code> toward enforcement.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="g4" data-item aria-describedby="g4-d">
+  <label for="g4">Write a sunset policy</label>
+  <p class="det" id="g4-d">Choose a rule such as: no activity for 180 days means one re-engagement attempt, then suppression. Fewer dead addresses means fewer traps and lower complaint risk.</p>
+</li><li class="item" data-row>
+  <input type="checkbox" id="g5" data-item aria-describedby="g5-d">
+  <label for="g5">Save your tracker and notes as the template for the next launch</label>
+  <p class="det" id="g5-d">The next warm-up starts from this one.</p>
+</li></ul></section>
+  <section class="card tools" id="tools" aria-labelledby="tools-h">
+  <header class="phead"><p class="when">Two little calculators</p><h2 id="tools-h">Baseline calculator and ramp planner</h2></header>
+  <p class="blurb">Nothing you type here leaves your browser.</p>
+
+  <div class="tool" id="baseline">
+    <h3>1. Your click baseline and success bands</h3>
+    <p>Paste the unique click rate (as a percent) of your last 10 to 12 comparable sends. Commas, spaces, or one per line all work. Bot clicks should already be filtered out.</p>
+    <div class="field"><label for="rates">Unique click rates, in percent</label>
+      <textarea id="rates" rows="4" placeholder="1.9, 2.4, 2.8, 3.1, 2.2, 2.6, 1.7, 3.4, 2.5, 2.3"></textarea></div>
+    <div class="field small"><label for="latest">Optional: the click rate of the send you are judging</label>
+      <input id="latest" type="text" inputmode="decimal" placeholder="2.1"></div>
+    <div class="result" id="baseline-out" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="tool" id="planner">
+    <h3>2. Ramp planner</h3>
+    <p>See how long a ramp takes at different growth percentages. The plan assumes every send day is green, so the summary adds time for hold days.</p>
+    <div class="grid4">
+      <div class="field"><label for="p-start">Starting daily volume</label><input id="p-start" type="number" min="1" step="1" value="500"></div>
+      <div class="field"><label for="p-target">Target daily volume</label><input id="p-target" type="number" min="1" step="1" value="50000"></div>
+      <div class="field"><label for="p-growth">Growth per send day (%)</label><input id="p-growth" type="number" min="1" max="100" step="1" value="20"></div>
+      <div class="field"><label for="p-days">Send days per week</label><input id="p-days" type="number" min="1" max="7" step="1" value="5"></div>
+    </div>
+    <div class="result" id="planner-out" role="status" aria-live="polite"></div>
+    <div class="chart" id="chart" role="img" aria-label="Bar chart of planned daily volume by send day"></div>
+    <div class="axis"><span id="axis-l">Send day 1</span><span id="axis-r"></span></div>
+    <div class="tablewrap short" role="region" aria-label="Day by day ramp table" tabindex="0">
+      <table class="plain"><caption>Day by day plan (example, based on the numbers above)</caption>
+      <thead><tr><th scope="col">Send day</th><th scope="col">Planned volume</th></tr></thead><tbody id="planner-rows"></tbody></table>
+    </div>
+  </div>
+</section>
+  <section class="card sources" aria-labelledby="src-h">
+    <header class="phead"><p class="when">Where the numbers come from</p><h2 id="src-h">Sources and further reading</h2></header>
+    <ul><li><a href="https://powerdmarc.com/bulk-email-sender-requirements/" rel="noopener">Bulk email sender rules for Google, Yahoo, Microsoft and Apple (PowerDMARC)</a></li><li><a href="https://knak.com/blog/ip-warming-email-marketing/" rel="noopener">What is IP warming? How to warm up a new email IP in 2026 (Knak)</a></li><li><a href="https://support.google.com/a/answer/14229414" rel="noopener">Email sender guidelines FAQ (Google Workspace Admin Help)</a></li><li><a href="https://www.sender.net/blog/apple-mail-privacy-protection/" rel="noopener">Apple Mail Privacy Protection: the 2026 guide (Sender)</a></li></ul>
+    <p class="small-print">Mailbox provider rules change, and this list was last checked in September 2026. Confirm current thresholds with each provider before you lock your plan. This checklist is general guidance and is not a guarantee of inbox placement.</p>
+  </section>
+  <section class="printonly" aria-hidden="true">
+  <h2>Worksheet 1: Baseline</h2>
+  <p>Median unique click rate = the middle value of your last 10 to 12 comparable sends. Success is at or above it. Watch is 75% to 99% of it. Concern is below 75%.</p>
+  <table class="plain"><thead><tr><th>Send date</th><th>Audience</th><th>Delivered</th><th>Unique clickers (bots removed)</th><th>Unique click rate</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+  <p><strong>Median: ________ %</strong> &nbsp; Success: ________ % or higher &nbsp; Watch: ________ % to ________ % &nbsp; Concern: below ________ %</p>
+  <h2 class="pb">Worksheet 2: Daily tracker</h2>
+  <p>Make one copy per mailbox provider: Microsoft, Apple, Google, Yahoo. Planned volumes below are an example: start 500, grow 20% per send day, cap 50,000. Replace them with your own plan.</p>
+  <table class="plain tracker"><thead><tr><th>Send day</th><th>Planned</th><th>Sent</th><th>Hard bounce %</th><th>Complaint %</th><th>Unsub %</th><th>Click %</th><th>Deferrals</th><th>Decision</th></tr></thead><tbody>
+  <tr><td>1</td><td>500</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td>600</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td>720</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td>864</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td>1,037</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td>1,244</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td>1,493</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>8</td><td>1,792</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>9</td><td>2,150</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>10</td><td>2,580</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>11</td><td>3,096</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>12</td><td>3,715</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13</td><td>4,458</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>14</td><td>5,350</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>15</td><td>6,420</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16</td><td>7,704</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>17</td><td>9,245</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>18</td><td>11,094</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>19</td><td>13,313</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>20</td><td>15,976</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>21</td><td>19,171</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>22</td><td>23,005</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>23</td><td>27,606</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>24</td><td>33,127</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>25</td><td>39,752</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>26</td><td>47,702</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>27</td><td>50,000</td><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </tbody></table>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap"><p>Last checked September 2026. Use it, copy it, adapt it for your team.</p></div></footer>
+
+<div class="logo"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="#C9A227" stroke-width="1">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="119" cy="137" r="99" stroke-width="1.5"></circle>
+    <path d="M74 172 V80 C74 66 90 64 98 76 L120 112 L142 76 C150 64 166 66 166 80 V172" stroke-width="10"></path>
+    <path d="M74 104 H46 M74 133 H58 M74 162 H46" stroke-width="6"></path>
+    <path d="M166 104 H184 C196 104 196 130 184 130 H166" stroke-width="6"></path>
+    <path d="M62 188 C74 212 94 212 104 190 C112 172 128 172 136 190 C146 212 166 212 178 188" stroke-width="6"></path>
+  </g>
+</svg></div>
+
+<script>
+(function(){
+  var KEY_C='ipw.v1.checks', KEY_L='ipw.v1.launch';
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  var boxes=[].slice.call(document.querySelectorAll('[data-item]'));
+  var progress=document.getElementById('overall'), pcount=document.getElementById('pcount');
+
+  // restore checks
+  var saved={};try{saved=JSON.parse(get(KEY_C)||'{}')}catch(e){saved={}}
+  boxes.forEach(function(b){ if(saved[b.id]) b.checked=true; });
+
+  function refresh(){
+    var done=0, byPhase={};
+    boxes.forEach(function(b){
+      var li=b.closest('[data-row]'); if(li) li.classList.toggle('done',b.checked);
+      var ph=b.closest('[data-phase]'); var id=ph&&ph.getAttribute('data-phase');
+      byPhase[id]=byPhase[id]||{d:0,t:0}; byPhase[id].t++; if(b.checked){byPhase[id].d++;done++;}
+    });
+    progress.max=boxes.length; progress.value=done;
+    pcount.textContent=done+' of '+boxes.length+' done';
+    [].forEach.call(document.querySelectorAll('[data-count-for]'),function(el){
+      var s=byPhase[el.getAttribute('data-count-for')]; if(s) el.textContent=s.d+' of '+s.t+' done';
+    });
+  }
+  boxes.forEach(function(b){
+    b.addEventListener('change',function(){
+      var o={};boxes.forEach(function(x){if(x.checked)o[x.id]=1});set(KEY_C,JSON.stringify(o));refresh();
+    });
+  });
+  refresh();
+
+  // reset (two-step, no browser dialogs)
+  var rb=document.getElementById('reset'), t;
+  rb.addEventListener('click',function(){
+    if(rb.dataset.armed==='1'){
+      boxes.forEach(function(b){b.checked=false});set(KEY_C,'{}');refresh();
+      rb.dataset.armed='0';rb.textContent='Clear all checkmarks';return;
+    }
+    rb.dataset.armed='1';rb.textContent='Click again to confirm';
+    clearTimeout(t);t=setTimeout(function(){rb.dataset.armed='0';rb.textContent='Clear all checkmarks'},4000);
+  });
+
+  // launch date -> calendar dates
+  var launch=document.getElementById('launch-date');
+  var fmt=function(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})};
+  var fmtY=function(d){return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})};
+  function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);return x}
+  function parse(v){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return m?new Date(+m[1],+m[2]-1,+m[3]):null}
+  function dates(){
+    var d=parse(launch.value);
+    [].forEach.call(document.querySelectorAll('[data-start]'),function(el){
+      var s=+el.getAttribute('data-start'), eRaw=el.getAttribute('data-end'), e=eRaw===''?null:+eRaw;
+      var isTl=el.classList.contains('tl-date');
+      if(!d){ el.textContent=isTl?'':el.getAttribute('data-default')||''; return; }
+      var a=addDays(d,s);
+      if(e===null){ el.textContent=fmt(a)+' and on'; return; }
+      if(s===e){ el.textContent=fmtY(a); return; }
+      var b=addDays(d,e);
+      el.textContent=isTl?fmt(a)+' to '+fmt(b):fmt(a)+' to '+fmt(b);
+    });
+    plan();
+  }
+  var savedL=get(KEY_L); if(savedL) launch.value=savedL;
+  launch.addEventListener('change',function(){set(KEY_L,launch.value);dates()});
+
+  // copy buttons
+  [].forEach.call(document.querySelectorAll('[data-copy]'),function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-copy'), pre=document.getElementById(id), st=document.getElementById(id+'-s');
+      var text=pre.textContent;
+      function ok(){st.textContent='Copied to your clipboard.';btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy text';st.textContent=''},2500)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');ok()}catch(e){st.textContent='Press Ctrl or Command plus C to copy the selected text.'}}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}
+    });
+  });
+
+  // baseline calculator
+  var rates=document.getElementById('rates'), latest=document.getElementById('latest'), bout=document.getElementById('baseline-out');
+  function nums(s){return (s||'').split(/[\s,;]+/).map(function(x){return parseFloat(x.replace('%',''))}).filter(function(x){return isFinite(x)&&x>=0&&x<=100})}
+  function median(a){var b=a.slice().sort(function(x,y){return x-y}),m=Math.floor(b.length/2);return b.length%2?b[m]:(b[m-1]+b[m])/2}
+  var p2=function(x){return (Math.round(x*100)/100).toFixed(2)+'%'};
+  function baseline(){
+    var v=nums(rates.value);
+    if(!v.length){bout.innerHTML='<p>Your bands will show up here.</p>';return}
+    var med=median(v), w=med*0.75, h='';
+    h+='<p><b>Baseline (median of '+v.length+' sends): '+p2(med)+'</b></p>';
+    if(v.length<5) h+='<p>That is fewer than 5 sends, so treat these bands as a rough guess. Aim for 10 to 12.</p>';
+    h+='<div class="bands"><div class="s"><b>Success</b>'+p2(med)+' or higher</div><div><b>Watch</b>'+p2(w)+' up to just under '+p2(med)+'</div><div><b>Concern</b>Below '+p2(w)+'</div></div>';
+    var L=parseFloat((latest.value||'').replace('%',''));
+    if(isFinite(L)){
+      if(L>=med) h+='<p><b>Your send at '+p2(L)+' is a Success</b> on clicks. It counts as a full success only if complaints, bounces, and deferrals are also in the Grow column.</p>';
+      else if(L>=w) h+='<p><b>Your send at '+p2(L)+' is in the Watch band.</b> Hold your volume and change nothing else.</p>';
+      else h+='<p><b>Your send at '+p2(L)+' is in the Concern band.</b> Hold now. If the next send also lands here, start the scale-back playbook.</p>';
+    }
+    bout.innerHTML=h;
+  }
+  rates.addEventListener('input',baseline);latest.addEventListener('input',baseline);baseline();
+
+  // ramp planner
+  var ps=document.getElementById('p-start'),pt=document.getElementById('p-target'),pg=document.getElementById('p-growth'),pd=document.getElementById('p-days');
+  var pout=document.getElementById('planner-out'),chart=document.getElementById('chart'),rowsEl=document.getElementById('planner-rows'),axr=document.getElementById('axis-r');
+  function plan(){
+    var s=Math.max(1,Math.round(+ps.value||0)), t=Math.max(1,Math.round(+pt.value||0)), g=(+pg.value||0)/100, dpw=Math.min(7,Math.max(1,Math.round(+pd.value||5)));
+    if(!(s>0&&t>0&&g>0)){pout.textContent='Fill in all four numbers to see the plan.';return}
+    var rows=[Math.min(s,t)],v=rows[0];
+    while(v<t&&rows.length<500){var n=Math.min(t,Math.round(v*(1+g)));if(n<=v)n=v+1;v=n;rows.push(v)}
+    var steps=rows.length, weeks=steps/dpw, hold=weeks*1.25;
+    var msg='<p>At <b>'+Math.round(g*100)+'% growth per send day</b>, you go from '+rows[0].toLocaleString('en-US')+' to '+t.toLocaleString('en-US')+' in <b>'+steps+' send days</b>.</p>';
+    msg+='<p>Sending '+dpw+' days a week, that is about <b>'+weeks.toFixed(1)+' weeks</b> if every day is green, and closer to <b>'+hold.toFixed(1)+' weeks</b> once you allow for hold days.</p>';
+    var L=parse(launch.value);
+    if(L) msg+='<p>With your launch date, plan for full volume around <b>'+fmt(addDays(L,Math.ceil(hold*7)))+'</b>.</p>';
+    if(hold<3) msg+='<p>That is faster than the 4 to 8 weeks most plans use. Try a lower growth percentage unless your list and domain are already well established.</p>';
+    else if(hold>10) msg+='<p>That is longer than most plans. It is a fine choice for a small engaged list, and if you are in a hurry, raise the growth percentage a little.</p>';
+    else msg+='<p>That sits inside the 4 to 8 week range that most plans use.</p>';
+    pout.innerHTML=msg;
+    var max=Math.max.apply(null,rows);
+    chart.innerHTML=rows.map(function(x){return '<i style="height:'+Math.max(2,Math.round(x/max*100))+'%"></i>'}).join('');
+    chart.setAttribute('aria-label','Bar chart of planned daily volume, rising from '+rows[0].toLocaleString('en-US')+' on send day 1 to '+t.toLocaleString('en-US')+' on send day '+steps);
+    axr.textContent='Send day '+steps+': '+t.toLocaleString('en-US');
+    rowsEl.innerHTML=rows.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+x.toLocaleString('en-US')+'</td></tr>'}).join('');
+  }
+  [ps,pt,pg,pd].forEach(function(e){e.addEventListener('input',plan)});
+
+  dates();
+})();
+</script>
+</body>
+</html>
