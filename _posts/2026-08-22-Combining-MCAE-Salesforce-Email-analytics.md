@@ -3,7 +3,8 @@ title: "My Foolproof* System for Combining MCAE and Salesforce Email Data"
 description: "How to combine MCAE and Salesforce email data into one quarterly report: exports, report types, normalizing before you merge, and where AI helps and where it does not."
 teaser: "How I combine MCAE and Salesforce email data into one quarterly report, starting from raw counts instead of pre-calculated rate columns. It covers the exports, the report types, the cleanup formulas, and where AI helps and where it doesn't."
 layout: post
-image: "assets/images/My Foolproof System for Combining MCAE and Salesforce Email Data.png"
+image: "assets/images/mcae-salesforce-email-data-report.png"
+categories: [Reporting]
 ---
 So, this isn't foolproof, and it isn't a tutorial on how MCAE reporting works under the hood. It's the process I use for combining MCAE and Salesforce email data into one quarterly report. I'm not a data engineer. A fair amount of what's below comes straight out of Salesforce's own documentation, which is better than people give it credit for once you know which article you need.
 
