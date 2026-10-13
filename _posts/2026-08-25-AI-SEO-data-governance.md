@@ -1,5 +1,7 @@
 ---
 title: "AI SEO is a data governance problem"
+description: "Generative search favors sources it can read and identify. Why entity naming, schema, and crawler access are marketing ops work, and what to fix first."
+teaser: "AI search engines quote the sources they can read and identify, so entity naming, structured data, and crawler access land on operations. Here is what to fix first, and why measuring any of it is still a gap."
 layout: post
 ---
 <html lang="en">
