@@ -17,18 +17,16 @@ layout: default
                     
     			<div class="card-body">
                     
-    				<h1 class="display-4">
-    				    {{page.title}} 
-                    </h1>                    
+    				{% unless page.hide_title %}<h1 class="display-4">{{ page.title }}</h1>{% endunless %}                    
                      
                     <small class="text-muted d-block mb-3">
-                        {% unless page.metadate == "hide" %} 
-                            {{ page.date | date: '%B %d, %Y' }} 
-                        {% endunless %}
-                        {% if page.author %}
-                            , by {{page.author | capitalize}} 
-                        {% endif %}
-                    </small>                    
+{% unless page.metadate == "hide" %}
+{% assign d1 = page.date | date: '%Y-%m-%d' %}{% assign d2 = page.last_modified_at | date: '%Y-%m-%d' %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>{% if page.last_modified_at and d1 != d2 %} &middot; Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: '%B %-d, %Y' }}</time>{% endif %}
+{% endunless %}
+{% if page.author %}
+, by {{page.author | capitalize}}
+{% endif %}
+</small>                    
                     
     				{{ content }}
                     
@@ -39,10 +37,8 @@ layout: default
                     {% endif %}
                     
                     {% for category in page.categories %}
-                      <a class="btn btn-sm btn-primary mt-2" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">
-                        # {{ category | downcase }}
-                      </a>
-                    {% endfor %}
+<a class="btn btn-sm mt-2 mr-1" style="background:#1D3557;color:#F1FAEE;font-weight:700;" href="{{site.baseurl}}/posts/#{{ category | slugify }}">{{ category }}</a>
+{% endfor %}
                     
     				{% include comments.html %}
                     
@@ -50,14 +46,23 @@ layout: default
                     
     			</article>
                 
-                <div class="PageNavigation">
-                  {% if page.next.url %}
-                    <a class="prev" href="{{site.baseurl}}{{page.next.url}}"><i class="fa fa-angle-left"></i> </a>
-                  {% endif %}
-                  {% if page.previous.url %}
-                    <a class="next" href="{{site.baseurl}}{{page.previous.url}}"><i class="fa fa-angle-right"></i></a>
-                  {% endif %}
-                </div>
+                <nav class="mt-4" aria-label="More posts">
+<div class="d-flex justify-content-between flex-wrap" style="gap:12px;">
+{% if page.previous.url %}
+<a href="{{site.baseurl}}{{page.previous.url}}" rel="prev" class="bg-white rounded p-3" style="flex:1 1 220px;text-decoration:none;color:#1D3557;">
+<span class="d-block small text-muted">&larr; Older post</span>
+<strong>{{ page.previous.title }}</strong>
+</a>
+{% endif %}
+{% if page.next.url %}
+<a href="{{site.baseurl}}{{page.next.url}}" rel="next" class="bg-white rounded p-3" style="flex:1 1 220px;text-decoration:none;color:#1D3557;text-align:right;">
+<span class="d-block small text-muted">Newer post &rarr;</span>
+<strong>{{ page.next.title }}</strong>
+</a>
+{% endif %}
+</div>
+<p class="text-center mt-3 mb-0"><a href="{{site.baseurl}}/posts/" style="color:#1D3557;font-weight:700;">&larr; Back to all posts</a></p>
+</nav>
                 
     		</div>
     	</div>
