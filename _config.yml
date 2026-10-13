@@ -7,6 +7,13 @@ url: 'https://mollypw.com'
 baseurl: ''
 avatar: 'assets/images/sal.jpg'
 email: 'purcell.molly@gmail.com'
+author:
+  name: 'Molly Purcell-Weatherwalks'
+social:
+  name: 'Molly Purcell-Weatherwalks'
+  links:
+    - 'https://www.linkedin.com/in/purcell-molly'
+    - 'https://github.com/MollyPW'
 
 include: ["_pages"]
 permalink: /:title/
