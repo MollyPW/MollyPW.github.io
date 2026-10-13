@@ -4,7 +4,9 @@ teaser: "Workflows send marketing emails to many contacts at once, while Sequenc
 title: "HubSpot Workflows vs. Sequences: What's the Real Difference?"
 date: 2026-10-13
 description: "A fact-checked breakdown of how HubSpot Workflows and Sequences actually differ: enrollment, limits, campaigns, and unenrollment, verified against HubSpot's current documentation."
-image: "assets/images/HubSpot Workflows vs. Sequences.png"
+image: "assets/images/hubspot-workflows-vs-sequences.png"
+categories: [Marketing Automation]
+hide_title: true
 tags: [hubspot, marketing-automation, b2b-marketing, revops]
 ---
 
