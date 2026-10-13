@@ -63,8 +63,9 @@ hide_title: true
         font-size:12.5px;color:var(--steel);background:transparent}
 .ai-seo-post .foot span{background:#fff;padding:0 2px}
 .ai-seo-post a{color:var(--steel)}
-.ai-seo-post{padding:8px 0 40px;}
-.ai-seo-post iframe, .ai-seo-post table{max-width:100%;}
+.ai-seo-post{margin:0 -1.25rem;padding:8px 1.25rem 40px;}
+.ai-seo-post p,.ai-seo-post li,.ai-seo-post td,.ai-seo-post dd{color:var(--navy);}
+.ai-seo-post iframe,.ai-seo-post table{max-width:100%;}
 </style>
 
   <div class="eyebrow">Marketing operations · point of view</div>
