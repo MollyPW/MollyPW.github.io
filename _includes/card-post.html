@@ -5,7 +5,7 @@
 
   {% unless post.image %}
 
-    <a href="{{site.baseurl}}{{post.url}}" class="d-block p-3">
+    <a href="{{site.baseurl}}{{post.url}}" class="d-block p-3" style="text-decoration:none;">
       <h2 class="card-title title text-white mb-2">{{ post.title }}</h2>
       <p class="text-white mb-2" style="font-size:.8rem;font-weight:400;"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>{% if post.last_modified_at and d1 != d2 %} &middot; Updated <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>{% endif %}</p>
       <p class="text-white mb-0" style="font-size:.95rem;line-height:1.5;font-weight:400;">{{ teaser | default: post.content | strip_html | truncatewords:45 }}</p>
@@ -17,7 +17,7 @@
     {% if post.categories.size > 0 %}
     <div class="px-3 pb-4">
       {% for category in post.categories %}
-      <a class="btn btn-sm mr-1 mb-1" style="background:#A8DADC;color:#1D3557;font-weight:700;" href="{{site.baseurl}}/posts/#{{ category | slugify }}">{{ category }}</a>
+      <a class="btn btn-sm mr-1 mb-1" style="background:#A8DADC;color:#1D3557;font-weight:700;text-decoration:none;" href="{{site.baseurl}}/posts/#{{ category | slugify }}">{{ category }}</a>
       {% endfor %}
     </div>
     {% endif %}
@@ -56,7 +56,7 @@
   {% if post.categories.size > 0 %}
   <div style="background:#fff;padding:0 18px 14px;border-bottom-left-radius:3px;border-bottom-right-radius:3px;">
     {% for category in post.categories %}
-    <a class="btn btn-sm mr-1 mb-1" style="background:#1D3557;color:#F1FAEE;font-weight:700;" href="{{site.baseurl}}/posts/#{{ category | slugify }}">{{ category }}</a>
+    <a class="btn btn-sm mr-1 mb-1" style="background:#1D3557;color:#F1FAEE;font-weight:700;text-decoration:none;" href="{{site.baseurl}}/posts/#{{ category | slugify }}">{{ category }}</a>
     {% endfor %}
   </div>
   {% endif %}
