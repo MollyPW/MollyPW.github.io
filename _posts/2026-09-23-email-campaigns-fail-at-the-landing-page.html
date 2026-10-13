@@ -3,168 +3,72 @@ title: "Your Email Campaign Doesn't Fail at Send. It Fails at the Landing Page."
 description: "What makes a landing page convert after the email click, with a real MarketingSherpa case study and how to test when your list is too small for a formal A/B test."
 teaser: "The email earns the click, and the landing page decides whether anything happens next. Here is what makes a page convert, with a real MarketingSherpa case study and a way to test when your list is small."
 layout: post
-image: "assets/images/Email Fails at the Landing Page.png"
+image: "assets/images/email-fails-at-the-landing-page.png"
+categories: [Email Marketing]
+hide_title: true
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Email Campaign Doesn't Fail at Send. It Fails at the Landing Page.</title>
-<meta name="description" content="The click isn't the conversion. What actually makes a landing page convert after the email does its job, with a real MarketingSherpa case study and a look at how to test without a big list.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Your Email Campaign Doesn't Fail at Send. It Fails at the Landing Page.",
-  "author": { "@type": "Person", "name": "Molly Purcell-Weatherwalks" },
-  "datePublished": "2026-09-21",
-  "publisher": { "@type": "Organization", "name": "Molly Purcell-Weatherwalks" }
-}
-</script>
-
+<div class="art-wrap">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
-
 <style>
-  :root {
-    --navy:      #1D3557;
+.art-wrap{--navy:      #1D3557;
     --red:       #E63946;
     --steel:     #457B9D;
     --teal:      #A8DADC;
     --offwhite:  #F1FAEE;
-    --gold:      #C9A227;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
+    --gold:      #C9A227;}
+.art-wrap *{box-sizing: border-box;}
+.art-wrap{margin: 0;
     background: var(--offwhite);
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--navy);
-    line-height: 1.65;
-  }
-
-  .article-shell {
-    max-width: 760px;
+    line-height: 1.65;}
+.art-wrap .article-shell{max-width: 760px;
     margin: 0 auto;
-    padding: 48px 24px 96px;
-  }
-
-  .article-card {
-    background: #FFFFFF;
+    padding: 48px 24px 96px;}
+.art-wrap .article-card{background: #FFFFFF;
     border-radius: 4px;
-    padding: 48px clamp(24px, 6vw, 64px);
-  }
-
-  h1 {
-    font-family: 'DM Sans', sans-serif;
+    padding: 48px clamp(24px, 6vw, 64px);}
+.art-wrap h1{font-family: 'DM Sans', sans-serif;
     font-weight: 900;
     color: var(--navy);
     font-size: clamp(28px, 4vw, 38px);
     line-height: 1.25;
     text-align: left;
-    margin: 0 0 32px;
-  }
-
-  h2 {
-    font-family: 'DM Sans', sans-serif;
+    margin: 0 0 32px;}
+.art-wrap h2{font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     color: var(--navy);
     font-size: 22px;
-    margin: 40px 0 16px;
-  }
-
-  p {
-    font-size: 17px;
-    margin: 0 0 20px;
-  }
-
-  p.thesis {
-    font-weight: 700;
-  }
-
-  a {
-    color: var(--steel);
+    margin: 40px 0 16px;}
+.art-wrap p{font-size: 17px;
+    margin: 0 0 20px;}
+.art-wrap p.thesis{font-weight: 700;}
+.art-wrap a{color: var(--steel);
     text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  a:hover, a:focus {
-    color: var(--navy);
-  }
-
-  a:focus-visible {
-    outline: 2px solid var(--navy);
-    outline-offset: 2px;
-  }
-
-  .site-logo {
-    position: fixed;
+    text-underline-offset: 2px;}
+.art-wrap a:hover,
+.art-wrap a:focus{color: var(--navy);}
+.art-wrap a:focus-visible{outline: 2px solid var(--navy);
+    outline-offset: 2px;}
+.art-wrap .site-logo{position: fixed;
     right: 24px;
     bottom: 24px;
     width: 48px;
     height: 48px;
-    pointer-events: none;
-  }
-
-  @media (max-width: 480px) {
-    .article-card { padding: 32px 20px; }
-    .site-logo { width: 36px; height: 36px; right: 16px; bottom: 16px; }
-  }
-  .home-bar{
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #FFFFFF;
-    border-bottom: 1px solid var(--teal);
-    padding: 12px clamp(16px, 6vw, 24px);
-  }
-  .home-bar a{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-  }
-  .home-bar a:hover,
-  .home-bar a:focus{
-    text-decoration: underline;
-  }
-  .home-bar svg{
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-  }
+    pointer-events: none;}
+@media (max-width: 480px){
+.art-wrap .article-card{padding: 32px 20px;}
+.art-wrap .site-logo{width: 36px; height: 36px; right: 16px; bottom: 16px;}
+}
+.art-wrap{background:transparent;}
+.art-wrap .article-shell{max-width:none;margin:0;padding:0;}
+.art-wrap .article-card{background:transparent;padding:0;border-radius:0;}
+.art-wrap p,.art-wrap li{color:var(--navy);}
+.art-wrap iframe,.art-wrap pre{max-width:100%;}
 </style>
-</head>
-<body>
-<div class="home-bar">
-  <a href="https://mollypw.com/" aria-label="Back to the mollypw.com home page">
-    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="#C9A227" stroke-width="1">
-      <g stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="119" cy="137" r="99" stroke-width="1.5"></circle>
-        <path d="M74 172 V80 C74 66 90 64 98 76 L120 112 L142 76 C150 64 166 66 166 80 V172" stroke-width="10"></path>
-        <path d="M74 104 H46 M74 133 H58 M74 162 H46" stroke-width="6"></path>
-        <path d="M166 104 H184 C196 104 196 130 184 130 H166" stroke-width="6"></path>
-        <path d="M62 188 C74 212 94 212 104 190 C112 172 128 172 136 190 C146 212 166 212 178 188" stroke-width="6"></path>
-      </g>
-    </svg>
-    Home
-  </a>
-</div>
-
-
-<main class="article-shell">
+<div class="article-shell">
   <article class="article-card">
     <h1>Your Email Campaign Doesn't Fail at Send. It Fails at the Landing Page.</h1>
 
@@ -208,7 +112,7 @@ image: "assets/images/Email Fails at the Landing Page.png"
   
 
   </article>
-</main>
+</div>
 
 <svg class="site-logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="#C9A227" stroke-width="1">
   <g stroke-linecap="round" stroke-linejoin="round">
@@ -219,6 +123,4 @@ image: "assets/images/Email Fails at the Landing Page.png"
     <path d="M62 188 C74 212 94 212 104 190 C112 172 128 172 136 190 C146 212 166 212 178 188" stroke-width="6"></path>
   </g>
 </svg>
-
-</body>
-</html>
+</div>
