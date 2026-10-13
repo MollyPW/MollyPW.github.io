@@ -2,17 +2,63 @@
 title: "Posts"
 layout: default
 permalink: "/posts/"
+description: "Articles on marketing operations, CRM data, email, and AI search by Molly Purcell-Weatherwalks."
 ---
+<style>
+.post-filter { background:#fff; color:#1D3557; border:2px solid #1D3557; font-weight:700; }
+.post-filter:hover { background:#A8DADC; color:#1D3557; }
+.post-filter.active { background:#1D3557; color:#F1FAEE; }
+.post-filter:focus-visible { outline:3px solid #E63946; outline-offset:2px; }
+</style>
 <section class="mt-4 mb-5">
-  <div class="container mb-4">
-    <h1 class="font-weight-bold title">Posts</h1>
-  </div>
+<div class="container mb-4">
+<h1 class="font-weight-bold title">Posts</h1>
+<p class="mb-3" style="max-width:640px;">Articles on marketing operations, CRM data, email, and AI search. Pick a topic to filter.</p>
+{% assign cat_names = site.categories | sort %}
+{% if cat_names.size > 0 %}
+<div id="post-filters" role="group" aria-label="Filter posts by topic">
+<button type="button" class="btn btn-sm post-filter active mr-1 mb-1" data-filter="all" aria-pressed="true">All</button>
+{% for c in cat_names %}
+<button type="button" class="btn btn-sm post-filter mr-1 mb-1" data-filter="{{ c[0] | slugify }}" aria-pressed="false">{{ c[0] }}</button>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-  <div class="container-fluid">
-    <div class="card-columns">
-      {% for post in site.posts %}
-        {% include card-post.html %}
-      {% endfor %}
-    </div>
-  </div>
+<div class="container-fluid">
+<div class="card-columns">
+{% for post in site.posts %}
+{% include card-post.html %}
+{% endfor %}
+</div>
+</div>
 </section>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.post-filter');
+  var cards = document.querySelectorAll('.card-columns > .card[data-cats]');
+  if (!buttons.length) { return; }
+  function apply(filter) {
+    cards.forEach(function (card) {
+      var cats = ' ' + card.getAttribute('data-cats') + ' ';
+      var show = filter === 'all' || cats.indexOf(' ' + filter + ' ') > -1;
+      card.style.display = show ? '' : 'none';
+    });
+    buttons.forEach(function (b) {
+      var on = b.getAttribute('data-filter') === filter;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      apply(f);
+      try { history.replaceState(null, '', f === 'all' ? location.pathname : '#' + f); } catch (e) {}
+    });
+  });
+  var hash = (location.hash || '').replace('#', '');
+  if (hash && document.querySelector('.post-filter[data-filter="' + hash + '"]')) { apply(hash); }
+})();
+</script>
