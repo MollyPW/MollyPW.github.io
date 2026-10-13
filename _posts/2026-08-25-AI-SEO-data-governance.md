@@ -3,82 +3,69 @@ title: "AI SEO is a data governance problem"
 description: "Generative search favors sources it can read and identify. Why entity naming, schema, and crawler access are marketing ops work, and what to fix first."
 teaser: "AI search engines quote the sources they can read and identify, so entity naming, structured data, and crawler access land on operations. Here is what to fix first, and why measuring any of it is still a gap."
 layout: post
+categories: [AI Search]
+hide_title: true
 ---
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SEO is a data governance problem</title>
+<div class="ai-seo-post">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy:#1D3557; --red:#E63946; --steel:#457B9D;
-    --teal:#A8DADC; --offwhite:#F1FAEE; --gold:#C9A227;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--offwhite);color:var(--navy);
+.ai-seo-post{--navy:#1D3557; --red:#E63946; --steel:#457B9D;
+    --teal:#A8DADC; --offwhite:#F1FAEE; --gold:#C9A227;}
+.ai-seo-post *{margin:0;padding:0;box-sizing:border-box}
+.ai-seo-post{background:var(--offwhite);color:var(--navy);
        font-family:Poppins,system-ui,sans-serif;line-height:1.6;
        padding:52px 22px 90px}
-  .page{max-width:760px;margin:0 auto}
-
-  /* --- cover block: Register B --- */
-  .eyebrow{font-family:Poppins;font-size:12px;letter-spacing:2.4px;
+.ai-seo-post{max-width:760px;margin:0 auto}
+.ai-seo-post .eyebrow{font-family:Poppins;font-size:12px;letter-spacing:2.4px;
            text-transform:uppercase;color:var(--steel);
            background:#fff;display:inline-block;padding:3px 0;margin-bottom:18px}
-  h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:52px;
+.ai-seo-post h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:52px;
      line-height:1.06;letter-spacing:-1px;margin-bottom:16px}
-  .standfirst{font-family:"Cormorant Garamond",Georgia,serif;
+.ai-seo-post .standfirst{font-family:"Cormorant Garamond",Georgia,serif;
               font-style:italic;font-weight:500;font-size:23px;
               line-height:1.45;color:var(--navy);max-width:600px}
-  .rule{height:3px;background:var(--gold);width:120px;margin:34px 0 40px}
-
-  h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
+.ai-seo-post .rule{height:3px;background:var(--gold);width:120px;margin:34px 0 40px}
+.ai-seo-post h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;
      font-size:30px;line-height:1.2;margin:42px 0 12px}
-  h3{font-family:Poppins,system-ui,sans-serif;font-weight:500;font-size:12.5px;
+.ai-seo-post h3{font-family:Poppins,system-ui,sans-serif;font-weight:500;font-size:12.5px;
      letter-spacing:1.8px;text-transform:uppercase;color:var(--steel);
      margin:26px 0 8px}
-  p{font-size:15.5px;margin-bottom:15px}
-  strong{font-weight:500;color:var(--navy)}
-  code{font-family:"DejaVu Sans Mono",ui-monospace,monospace;font-size:13px;
+.ai-seo-post p{font-size:15.5px;margin-bottom:15px}
+.ai-seo-post strong{font-weight:500;color:var(--navy)}
+.ai-seo-post code{font-family:"DejaVu Sans Mono",ui-monospace,monospace;font-size:13px;
        background:#fff;padding:1px 5px;border-bottom:1px solid var(--teal)}
-
-  .pull{background:var(--teal);padding:22px 26px;margin:30px 0;
+.ai-seo-post .pull{background:var(--teal);padding:22px 26px;margin:30px 0;
         font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;
         font-style:italic;line-height:1.35}
-
-  ol{margin:0 0 18px 0;list-style:none;counter-reset:step}
-  ol li{counter-increment:step;position:relative;padding-left:44px;
+.ai-seo-post ol{margin:0 0 18px 0;list-style:none;counter-reset:step}
+.ai-seo-post ol li{counter-increment:step;position:relative;padding-left:44px;
         margin-bottom:16px;font-size:15.5px}
-  ol li::before{content:counter(step);position:absolute;left:0;top:1px;
+.ai-seo-post ol li::before{content:counter(step);position:absolute;left:0;top:1px;
         width:28px;height:28px;background:var(--navy);color:var(--offwhite);
         border-radius:50%;display:flex;align-items:center;
         justify-content:center;font-size:13px;font-weight:500}
-
-  table{border-collapse:collapse;width:100%;margin:18px 0 22px;
+.ai-seo-post table{border-collapse:collapse;width:100%;margin:18px 0 22px;
         font-size:12.5px;background:#fff}
-  thead th{background:var(--navy);color:var(--offwhite);text-align:left;
+.ai-seo-post thead th{background:var(--navy);color:var(--offwhite);text-align:left;
         font-weight:500;font-size:10.5px;letter-spacing:1px;
         text-transform:uppercase;padding:9px 9px}
-  tbody td{padding:10px 9px;border-bottom:1px solid #DDE6E2;
+.ai-seo-post tbody td{padding:10px 9px;border-bottom:1px solid #DDE6E2;
         vertical-align:top;line-height:1.45}
-  tbody tr:last-child td{border-bottom:none}
-  tbody td:first-child{font-weight:500;width:15%}
-  tbody td:nth-child(2){width:23%}
-  tbody td:nth-child(3){width:29%}
-  tbody td:nth-child(4){width:33%}
-  tbody td code{font-size:12px;padding:0 3px;word-break:break-word}
-
-  .flag{border-left:5px solid var(--red);background:#fff;
+.ai-seo-post tbody tr:last-child td{border-bottom:none}
+.ai-seo-post tbody td:first-child{font-weight:500;width:15%}
+.ai-seo-post tbody td:nth-child(2){width:23%}
+.ai-seo-post tbody td:nth-child(3){width:29%}
+.ai-seo-post tbody td:nth-child(4){width:33%}
+.ai-seo-post tbody td code{font-size:12px;padding:0 3px;word-break:break-word}
+.ai-seo-post .flag{border-left:5px solid var(--red);background:#fff;
         padding:16px 22px;margin:28px 0;font-size:15px}
-
-  .foot{margin-top:52px;padding-top:18px;border-top:1px solid #D4DBD6;
+.ai-seo-post .foot{margin-top:52px;padding-top:18px;border-top:1px solid #D4DBD6;
         font-size:12.5px;color:var(--steel);background:transparent}
-  .foot span{background:#fff;padding:0 2px}
-  a{color:var(--steel)}
+.ai-seo-post .foot span{background:#fff;padding:0 2px}
+.ai-seo-post a{color:var(--steel)}
+.ai-seo-post{padding:8px 0 40px;}
+.ai-seo-post iframe, .ai-seo-post table{max-width:100%;}
 </style>
-</head>
-<body>
-<div class="page">
 
   <div class="eyebrow">Marketing operations · point of view</div>
   <h1>AI SEO is a data<br>governance problem</h1>
@@ -184,5 +171,3 @@ layout: post
   </div>
 
 </div>
-</body>
-</html>
