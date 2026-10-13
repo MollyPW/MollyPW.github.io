@@ -5,7 +5,7 @@
 
     <a href="{{site.baseurl}}{{post.url}}" class="d-block p-3">
       <h2 class="card-title title text-white mb-3">{{ post.title }}</h2>
-      <p class="text-white mb-0" style="font-size:.95rem;line-height:1.5;">{{ teaser | default: post.content | strip_html | truncatewords:25 }}</p>
+      <p class="text-white mb-0" style="font-size:.95rem;line-height:1.5;font-weight:400;">{{ teaser | default: post.content | strip_html | truncatewords:45 }}</p>
       <div class="more mr-2 mb-2">
         <i class="fa fa-arrow-circle-right text-white" aria-hidden="true"></i>
       </div>
@@ -18,7 +18,7 @@
   <div class="wrapcat">
 
     <span class="pinme">
-      <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{site.url}}{{site.baseurl}}{{post.url}}&media={{site.url}}{{site.baseurl}}/{{post.image}}&description={{ post.title }} - {{ teaser | default: post.content | strip_html | truncatewords:25 }}"></a>
+      <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{site.url}}{{site.baseurl}}{{post.url}}&media={{site.url}}{{site.baseurl}}/{{post.image}}&description={{ post.title }} - {{ teaser | default: post.content | strip_html | truncatewords:45 }}"></a>
     </span>
 
     <span class="gotopost">
@@ -35,13 +35,13 @@
 
   </div>
 
-  <a href="{{site.baseurl}}{{post.url}}">
+  <a href="{{site.baseurl}}{{post.url}}" style="text-decoration:none;">
 
     <img class="card-img" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ post.image | absolute_url }}{% endif %}" alt="{{ post.title }}">
 
     <div class="notraco">
       <h2 class="sr-only">{{ post.title }}</h2>
-      <p class="card-teaser text-dark mb-0" style="font-size:.95rem;line-height:1.5;">{{ teaser }}</p>
+      <p class="card-teaser text-dark mb-0" style="font-size:.95rem;line-height:1.5;font-weight:400;">{{ teaser }}</p>
       <div class="more">
         <i class="fa fa-arrow-circle-right text-muted" aria-hidden="true"></i>
       </div>
