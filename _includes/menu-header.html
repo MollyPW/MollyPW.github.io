@@ -1,16 +1,20 @@
 <!--  Top menu links -->
+{% assign here = page.url %}
+{% assign on_posts = false %}
+{% if here == '/posts/' or page.layout == 'post' %}{% assign on_posts = true %}{% endif %}
 
 <li class="nav-item">
-    <a class="nav-link active" href="{{site.baseurl}}/">Home</a>
+    <a class="nav-link{% if here == '/' or here == '/index.html' %} active{% endif %}"{% if here == '/' or here == '/index.html' %} aria-current="page"{% endif %} href="{{site.baseurl}}/">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/about/">About Me</a></li>
-<li class="nav-item">
-    <a class="nav-link" href="{{site.baseurl}}/projects/">Projects</a>
+    <a class="nav-link{% if here contains '/about' and on_posts == false %} active{% endif %}"{% if here contains '/about' and on_posts == false %} aria-current="page"{% endif %} href="{{site.baseurl}}/about/">About Me</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{site.baseurl}}/posts/">Posts</a>
+    <a class="nav-link{% if here contains '/projects' and on_posts == false %} active{% endif %}"{% if here contains '/projects' and on_posts == false %} aria-current="page"{% endif %} href="{{site.baseurl}}/projects/">Projects</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{site.baseurl}}/contact/">Contact</a>
+    <a class="nav-link{% if on_posts %} active{% endif %}"{% if on_posts %} aria-current="page"{% endif %} href="{{site.baseurl}}/posts/">Posts</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link{% if here contains '/contact' and on_posts == false %} active{% endif %}"{% if here contains '/contact' and on_posts == false %} aria-current="page"{% endif %} href="{{site.baseurl}}/contact/">Contact</a>
 </li>
