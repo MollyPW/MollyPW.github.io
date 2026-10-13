@@ -1,5 +1,7 @@
 ---
 title: "TrueTail Pet Insurance - Coverage Match Nurture Program"
+description: "A fictional pet insurance nurture program in Salesforce Account Engagement (Pardot): five species-specific tracks routed by click behavior, with a results brief."
+teaser: "One welcome email routes new pet parents into one of five species-specific nurture tracks, based entirely on what they click. This fictional TrueTail Pet Insurance build walks through the program architecture and the results brief."
 layout: post
 ---
 <html lang="en">
