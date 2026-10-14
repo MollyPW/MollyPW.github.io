@@ -57,4 +57,15 @@ image:
   <p>
     Outside of work, I restore antique furniture and run a small shop selling Geegaws, Trinkets, Tchotchkes — you can find it on <a href="https://www.etsy.com/shop/DopamineMoment" target="_blank" rel="noopener">Etsy</a>.
   </p>
+
+  <h2>Let's Talk</h2>
+  <p>
+    Whether you have a potential opportunity, want to discuss industry trends or shared interests, grab 25 minutes with me.
+  </p>
+  <p>
+    My goal is to make our conversation focused and valuable.
+  </p>
+  <p>
+    <a href="https://calendly.com/purcell-weatherwalks-molly/25mins-with-molly" target="_blank" rel="noopener" class="btn btn-accent btn-lg">Book 25 minutes</a>
+  </p>
 </div>
