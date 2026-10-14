@@ -203,19 +203,20 @@ footer.footer .text-danger {
 }
 
 /* ---- Navbar call-to-action button ("Let's Talk") ----
-   Brand red with off-white text. Bold at 1.2rem (19.2px) counts as "large text",
-   which is what the brand rules require for red; contrast is 3.9:1.
+   Darker brand-family red (#C62F3B) with off-white text: 5.1:1 contrast, which passes
+   at any text size. Font size, weight and line height match the other menu links.
    .navbar a forces navy text, so the colors are restored here for this button only. */
 .navbar a.nav-cta {
-  background-color: var(--red) !important;
-  border: 1px solid var(--red) !important;
+  background-color: #C62F3B !important;
+  border: 1px solid #C62F3B !important;
   color: var(--offwhite) !important;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 0.3rem 1.1rem;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  padding: 0.35rem 1rem;
 }
 .navbar a.nav-cta:hover {
-  background-color: #C62F3B !important;
-  border-color: #C62F3B !important;
+  background-color: #A82733 !important;
+  border-color: #A82733 !important;
   color: #FFFFFF !important;
 }
