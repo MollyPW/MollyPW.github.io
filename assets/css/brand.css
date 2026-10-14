@@ -201,3 +201,16 @@ footer.footer .text-danger {
 .card p {
   color: var(--steel);
 }
+
+/* ---- Navbar call-to-action button ("Let's Talk") ----
+   .navbar a forces navy text, which would make the navy button unreadable,
+   so this rule restores light text on the button only. */
+.navbar a.nav-cta {
+  color: var(--offwhite) !important;
+  padding: 0.35rem 1rem;
+  border-bottom: 1px solid var(--navy);
+}
+.navbar a.nav-cta:hover {
+  color: var(--offwhite) !important;
+  border-bottom: 1px solid #14283f;
+}
