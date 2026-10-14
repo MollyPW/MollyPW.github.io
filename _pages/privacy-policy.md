@@ -16,6 +16,11 @@ This website track basic information about their visitors. This information incl
 Where necessary, this website uses cookies to store information about a visitor’s preferences and history in order to better serve the visitor and/or present the visitor with customized content.
 
 
+#### Analytics
+
+This website uses Google Analytics to count visits and see which pages people read. Google Analytics uses cookies and collects information such as your approximate location, device type, browser, and the pages you view. We use this information only to understand how the site is used and to improve it, not to identify you personally. You can read [Google's privacy policy](https://policies.google.com/privacy), and you can opt out with the [Google Analytics opt-out browser add-on](https://tools.google.com/dlpage/gaoptout).
+
+
 #### Advertisement and Other Third Parties
 
 Advertising partners and other third parties may use cookies, scripts and/or web beacons to track visitor activities on this website in order to display advertisements and other useful information. Such tracking is done directly by the third parties through their own servers and is subject to their own privacy policies. This website has no access or control over these cookies, scripts and/or web beacons that may be used by third parties. Learn how to [opt out of Google’s cookie usage](http://www.google.com/privacy_ads.html).
