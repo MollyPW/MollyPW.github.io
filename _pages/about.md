@@ -60,7 +60,7 @@ image:
 
   <h2>Let's Talk</h2>
   <p>
-    Whether you have a potential opportunity, want to discuss industry trends or shared interests, grab 25 minutes with me.
+    Whether you have a potential opportunity or want to discuss industry trends or shared interests, grab 25 minutes with me.
   </p>
   <p>
     My goal is to make our conversation focused and valuable.
