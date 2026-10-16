@@ -103,6 +103,7 @@ tags: [excel, data-cleaning, formulas, marketing-operations]
 .mcae-article th { background: var(--navy); color: var(--offwhite); }
 .mcae-article tbody tr:nth-child(even) { background: var(--offwhite); }
 .mcae-article code { background: var(--offwhite); padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.9em; }
+.mcae-article img.mc-shot { display: block; max-width: 100%; height: auto; margin: 0.5rem 0 1.5rem 0; border: 1px solid rgba(29,53,87,0.2); border-radius: 4px; }
 </style>
 
 <h1 class="mc-title">My 15 Secrets* to Convincing People I'm an Excel Expert</h1>
@@ -118,12 +119,14 @@ tags: [excel, data-cleaning, formulas, marketing-operations]
 <li><strong>Text to Columns</strong> - Lets you split up the contents of a cell into adjoining columns for sheet organization, data cleaning, and analysis</li>
 <li><strong>Remove Duplicates</strong> - Does exactly what it sounds like, but the cool thing is you get to decide which columns should be assessed when identifying duplicates. It's fantastic for data cleaning.</li>
 <li><strong>Record Macro</strong> - To make repetitive tasks go by faster - especially tasks related to sheet formatting. It can be tricky, so I recommend watching a few demonstrations before trying it on your own.</li>
-<li><strong>Set Data Types</strong> - Excel can identify Countries and States based on Zip Codes or abbreviations and can convert prices into different currencies.</li>
+<li><strong>Set Data Types</strong> - Excel can identify Countries and States based on Zip Codes or abbreviations and can convert prices into different currencies.<br><img class="mc-shot" src="{{ site.baseurl }}/assets/images/excel-data-types-geography-popup.png" alt="A screenshot of the Data Types section of the Data tab in Excel, with a pop up explaining how to use the Geography data type" width="390" loading="lazy"></li>
 <li><strong>Copy/Paste as Value</strong> - Allows you to copy and paste cells/rows/columns in a spreadsheet without formulas or cell formatting.</li>
 <li><strong>Conditional Formatting</strong> - Set up formatting rules based on cell content.</li>
 </ol>
 <p>Need to identify dates where total sales exceeded a certain amount? Use the "Greater Than..." option.</p>
+<img class="mc-shot" src="{{ site.baseurl }}/assets/images/excel-conditional-formatting-greater-than.png" alt="A screenshot of the Greater Than option under Highlight Cells Rules in the Conditional Formatting menu in Excel" width="424" loading="lazy">
 <p>Want to identify the webpage that received the top 10% of traffic last month?</p>
+<img class="mc-shot" src="{{ site.baseurl }}/assets/images/excel-conditional-formatting-top-10-percent.png" alt="A screenshot of the Top 10% option under Top/Bottom Rules in the Conditional Formatting menu in Excel" width="391" loading="lazy">
 <p>Excel has you covered with the "Top 10%" conditional formatting rule all set up!</p>
 <p>I especially love combining the Highlight Duplicate Values rule with the "Sort by Color" then "Filter By Color" to identify datasets that share identical attributes. See what I mean about combining features?</p>
 
