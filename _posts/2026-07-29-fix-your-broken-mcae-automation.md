@@ -5,7 +5,7 @@ date: 2026-07-29
 description: "A diagnostic guide for inherited Salesforce Marketing Cloud Account Engagement (Pardot) setups: Engagement Studio logic, sync errors, completion actions, scoring, and a four-point audit checklist."
 teaser: "You inherited a Pardot setup and nothing is flowing. Here are the real failure points in MCAE automation, from Engagement Studio branches to silent sync errors, plus a four-area audit to run before you change anything."
 image: "assets/images/fix-broken-mcae-automation.png"
-categories: [Marketing Automation]
+categories: [Marketing Automation, "MCAE/Pardot Operations"]
 hide_title: true
 tags: [mcae, pardot, salesforce, marketing-automation, engagement-studio, b2b-marketing]
 ---

@@ -4,7 +4,7 @@ description: "A fictional pet insurance nurture program in Salesforce Account En
 teaser: "One welcome email routes new pet parents into one of five species-specific nurture tracks, based entirely on what they click. This fictional TrueTail Pet Insurance build walks through the program architecture and the results brief."
 layout: post
 image: "assets/images/TrueTail-Pet-Insurance.png"
-categories: [Marketing Automation]
+categories: [Marketing Automation, "MCAE/Pardot Operations"]
 hide_title: true
 ---
 <div class="truetail-post">
