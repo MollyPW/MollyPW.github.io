@@ -115,7 +115,7 @@ tags: [mcae, pardot, salesforce, marketing-cloud, b2b-marketing, marketing-autom
 
 <h3 class="mc-h3">MCAE: the B2B lead pipeline engine</h3>
 <p>Marketing Cloud Account Engagement was built from the ground up for B2B demand generation. Its entire architecture centers on capturing leads, scoring and grading them, nurturing them through <a href="https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/mcae_data_cloud_implementation_guide.pdf">Engagement Studio</a>, and handing them off cleanly to your SDR or AE team inside Salesforce Sales Cloud. The tight integration with Leads, Contacts, and Opportunities isn't a nice-to-have; it's the whole point. For teams whose marketing goal is turning prospects into pipeline, MCAE is the tool designed specifically for that job.</p>
-<p>That being said - the limitations of MCAE can fit another article for another day.</p>
+<p>That said, the limitations of MCAE deserve their own article.</p>
 
 <h3 class="mc-h3">Marketing Cloud: multi-channel orchestration at scale</h3>
 <p>Salesforce Marketing Cloud (also called Marketing Cloud Engagement) is a different animal. It's built for complex, cross-channel journeys across email, SMS, mobile push, paid advertising, and web personalization, often at high volume across large or segmented audiences. Journey Builder gives you powerful, branching, event-driven automation that goes well beyond B2B lead nurture. More power means more architecture, more governance, and a substantially larger implementation lift than MCAE requires. That tradeoff is real.</p>
@@ -148,7 +148,7 @@ tags: [mcae, pardot, salesforce, marketing-cloud, b2b-marketing, marketing-autom
 </tbody>
 </table>
 </div>
-<p>If your needs land in the left column more than three times, you already have your answer.</p>
+<p>If your needs land in the MCAE column more than three times, you already have your answer.</p>
 
 <h3 class="mc-h3">How to read the signals on your team</h3>
 
