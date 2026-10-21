@@ -1,0 +1,66 @@
+---
+title: "Three ways to text a prospect out of MCAE*"
+layout: default
+permalink: "/projects/mcae-sms-teardown/"
+description: "A Marketing Ops teardown of three ways to send SMS from Salesforce Account Engagement (MCAE): Mogli, External Actions, and the almost-native Marketing Cloud permission set licenses, with the gotchas that are not in the sales deck."
+image: "/assets/images/mcae-sms-teardown-og.jpg"
+---
+<div class="container mt-4 mb-5" style="max-width: 860px;">
+
+  <p class="mb-1" style="letter-spacing: .12em; font-weight: 700; font-size: .85rem; color: #1D3557;">MARKETING OPS TEARDOWN &middot; AUGUST 2026</p>
+  <h1 class="font-weight-bold title">Three ways to text a prospect out of MCAE*</h1>
+
+  <p class="lead">
+    I have not built this in production. This is the map I would draw if someone asked, with the documentation checked and the gotchas that are not in the sales deck.
+  </p>
+
+  <p>
+    <a href="{{ site.baseurl }}/projects/mcae-sms-teardown/Three-Ways-to-Text-a-Prospect-out-of-MCAE.pdf" class="btn btn-outline-dark" download>Download the one-page PDF</a>
+  </p>
+
+  <a href="{{ site.baseurl }}/projects/mcae-sms-teardown/Three-Ways-to-Text-a-Prospect-out-of-MCAE.pdf" aria-label="Open the one-page PDF">
+    <img src="{{ site.baseurl }}/assets/images/mcae-sms-teardown-card.jpg"
+         alt="One-page teardown comparing three ways to send SMS from MCAE: Mogli (no developer required), External Actions (developer required), and the Account Engagement plus Marketing Cloud permission set licenses. The full text is below."
+         class="img-fluid mb-4" style="border: 1px solid rgba(29,53,87,.22);" width="1000" height="1294">
+  </a>
+
+  <h2 class="mt-4">1. Mogli <small style="font-size: 55%; font-weight: 400; color: #1D3557;">no developer required</small></h2>
+  <ol>
+    <li>A completion action called Create Salesforce Task fires on the form fill.</li>
+    <li>The Task subject reads "Mogli #keyword". The keyword after the # has to match the name of an SMS Template you built in Mogli.</li>
+    <li>Task creation triggers a Flow. It finds the related contact through the WhoID, sets the SMS fields, and creates the record in Queued status.</li>
+    <li>Mogli sends it from the Default Gateway on the record, or from a Gateway ID you hardcode in the Create Records element.</li>
+  </ol>
+  <p>
+    <strong>Watch out:</strong> The recipient needs a Mogli Number and must not be opted out, or nothing happens and nothing tells you. Mogli recommends a 5-minute delay scheduled path so the send leans on bulk architecture instead of blowing through processing limits. Mogli also sells an out-of-the-box Account Engagement package - the flow above is the build-it-yourself version.
+  </p>
+
+  <h2 class="mt-4">2. External Actions <small style="font-size: 55%; font-weight: 400; color: #1D3557;">developer required</small></h2>
+  <ol>
+    <li>A developer writes an invocable Apex action, plus a named credential and external service pointed at Twilio.</li>
+    <li>It gets registered as a MarketingAppExtAction on a Marketing App Extension, with Active in Automations checked.</li>
+    <li>It appears as a Custom Action step in Engagement Studio - and since Summer '23, as a completion action on assets too, so it can fire off the same form fill as path 1.</li>
+    <li>The prospect hits the step and it calls Twilio in real time.</li>
+  </ol>
+  <p>
+    <strong>Watch out:</strong> Plus, Advanced and Premium editions only - Growth cannot do this at all. It is fire and forget, so no error handling inside the program, and it is not bulkified, meaning one API call per prospect. 100,000 external actions per business unit per day, 10 per extension. It runs as your Connector User, so a missing field permission fails silently. Nothing retries on its own, and you are aiming for a 2-second response.
+  </p>
+
+  <h2 class="mt-4">3. Account Engagement + Marketing Cloud PSLs <small style="font-size: 55%; font-weight: 400; color: #1D3557;">the almost-native one, and the reason this page has an asterisk</small></h2>
+  <p>
+    Salesforce's own answer, live since Winter '25: every MCAE customer on Growth, Plus, Advanced and Premium can send multichannel journeys with SMS, no third-party app. So the honest version of "MCAE has no native SMS" is that it has one, behind a shopping list.
+  </p>
+  <p>
+    <strong>You need first:</strong> Data Cloud provisioned and connected through the Account Engagement Data Cloud Connector &middot; Sales or Service Cloud Enterprise Edition or higher &middot; PSLs configured by an admin &middot; and separately purchased Data Cloud, messaging and AI-request credits.
+  </p>
+
+  <h2 class="mt-4">The tell</h2>
+  <p>
+    Mogli tells you to build in a five minute delay so you do not hit processing limits. External Actions tells you to answer in under two seconds and write your own retry logic. Same prospect, same text message, opposite instruction. Pick the path, then pick which limit you would rather explain to somebody.
+  </p>
+
+  <p class="small mt-4" style="color: #1D3557;">
+    Verified August 2026. Sources: Mogli Account Engagement integration guide; Salesforce Developers, Winter '23; MCAE Summer '23 release notes; salesforce.com/blog, Account Engagement + Marketing Cloud Permission Set Licenses.
+  </p>
+
+</div>
