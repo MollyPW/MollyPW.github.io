@@ -1,0 +1,87 @@
+---
+title: "Three ways to deal with duplicates between MCAE and Salesforce*"
+layout: default
+permalink: "/projects/mcae-duplicates-teardown/"
+description: "A Marketing Ops teardown of how MCAE and Salesforce each define a duplicate: why duplicates show up, three ways to handle them, and the connector setting that is unavailable where you need it most."
+image: "/assets/images/mcae-duplicates-teardown-og.jpg"
+---
+<div class="container mt-4 mb-5" style="max-width: 860px;">
+
+  <p class="mb-1" style="letter-spacing: .12em; font-weight: 700; font-size: .85rem; color: #1D3557;">MARKETING OPS TEARDOWN &middot; OCTOBER 2026</p>
+  <h1 class="font-weight-bold title">Three ways to deal with duplicates between MCAE and Salesforce*</h1>
+
+  <p class="lead">
+    A map I drew from the Salesforce documentation, with the sync behavior checked against the help articles and two notes from my own experience. Short version: the two systems do not agree on what a duplicate is.
+  </p>
+
+  <p>
+    <a href="{{ site.baseurl }}/projects/mcae-duplicates-teardown/Three-Ways-to-Deal-with-Duplicates-Between-MCAE-and-Salesforce.pdf" class="btn btn-outline-dark" download>Download the one-page PDF</a>
+  </p>
+
+  <a href="{{ site.baseurl }}/projects/mcae-duplicates-teardown/Three-Ways-to-Deal-with-Duplicates-Between-MCAE-and-Salesforce.pdf" aria-label="Open the one-page PDF">
+    <img src="{{ site.baseurl }}/assets/images/mcae-duplicates-teardown-card.jpg"
+         alt="One-page teardown on duplicates between MCAE and Salesforce: why duplicates show up, then three options: block them in Salesforce, live with them in MCAE, or bring in a dedupe tool on the Salesforce side. The full text is below."
+         class="img-fluid mb-4" style="border: 1px solid rgba(29,53,87,.22);" width="1000" height="1294">
+  </a>
+
+  <h2 class="mt-4">Why the duplicates show up</h2>
+  <ol>
+    <li><strong>API imports that skip the match.</strong> The v5 Import API matches on one column: prospect ID, Salesforce ID, or email. Leave the match column blank and every row creates a new prospect. Turn on <code>createOnNoMatch</code> and a mistyped Salesforce ID does the same. Import by email instead of CRM ID and the duplicates land in Salesforce too, as new leads or contacts.</li>
+    <li><strong>Salesforce makes them.</strong> Every lead, contact or person account with an email address gets its own prospect, matched by CRM ID. Two Salesforce records for one person means two prospects.</li>
+    <li><strong>The toggle nobody can change.</strong> AMPSEA (Allow Multiple Prospects with the Same Email Address) has been on by default since June 14, 2016. Once it is on, it can't be turned off.</li>
+  </ol>
+
+  <h2 class="mt-4">1. Block them in Salesforce <small style="font-size: 55%; font-weight: 400; color: #1D3557;">admin required</small></h2>
+  <ol>
+    <li>Matching rules find possible duplicates. Duplicate rules decide what happens next: allow with an alert, or block.</li>
+    <li>When MCAE tries to create a lead that a blocking rule catches, the prospect stops syncing and shows <em>Deduplication matching rule conflict</em> in the sync error queue.</li>
+    <li>Salesforce's own fix list: exempt the connector user's profile from the rule, sync to the existing record, merge the records, or change the prospect's data so it no longer matches.</li>
+  </ol>
+  <p>
+    <strong>Watch out:</strong> Fixing the rule does not fix the backlog. Sync errors have to be resolved before an admin can clear them, so loosening a rule still means a trip through the sync error queue to resync everything that got stuck.
+  </p>
+
+  <h2 class="mt-4">2. Live with them in MCAE <small style="font-size: 55%; font-weight: 400; color: #1D3557;">built in, because AMPSEA is not optional</small></h2>
+  <ol>
+    <li>CRM ID is the unique key. A prospect with no CRM ID syncs to the first Salesforce record it finds with the same email.</li>
+    <li>Since Winter '25, the Optimizer finds prospects that share an email address and merges up to three at a time.</li>
+    <li>The v5 API lists no merge endpoint, so there is still no bulk merge by API.</li>
+  </ol>
+  <p>
+    <strong>Watch out:</strong> A list email goes to the same-email prospect with the most recent activity. A suppression list won't suppress an address another prospect shares. An opt-out applies to every prospect with that email, and in my experience, so does a hard bounce. Engagement Studio allows one prospect per email per program. Marketing Data Sharing can limit which Salesforce records sync at all.
+  </p>
+
+  <h2 class="mt-4">3. Bring in a dedupe tool <small style="font-size: 55%; font-weight: 400; color: #1D3557;">Salesforce side only</small></h2>
+  <p>
+    DemandTools, Plauti and Cloudingo find and merge duplicate leads and contacts inside Salesforce. When the connector sees a merged or deleted record, it updates the prospect and sends the deleted one to the MCAE recycle bin.
+  </p>
+  <p>
+    <strong>Watch out:</strong> the connector setting that copies the losing prospect's activities, tags and lists onto the winner isn't available when AMPSEA is on, and the AMPSEA docs don't say that history moves. A prospect with no CRM ID doesn't exist in Salesforce, so no Salesforce tool can see it.
+  </p>
+  <p>
+    <strong>From experience:</strong> <em>business decision makers guard the CRM far more closely than MCAE, because opportunities are considered more valuable* for revenue reporting than campaigns built in MCAE. I have yet to see a company welcome a third-party app that needs edit access to CRM records just to dedupe prospects, especially when the CRM is the org's source of truth and the Admins and Dev team trust the duplicate and matching rules they already run in Salesforce.</em>
+  </p>
+
+  <h2 class="mt-4">The tell</h2>
+  <p>
+    The one connector setting that merges prospects when Salesforce merges records isn't available in exactly the business units that allow duplicates, which is every business unit created since June 2016. Dedupe in Salesforce, then go check the recycle bin.
+  </p>
+
+  <h2 class="mt-4" style="font-size: 1.1rem;">Sources</h2>
+  <ul class="small">
+    <li><a href="https://help.salesforce.com/s/articleView?id=mktg.pardot_admin_ampsea_parent.htm&amp;language=en_US&amp;type=5">Salesforce Help: Allowing Multiple Prospects with the Same Email Address</a></li>
+    <li><a href="https://help.salesforce.com/s/articleView?id=mktg.pardot_sf_connector_settings_reference.htm&amp;language=en_US&amp;type=5">Salesforce Help: Salesforce Connector Settings</a></li>
+    <li><a href="https://help.salesforce.com/s/articleView?id=sf.pardot_sf_connector_merge_delete_setting.htm&amp;language=en_US&amp;type=5">Salesforce Help: Automatically Merge and Delete Prospects</a></li>
+    <li><a href="https://help.salesforce.com/s/articleView?id=000318288&amp;language=en_US&amp;type=1">Salesforce Help: Deduplication matching rule conflict</a></li>
+    <li><a href="https://help.salesforce.com/s/articleView?id=000383308&amp;language=en_US&amp;type=1">Salesforce Help: Common Account Engagement prospect sync errors</a></li>
+    <li><a href="https://developer.salesforce.com/docs/marketing/pardot/guide/import-v5.html">Account Engagement API v5: Imports</a> and <a href="https://developer.salesforce.com/docs/marketing/pardot/guide/prospect-v5.html">Prospects</a></li>
+    <li><a href="https://resources.docs.salesforce.com/244/latest/en-us/sfdc/pdf/pardot_sf_connector_setup_implementation_guide.pdf">Salesforce Connector Implementation Guide (PDF)</a></li>
+    <li><a href="https://help.salesforce.com/s/articleView?id=release-notes.rn_mcae_find_duplicate_prospects.htm&amp;language=en_US&amp;release=252&amp;type=5">Winter '25 release notes: Find and Merge Duplicate Prospect Records</a> and <a href="https://trailhead.salesforce.com/content/learn/modules/marketing-cloud-account-engagement-specialist-certification-maintenance-su-25/maintain-your-marketing-cloud-account-engagement-specialist-cert-for-su">Trailhead Summer '25 cert maintenance</a></li>
+    <li>Vendor docs: <a href="https://mycommunity.validity.com/t5/demandtools/merging-accounts-when-not-full-system-admins/m-p/1536">Validity (DemandTools)</a>, <a href="https://www.plauti.com/hub/developer/salesforce/apex-api/merge-methods/merge-records-by-providing-ids/overview">Plauti</a>, <a href="https://appexchange.salesforce.com/image_host/edfa84bd-6295-4716-8e3b-aac9659dd4c7.pdf">Cloudingo (PDF)</a></li>
+  </ul>
+
+  <p class="small mt-4" style="color: #1D3557;">
+    Verified October 2026.
+  </p>
+
+</div>
