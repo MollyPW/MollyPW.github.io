@@ -11,7 +11,7 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
   <h1 class="font-weight-bold title">Three ways to deal with duplicates between MCAE and Salesforce*</h1>
 
   <p class="lead">
-    A map I drew from the Salesforce documentation, with the sync behavior checked against the help articles and two notes from my own experience. Short version: the two systems do not agree on what a duplicate is.
+    A map I drew from Salesforce's own documentation, plus two notes from my own experience. The short version: MCAE and Salesforce don't agree on what counts as a duplicate.
   </p>
 
   <p>
@@ -26,16 +26,16 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
 
   <h2 class="mt-4">Why the duplicates show up</h2>
   <ol>
-    <li><strong>API imports that skip the match.</strong> The v5 Import API matches on one column: prospect ID, Salesforce ID, or email. Leave the match column blank and every row creates a new prospect. Turn on <code>createOnNoMatch</code> and a mistyped Salesforce ID does the same. Import by email instead of CRM ID and the duplicates land in Salesforce too, as new leads or contacts.</li>
-    <li><strong>Salesforce makes them.</strong> Every lead, contact or person account with an email address gets its own prospect, matched by CRM ID. Two Salesforce records for one person means two prospects.</li>
-    <li><strong>The toggle nobody can change.</strong> AMPSEA (Allow Multiple Prospects with the Same Email Address) has been on by default since June 14, 2016. Once it is on, it can't be turned off.</li>
+    <li><strong>API imports that skip the match.</strong> The v5 Import API matches each row to an existing prospect using one column you pick: prospect ID, Salesforce ID, or email. Leave that column blank and every row becomes a new prospect. Turn on <code>createOnNoMatch</code> and any row that doesn't find a match, like one with a mistyped Salesforce ID, becomes a new prospect too. Import by email instead of CRM ID and the duplicates spill into Salesforce as new leads or contacts.</li>
+    <li><strong>Salesforce creates them.</strong> Every lead, contact or person account with an email address gets its own prospect, matched by CRM ID. Two Salesforce records for one person means two prospects.</li>
+    <li><strong>The toggle nobody can change.</strong> AMPSEA (Allow Multiple Prospects with the Same Email Address) lets MCAE keep more than one prospect per email address. It has been on by default since June 14, 2016, and once it's on, it can't be turned off.</li>
   </ol>
 
   <h2 class="mt-4">1. Block them in Salesforce <small style="font-size: 55%; font-weight: 400; color: #1D3557;">admin required</small></h2>
   <ol>
     <li>Matching rules find possible duplicates. Duplicate rules decide what happens next: allow with an alert, or block.</li>
     <li>When MCAE tries to create a lead that a blocking rule catches, the prospect stops syncing and shows <em>Deduplication matching rule conflict</em> in the sync error queue.</li>
-    <li>Salesforce's own fix list: exempt the connector user's profile from the rule, sync to the existing record, merge the records, or change the prospect's data so it no longer matches.</li>
+    <li>Salesforce's suggested fixes: exempt the connector user's profile from the rule, sync to the existing record, merge the records, or change the prospect's data so it no longer matches.</li>
   </ol>
   <p>
     <strong>Watch out:</strong> Fixing the rule does not fix the backlog. Sync errors have to be resolved before an admin can clear them, so loosening a rule still means a trip through the sync error queue to resync everything that got stuck.
@@ -43,20 +43,21 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
 
   <h2 class="mt-4">2. Live with them in MCAE <small style="font-size: 55%; font-weight: 400; color: #1D3557;">built in, because AMPSEA is not optional</small></h2>
   <ol>
-    <li>CRM ID is the unique key. A prospect with no CRM ID syncs to the first Salesforce record it finds with the same email.</li>
+    <li>MCAE uses the CRM ID (the Salesforce record ID) as the unique key. A prospect with no CRM ID syncs to the first Salesforce record it finds with the same email.</li>
     <li>Since Winter '25, the Optimizer finds prospects that share an email address and merges up to three at a time.</li>
-    <li>The v5 API lists no merge endpoint, so there is still no bulk merge by API.</li>
+    <li>The API has no merge option, so there's no way to merge prospects in bulk.</li>
+    <li>Marketing Data Sharing rules can stop some Salesforce records from syncing to MCAE in the first place.</li>
   </ol>
   <p>
-    <strong>Watch out:</strong> A list email goes to the same-email prospect with the most recent activity. A suppression list won't suppress an address another prospect shares. An opt-out applies to every prospect with that email, and in my experience, so does a hard bounce. Engagement Studio allows one prospect per email per program. Marketing Data Sharing can limit which Salesforce records sync at all.
+    <strong>Watch out:</strong> A list email goes to the same-email prospect with the most recent activity. A suppression list won't suppress an address another prospect shares. An opt-out applies to every prospect with that email, and in my experience, so does a hard bounce. Engagement Studio only lets one prospect per email into each program.
   </p>
 
   <h2 class="mt-4">3. Bring in a dedupe tool <small style="font-size: 55%; font-weight: 400; color: #1D3557;">Salesforce side only</small></h2>
   <p>
-    DemandTools, Plauti and Cloudingo find and merge duplicate leads and contacts inside Salesforce. When the connector sees a merged or deleted record, it updates the prospect and sends the deleted one to the MCAE recycle bin.
+    DemandTools, Plauti and Cloudingo find and merge duplicate leads and contacts inside Salesforce. When the connector sees that records were merged in Salesforce, it updates the surviving prospect and sends the prospect tied to the merged-away record to the MCAE recycle bin.
   </p>
   <p>
-    <strong>Watch out:</strong> the connector setting that copies the losing prospect's activities, tags and lists onto the winner isn't available when AMPSEA is on, and the AMPSEA docs don't say that history moves. A prospect with no CRM ID doesn't exist in Salesforce, so no Salesforce tool can see it.
+    <strong>Watch out:</strong> MCAE has a connector setting that copies the losing prospect's activities, tags and lists onto the winner, and it isn't available when AMPSEA is on. The AMPSEA docs don't say whether that history moves at all. A prospect with no CRM ID doesn't exist in Salesforce, so no Salesforce tool can see it.
   </p>
   <p>
     <strong>From experience:</strong> <em>business decision makers guard the CRM far more closely than MCAE, because opportunities are considered more valuable* for revenue reporting than campaigns built in MCAE. I have yet to see a company welcome a third-party app that needs edit access to CRM records just to dedupe prospects, especially when the CRM is the org's source of truth and the Admins and Dev team trust the duplicate and matching rules they already run in Salesforce.</em>
@@ -64,7 +65,7 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
 
   <h2 class="mt-4">The tell</h2>
   <p>
-    The one connector setting that merges prospects when Salesforce merges records isn't available in exactly the business units that allow duplicates, which is every business unit created since June 2016. Dedupe in Salesforce, then go check the recycle bin.
+    MCAE has a connector setting that merges your prospects, history and all, when you merge their records in Salesforce. You can't turn it on if your account allows more than one prospect per email address. That's every account created since June 2016, and that setting can't be turned off either. So dedupe in Salesforce, then go check the recycle bin.
   </p>
 
   <h2 class="mt-4" style="font-size: 1.1rem;">Sources</h2>
