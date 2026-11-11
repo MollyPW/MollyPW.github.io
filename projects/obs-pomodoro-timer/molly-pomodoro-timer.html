@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Molly Pomodoro Timer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Pomodoro timer for OBS (Browser Source, Local file).
+  Keep this file and the two .wav chimes in the same folder.
+  Change the lengths in the CONFIG block below. Defaults: 25 focus / 5 break / 15 long break.
+  Chimes: chime-break.wav plays when a break starts, chime-focus.wav when focus starts.
+  Want your own sounds? Replace those two files (or change the names in CONFIG).
+  Full setup steps: https://mollypw.com/projects/obs-pomodoro-timer/
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #1D3557;
+    --red:      #E63946;
+    --teal:     #A8DADC;
+    --offwhite: #F1FAEE;
+    --gold:     #C9A227;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%;
+    background: transparent;            /* sits on top of your teal card in OBS */
+    font-family: "DM Sans", "Poppins", "Segoe UI", Arial, sans-serif;
+    color: var(--navy);
+    overflow: hidden;
+    user-select: none;
+  }
+  body.solid { background: var(--teal); }  /* add ?bg=teal for a standalone card */
+
+  .wrap {
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1.2vmin;
+    padding: 4vmin 6vmin;
+  }
+  .mode {
+    display: flex; align-items: center; gap: 2.2vmin;
+    font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    font-size: clamp(14px, 7.5vmin, 60px);
+  }
+  .dot {
+    width: 1.1em; height: 1.1em; border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+  body.break .dot { background: var(--gold); box-shadow: 0 0 0 .18em var(--navy) inset; }
+  body.idle  .dot { background: var(--navy); opacity: .45; }
+
+  .time {
+    font-weight: 800; line-height: 1;
+    font-size: clamp(36px, 30vmin, 220px);
+    font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+  }
+  body.idle .time { opacity: .55; }
+
+  .bar {
+    width: 100%; max-width: 92%; height: 2.4vmin; min-height: 5px;
+    background: rgba(241, 250, 238, .75);   /* off-white track */
+    border-radius: 99px; overflow: hidden;
+  }
+  .bar > i { display: block; height: 100%; width: 0%; background: var(--navy); border-radius: 99px; }
+
+  .meta {
+    display: flex; align-items: center; gap: 4vmin;
+    font-weight: 700; font-size: clamp(11px, 5.2vmin, 38px);
+  }
+  .pips { display: flex; gap: 1.4vmin; }
+  .pips b {
+    width: 1.5vmin; height: 1.5vmin; min-width: 8px; min-height: 8px; border-radius: 50%;
+    border: .5vmin solid var(--navy); display: block;
+  }
+  .pips b.on { background: var(--navy); }
+
+  /* Controls: only visible when you hover over it in OBS "Interact" */
+  .controls {
+    position: absolute; left: 0; right: 0; bottom: 1.5vmin;
+    display: flex; justify-content: center; gap: 2vmin;
+    opacity: 0; transition: opacity .15s;
+  }
+  body:hover .controls { opacity: 1; }
+  button {
+    font: inherit; font-weight: 700; font-size: clamp(11px, 4.6vmin, 30px);
+    padding: .5em 1em; border-radius: 99px; cursor: pointer;
+    border: .3vmin solid var(--navy); background: var(--offwhite); color: var(--navy);
+  }
+  button.primary { background: var(--red); border-color: var(--red); color: #fff; font-size: clamp(14px, 5.6vmin, 38px); }
+  button:focus-visible { outline: .6vmin solid var(--navy); outline-offset: .3vmin; }
+</style>
+</head>
+<body class="idle">
+  <div class="wrap">
+    <div class="mode"><span class="dot"></span><span id="mode">Ready</span></div>
+    <div class="time" id="time">25:00</div>
+    <div class="bar"><i id="fill"></i></div>
+    <div class="meta"><span id="end"></span><span class="pips" id="pips"></span></div>
+  </div>
+  <div class="controls">
+    <button class="primary" id="go" type="button">Start</button>
+    <button id="skip" type="button">Skip</button>
+    <button id="reset" type="button">Reset</button>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- CONFIG (edit these numbers if you want different lengths) ---------- */
+  var CONFIG = {
+    focus: 25,          // minutes
+    shortBreak: 5,      // minutes
+    longBreak: 15,      // minutes
+    sessionsBeforeLong: 4,
+    volume: 0.8,        // 0 to 1
+    breakChime: "chime-break.wav",
+    focusChime: "chime-focus.wav"
+  };
+
+  /* Optional overrides from the URL, e.g. ?focus=0.2&short=0.1 (minutes). Handy for testing. */
+  var q = new URLSearchParams(location.search);
+  function num(key, fallback) { var v = parseFloat(q.get(key)); return isFinite(v) && v > 0 ? v : fallback; }
+  CONFIG.focus = num("focus", CONFIG.focus);
+  CONFIG.shortBreak = num("short", CONFIG.shortBreak);
+  CONFIG.longBreak = num("long", CONFIG.longBreak);
+  CONFIG.sessionsBeforeLong = Math.round(num("sessions", CONFIG.sessionsBeforeLong));
+  CONFIG.volume = Math.min(1, num("vol", CONFIG.volume));
+  var SOLID = q.get("bg") === "teal" ? " solid" : "";
+  var STORE = "mollyPomodoro:" + [CONFIG.focus, CONFIG.shortBreak, CONFIG.longBreak].join("/");
+
+  /* ---------- State ---------- */
+  // phase: "focus" | "short" | "long"; running: bool; endAt: ms timestamp; left: ms when paused; done: sessions finished this cycle
+  var S = load() || fresh();
+  function fresh() { return { phase: "focus", running: false, endAt: 0, left: CONFIG.focus * 60000, done: 0, started: false }; }
+  function load() {
+    try { var s = JSON.parse(localStorage.getItem(STORE)); return s && s.phase ? s : null; } catch (e) { return null; }
+  }
+  function save() { try { localStorage.setItem(STORE, JSON.stringify(S)); } catch (e) {} }
+  function lengthOf(phase) {
+    return (phase === "focus" ? CONFIG.focus : phase === "short" ? CONFIG.shortBreak : CONFIG.longBreak) * 60000;
+  }
+
+  /* ---------- Sound ---------- */
+  var sounds = {};
+  function sound(src) {
+    if (!sounds[src]) { var a = new Audio(src); a.preload = "auto"; a.volume = CONFIG.volume; sounds[src] = a; }
+    return sounds[src];
+  }
+  function play(src) {
+    try { var a = sound(src); a.currentTime = 0; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+  }
+  sound(CONFIG.breakChime); sound(CONFIG.focusChime);   // warm up so the first chime is not delayed
+
+  /* ---------- Actions ---------- */
+  function startPhase(phase, silent) {
+    S.phase = phase; S.running = true; S.started = true;
+    S.endAt = Date.now() + lengthOf(phase);
+    if (!silent) play(phase === "focus" ? CONFIG.focusChime : CONFIG.breakChime);
+    save();
+  }
+  function nextPhase(silent) {
+    if (S.phase === "focus") {
+      S.done += 1;
+      if (S.done >= CONFIG.sessionsBeforeLong) { S.done = 0; startPhase("long", silent); }
+      else startPhase("short", silent);
+    } else {
+      startPhase("focus", silent);
+    }
+  }
+  function toggle() {
+    if (S.running) { S.left = Math.max(0, S.endAt - Date.now()); S.running = false; }
+    else {
+      if (!S.started) { startPhase("focus", true); return; }
+      S.endAt = Date.now() + S.left; S.running = true;
+    }
+    save();
+  }
+  function skip() { if (S.started) nextPhase(false); }
+  function reset() { S = fresh(); save(); }
+
+  /* ---------- Render ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var els = { mode: $("mode"), time: $("time"), fill: $("fill"), end: $("end"), pips: $("pips"), go: $("go") };
+  var NAMES = { focus: "Focus", short: "Break", long: "Long break" };
+
+  function fmt(ms) {
+    var s = Math.max(0, Math.ceil(ms / 1000));
+    var m = Math.floor(s / 60), r = s % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
+  }
+  function clock(ts) {
+    var d = new Date(ts), h = d.getHours(), m = d.getMinutes();
+    return (h % 12 || 12) + ":" + (m < 10 ? "0" : "") + m + " " + (h < 12 ? "AM" : "PM");
+  }
+  function render() {
+    var left = S.running ? S.endAt - Date.now() : S.left;
+    var total = lengthOf(S.phase);
+    var idle = !S.started;
+    document.body.className = (S.phase === "focus" ? "focus" : "break") + (idle ? " idle" : "") + (S.started && !S.running ? " paused" : "") + SOLID;
+    els.mode.textContent = idle ? "Ready" : (S.running ? NAMES[S.phase] : NAMES[S.phase] + " paused");
+    els.time.textContent = fmt(idle ? lengthOf("focus") : left);
+    els.fill.style.width = (idle ? 0 : Math.min(100, (1 - left / total) * 100)) + "%";
+    els.end.textContent = S.running ? "Ends " + clock(S.endAt) : "";
+    var pips = "";
+    for (var i = 0; i < CONFIG.sessionsBeforeLong; i++) {
+      pips += '<b class="' + (i < S.done ? "on" : "") + '"></b>';
+    }
+    if (els.pips.dataset.v !== pips) { els.pips.innerHTML = pips; els.pips.dataset.v = pips; }
+    els.go.textContent = S.running ? "Pause" : (S.started ? "Resume" : "Start");
+  }
+
+  function tick() {
+    if (S.running && Date.now() >= S.endAt) {
+      // If the page was closed for a long time, do not blast a chime late: only play if it just ended.
+      var late = Date.now() - S.endAt > 5000;
+      nextPhase(late);
+    }
+    render();
+  }
+
+  /* ---------- Wiring ---------- */
+  $("go").addEventListener("click", function () { toggle(); render(); });
+  $("skip").addEventListener("click", function () { skip(); render(); });
+  var resetArmed = 0;   // Reset needs two presses within 3 seconds so it can't happen by accident
+  $("reset").addEventListener("click", function () {
+    var b = $("reset");
+    if (resetArmed) { clearTimeout(resetArmed); resetArmed = 0; b.textContent = "Reset"; reset(); render(); return; }
+    b.textContent = "Sure?";
+    resetArmed = setTimeout(function () { resetArmed = 0; b.textContent = "Reset"; }, 3000);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.code === "Space") { e.preventDefault(); toggle(); render(); }
+    else if (e.key === "s" || e.key === "S") { skip(); render(); }
+  });
+  if (q.get("autostart") === "1" && !S.started) startPhase("focus", true);
+
+  /* Auto-start: when you press Start Streaming or Start Recording in OBS, a ready (idle) timer starts focus.
+     If the timer is already running or paused, it is left alone. Needs the Browser source's
+     "Page permissions" set to "Read access to OBS status information". */
+  function autoStart() { if (!S.started) { startPhase("focus", true); render(); } }
+  window.addEventListener("obsStreamingStarted", autoStart);
+  window.addEventListener("obsRecordingStarted", autoStart);
+
+  /* Keep ticking even when OBS hides the source (setInterval can be throttled, so we use timestamps). */
+  setInterval(tick, 250);
+  tick();
+})();
+</script>
+</body>
+</html>
