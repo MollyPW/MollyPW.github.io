@@ -25,7 +25,7 @@ image: "/assets/images/obs-pomodoro-timer-card.jpg"
 
   <h2 class="mt-4" id="try-it">Try it</h2>
   <p>
-    This is the real timer, set to a 15 second focus and 9 second breaks so you can watch it switch. Hover over it and press Start. In OBS the lengths are 25, 5 and 15 minutes.
+    This is the real timer, set to a 15-second focus and 9-second breaks so you can watch it switch. Hover over it and press Start. In OBS the lengths are 25, 5 and 15 minutes.
   </p>
   <div class="mb-3" style="max-width: 560px;">
     <iframe src="{{ site.baseurl }}/projects/obs-pomodoro-timer/molly-pomodoro-timer.html?bg=teal&amp;focus=0.25&amp;short=0.15&amp;long=0.25&amp;sessions=2"
@@ -59,7 +59,7 @@ image: "/assets/images/obs-pomodoro-timer-card.jpg"
   <h2 class="mt-5">How I got here</h2>
   <ol>
     <li><strong>I looked for a free OBS Pomodoro timer</strong> and installed a Lua script. Getting it to load took some troubleshooting of its own.</li>
-    <li><strong>It froze OBS.</strong> During a 2 minute test, the countdown reached 0:01 and OBS stopped responding. Restarting OBS froze it again straight away.</li>
+    <li><strong>It froze OBS.</strong> During a 2-minute test, the countdown reached 0:01 and OBS stopped responding. Restarting OBS froze it again straight away.</li>
     <li><strong>I gave Claude hands-on access to OBS</strong> and let it test one piece at a time. OBS's own log showed no error, which is what makes a freeze like this so annoying. The common factor was the script together with the scene switch it triggered at the end of a block. I can't tell you which half is guilty, only that I no longer need either.</li>
     <li><strong>The chimes never played anyway.</strong> The script's sounds came from hidden media sources, so nothing reached my headset.</li>
     <li><strong>So we stopped patching and built something smaller:</strong> one HTML file that OBS shows as a Browser source. No script inside OBS, no scene switching.</li>
@@ -97,7 +97,7 @@ image: "/assets/images/obs-pomodoro-timer-card.jpg"
 
   <h2 class="mt-5">What I haven't proven yet</h2>
   <p>
-    I tested every phase change with short timers in a headless browser, and I skipped through the phases inside OBS. The first uninterrupted 25 minute block on a live stream is still ahead of me. I would rather say that here than have you find it out.
+    I tested every phase change with short timers in a headless browser, and I skipped through the phases inside OBS. The first uninterrupted 25-minute block on a live stream is still ahead of me. I would rather say that here than have you find it out.
   </p>
 
   <p class="small mt-4" style="color: #1D3557;">

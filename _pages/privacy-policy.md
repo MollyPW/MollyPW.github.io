@@ -3,12 +3,12 @@ title: "Privacy Policy"
 permalink: "/privacy-policy.html"
 ---
 
-"{{site.name}}" takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
+Molly Purcell-Weatherwalks (mollypw.com) takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
 
 
 #### Collection of Routine Information
 
-This website track basic information about their visitors. This information includes, but is not limited to, IP addresses, browser details, timestamps and referring pages. None of this information can personally identify specific visitor to this website. The information is tracked for routine administration and maintenance purposes.
+This website tracks basic information about its visitors. This information includes, but is not limited to, IP addresses, browser details, timestamps and referring pages. None of this information can personally identify a specific visitor to this website. The information is tracked for routine administration and maintenance purposes.
 
 
 #### Cookies
@@ -23,7 +23,7 @@ This website uses Google Analytics to count visits and see which pages people re
 
 #### Advertisement and Other Third Parties
 
-Advertising partners and other third parties may use cookies, scripts and/or web beacons to track visitor activities on this website in order to display advertisements and other useful information. Such tracking is done directly by the third parties through their own servers and is subject to their own privacy policies. This website has no access or control over these cookies, scripts and/or web beacons that may be used by third parties. Learn how to [opt out of Google’s cookie usage](http://www.google.com/privacy_ads.html).
+Advertising partners and other third parties may use cookies, scripts and/or web beacons to track visitor activities on this website in order to display advertisements and other useful information. Such tracking is done directly by the third parties through their own servers and is subject to their own privacy policies. This website has no access or control over these cookies, scripts and/or web beacons that may be used by third parties. Learn how to [opt out of Google’s cookie usage](https://policies.google.com/technologies/ads).
 
 
 #### Links to Third Party Websites
@@ -45,4 +45,4 @@ We reserve the right to update or change our Privacy Policy at any time and you 
 
 #### Contact Information
 
-For any questions or concerns regarding the privacy policy, please [contact us here]({{site.baseurl}}/contact.html).
+For any questions or concerns regarding the privacy policy, please [contact us here]({{site.baseurl}}/contact/).

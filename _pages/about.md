@@ -53,10 +53,10 @@ image:
 
   <h2>What do I enjoy?</h2>
   <p>
-    I'm equally at home authoring requirements for developers, running UAT across sandbox and production, and working with a vendor to reconcile their dashboard, with three months of screenshots in my back pocket should I need it.
+    I'm equally at home authoring requirements for developers, running UAT across sandbox and production, and working with a vendor to reconcile their dashboard, with three months of screenshots in my back pocket should I need them.
   </p>
   <p>
-    What I'm after: a remote role as a Salesforce marketing operations consultant or solutions architect, owning the unglamorous infrastructure everything else depends on. Messy data is a plus. I like a mess.
+    What I'm after: a remote marketing operations or marketing program manager role, owning the unglamorous infrastructure everything else depends on. Messy data is a plus. I like a mess.
   </p>
   <p>
     Outside of work, I bead, restore antique furniture, and run a small shop selling Gewgaws, Trinkets and Tchotchkes on <a href="https://www.etsy.com/shop/DopamineMoment" target="_blank" rel="noopener">Etsy</a>.

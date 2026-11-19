@@ -121,19 +121,19 @@ tags: [hubspot, marketing-automation, b2b-marketing, revops]
 
 <p>The biggest difference in emailing prospects is that in HubSpot, Marketing emails include the fun unsubscribe text at the bottom of the message. You know that little link that every salesperson loves at the bottom of their emails that screams FORM EMAIL.</p>
 
-<p>With Sequences, emails are sent out through your email client as though you sat down at your computer and wrote a very thoughtful, very helpful message to the email recipient. Best of all, your email will include your professional footer (if you don't already have one set up in HubSpot).</p>
+<p>With Sequences, emails are sent out through your email client as though you sat down at your computer and wrote a very thoughtful, very helpful message to the email recipient. Best of all, your email will include your professional footer (if you already have one set up in HubSpot).</p>
 
-<p>Below are six other differences in Workflows and Sequences as well as tips based on my own experience creating both.</p>
+<p>Below are six other differences between Workflows and Sequences as well as tips based on my own experience creating both.</p>
 
 <h2 class="hs-h2">Enrolling Contacts</h2>
 <h3 class="hs-h3">Workflows</h3>
-<p>Enrollment is automatic based on the triggers built into the Workflow. Still, you can also manually enroll contacts from within the Workflow or a list as long as they aren't on a suppression (do not email) list or meet the unenrollment triggers.</p>
+<p>Enrollment is automatic based on the triggers built into the Workflow. Still, you can also manually enroll contacts from within the Workflow or a list as long as they aren't on a suppression (do not email) list and don't meet the unenrollment triggers.</p>
 <h3 class="hs-h3">Sequences</h3>
 <p>HubSpot users need to enroll contacts into sequences manually. But before we continue, it is important for me to let you know only HubSpot users with seats in Professional or Enterprise level Sales Hub or Service Hub accounts can use the sequences feature. If you don't have a seat, you won't even see the Sequence option in your HubSpot menu (kind of like me looking for my keys whenever I'm running late).</p>
 
 <h2 class="hs-h2">Enrollment Triggers</h2>
 <h3 class="hs-h3">Workflows</h3>
-<p>Triggers can be as complicated as you want, but they have a limit of 250. For this reason, the Workflow editor uses branches to help visualize what it will look like when a contact goes through it. Since Workflows can get very complicated, very quickly, I would recommend working with your HubSpot admin to build one.</p>
+<p>Triggers can be as complicated as you want, up to 250 filters. The Workflow editor uses branches to show you the path a contact takes through it. Since Workflows can get very complicated, very quickly, I would recommend working with your HubSpot admin to build one.</p>
 <h3 class="hs-h3">Sequences</h3>
 <p>You can always enroll contacts into sequences one by one, but if you are like me and get bored with this kind of monotony, you want a faster solution. Here's the quickest path:</p>
 <ol>
@@ -161,10 +161,10 @@ tags: [hubspot, marketing-automation, b2b-marketing, revops]
 <h3 class="hs-h3">Workflows</h3>
 <p>I have not found a limit to the number of steps or actions a workflow has. Nor is there a limit to the number of contacts you can enroll in a Workflow.</p>
 <p>On the plus side, this means you can make changes to a large number of records in your HubSpot database at one time (for example, you could assign everyone associated with a company to a specific HubSpot user). However, this also means that if you goof up the enrollment triggers, you can accidentally send thousands of contacts the wrong email.</p>
-<p>Worth knowing: a Company-based Workflow with a send email action won't necessarily reach every associated contact, there's a cap on how many it'll actually email. Test with a small list before trusting it at scale.</p>
+<p>Worth knowing: a Company-based Workflow with a send email action won't necessarily reach every associated contact: there's a cap on how many it'll actually email. Test with a small list before trusting it at scale.</p>
 <h3 class="hs-h3">Sequences</h3>
 <p>Sequences have a limit of 10 automated emails.</p>
-<p>To avoid bombarding your contact with emails, I recommend spacing out your communications by at least 4 business days. Still, sequences are an excellent choice for long-term communication. Your best move is to use them for simple date-specific events like conferences, webinars, limited sales, or new product launches.</p>
+<p>To avoid bombarding your contact with emails, I recommend spacing out your communications by at least 4 business days. Still, sequences aren't the best choice for long-term communication. Your best move is to use them for simple date-specific events like conferences, webinars, limited sales, or new product launches.</p>
 
 <h2 class="hs-h2">Unenrolling Contacts</h2>
 <h3 class="hs-h3">Workflows</h3>
@@ -187,7 +187,7 @@ tags: [hubspot, marketing-automation, b2b-marketing, revops]
 <p>Whatever you do, be sure that any marketing materials, blog articles, videos, or multimedia cited in your automated emails are published or &ldquo;live&rdquo; <strong>BEFORE</strong> you begin enrolling people in Workflows and Sequences.</p>
 <p>It is like a snapshot in time when you enroll someone in a sequence. Your contacts will receive the version of the sequence that existed when you first enrolled them. If you enroll 4 or 400 contacts in a sequence, then notice that one of your email templates has a spelling error and fix the problem, those 4 or 400 contacts will see the janky version of that email in their inbox. Yikes!</p>
 
-<p>Drop a comment and let me know which one you reach for more, Workflows or Sequences.</p>
+<p>Tell me on LinkedIn which one you reach for more, Workflows or Sequences.</p>
 <p>Now, if you'll excuse me, I need to find my keys&hellip;</p>
 
 <h2 class="hs-h2">Frequently Asked Questions</h2>
@@ -219,5 +219,4 @@ tags: [hubspot, marketing-automation, b2b-marketing, revops]
   <li>HubSpot Academy: Sequences lesson (11 minutes)</li>
 </ul>
 
-<p class="hs-credit">Photo by Sebastian Banasiewcz on Unsplash</p>
 </div>

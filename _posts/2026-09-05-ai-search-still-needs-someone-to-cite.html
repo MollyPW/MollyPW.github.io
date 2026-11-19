@@ -83,7 +83,7 @@ hide_title: true
   <article class="article-card">
     <h1>AI Search Still Needs Someone to Cite. It Might Be You.</h1>
 
-    <p>Reddit <a href="https://techcrunch.com/2024/06/25/reddits-upcoming-changes-attempt-to-safeguard-the-platform-against-ai-crawlers">updated its robots.txt in 2024</a> to block nearly every crawler that won't commit to leaving Reddit content out of AI training. The New York Times <a href="https://www.editorandpublisher.com/stories/the-new-york-times-blocks-openais-web-crawler,245366">blocked OpenAI's crawler</a> (and Internet Archive's crawler) the year before that, then <a href="https://ipwatchdog.com/2025/12/08/new-york-times-sues-perplexity-ai-latest-ip-case-genai-companies/">sued Perplexity</a> for allegedly ignoring the block outright. A <a href="https://arxiv.org/abs/2510.10315">peer-reviewed study presented at the ACM Web Conference 2026</a> found the pattern goes well beyond a few high-profile holdouts: 60% of reputable news sites now disallow at least one AI crawler in their robots.txt, up from 23% in September 2023 - compared to just 9.1% of misinformation sites.</p>
+    <p>Reddit <a href="https://techcrunch.com/2024/06/25/reddits-upcoming-changes-attempt-to-safeguard-the-platform-against-ai-crawlers">updated its robots.txt in 2024</a> to block nearly every crawler that won't commit to leaving Reddit content out of AI training. The New York Times <a href="https://www.editorandpublisher.com/stories/the-new-york-times-blocks-openais-web-crawler,245366">blocked OpenAI's crawler</a> (and the Internet Archive's crawler) the year before that, then <a href="https://ipwatchdog.com/2025/12/08/new-york-times-sues-perplexity-ai-latest-ip-case-genai-companies/">sued Perplexity</a> for allegedly ignoring the block outright. A <a href="https://arxiv.org/abs/2510.10315">peer-reviewed study presented at the ACM Web Conference 2026</a> found the pattern goes well beyond a few high-profile holdouts: 60% of reputable news sites now disallow at least one AI crawler in their robots.txt, up from 23% in September 2023 - compared to just 9.1% of misinformation sites.</p>
 
     <p>Every one of those sites is opting out of the one thing that decides whether an AI answer engine can cite them: being crawlable. When a high-authority source blocks the crawler, the AI still has to cite someone. If it can't cite Reddit or the Times, it goes looking for whoever's left standing - and &ldquo;whoever's left standing&rdquo; is increasingly whoever wrote something specific, well-structured, and actually reachable.</p>
 
@@ -97,7 +97,7 @@ hide_title: true
 
     <p>That's not just a hunch. A <a href="https://arxiv.org/abs/2604.27790">SIGIR 2026 study of 11,500 real search queries</a> found that websites blocking Google's AI crawler are significantly less likely to be retrieved by AI Overviews - even when the content is otherwise fully accessible to them.</p>
 
-    <p>Picture a spelling bee where five of the ten students have been eliminated. Someone still needs to win the bee so the other students remain on the stage, waiting for their next word. Their student&rsquo;s chances to win just increased, not because their spelling skills increased, but because half their competition is gone. <a href="https://arxiv.org/abs/2605.23684">Researchers auditing generative search engines found the same dynamic playing out for real</a>: across four AI search tools and hundreds of real queries, roughly 16% of the sources being cited were themselves AI-generated content, standing in for the sources that locked their doors.</p>
+    <p>Picture a spelling bee where five of the ten students have been eliminated. Someone still has to win, so the five left on stage keep waiting for their next word. Each of them just got a better shot at winning, and their spelling didn&rsquo;t change at all. Half the competition is gone. <a href="https://arxiv.org/abs/2605.23684">Researchers auditing generative search engines found the same dynamic playing out for real</a>: across four AI search tools and hundreds of real queries, roughly 16% of the sources being cited were themselves AI-generated content, standing in for the sources that locked their doors.</p>
 
     <h2>What &ldquo;crawlable&rdquo; actually means, technically</h2>
 
@@ -111,7 +111,7 @@ hide_title: true
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "AI Search Still Needs Someone to Cite. It Might Be You.",
-  "author": { "@type": "Person", "name": "Molly Purcell" },
+  "author": { "@type": "Person", "name": "Molly Purcell-Weatherwalks" },
   "datePublished": "2026-09-01",
   "publisher": { "@type": "Organization", "name": "Your Company" }
 }</code></pre>
@@ -128,7 +128,7 @@ hide_title: true
 
     <p>So &ldquo;make your content crawlable&rdquo; turns out to be an operations question just as much as a content one: does your marketing automation platform generate clean, unlocked HTML by default, or does it wrap everything in a form gate? Is schema baked into your landing page templates, or does it not exist anywhere in your stack? Those get decided by whoever configures the platform - months before there's any content to worry about citing.</p>
 
-    <p>This isn't a hypothetical deadline, either. Starting <a href="https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/">September 15, 2026, Cloudflare is changing its default settings</a>: any &ldquo;mixed-use&rdquo; crawler - including Googlebot, which crawls for both regular search indexing and AI features - gets blocked by default on any page that carries ads, unless someone actively reconfigures it. If your company's site runs on Cloudflare and nobody's touched that setting, you're either about to lose crawl access you didn't know you had, or you already have - and it happened at the infrastructure layer, not the content layer, which is exactly the point of this section.</p>
+    <p>This isn't hypothetical, either. On <a href="https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/">September 15, 2026, Cloudflare changed its default settings</a>: any &ldquo;mixed-use&rdquo; crawler - including Googlebot, which crawls for both regular search indexing and AI features - now gets blocked by default on any page that carries ads, unless someone actively reconfigures it. If your company's site runs on Cloudflare and nobody's touched that setting, you may have already lost crawl access you didn't know you had - and it happened at the infrastructure layer, not the content layer, which is exactly the point of this section.</p>
 
     <h2>Where smaller brands actually have the advantage</h2>
 

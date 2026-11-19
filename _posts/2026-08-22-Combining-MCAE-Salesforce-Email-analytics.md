@@ -15,7 +15,7 @@ The good news is that the hard part usually isn't technical. You don't need new 
 <h2>Why the numbers don't line up</h2>
 Naming is the mismatch everybody expects. MCAE's List Email report gives you HTML Open Rate. Something else in your stack calls the same idea Opens, or Unique Opens, or whatever a spreadsheet somebody has maintained since 2019 calls it. Renaming columns is tedious and it's fine, you can do that in your sleep.
 
-The harder version is that those reports don't carry the same metrics in the first place. List Email is the rich one. Template Emails has much more limited analytic options, so a metric you lean on in one place simply isn't available in the other, and there's nothing to map it to. When that happens you have to calculate the missing metric yourself out of whatever counts the thinner report does give you.
+The harder version is that those reports don't carry the same metrics in the first place. List Email is the rich one. Template Emails has much more limited analytics options, so a metric you lean on in one place simply isn't available in the other, and there's nothing to map it to. When that happens you have to calculate the missing metric yourself out of whatever counts the thinner report does give you.
 
 Which is where the bottom half of the fraction starts to matter. Every rate is a count divided by something, and the sources don't agree on what that something is. MCAE calculates unique open rate against DELIVERED, meaning sent minus bounces. Plenty of platforms calculate it against SENT. Derive one rate against one denominator, pull the other straight from a report using the other denominator, stack them in the same column, and you get a number that describes nothing at all. It charts beautifully. Nobody will question it.
 
@@ -68,7 +68,7 @@ The requirements here are small and boring and I'm not going to pretend otherwis
 
 Lowercase and trim every email address. Convert every date to ISO 8601, so YYYY-MM-DD, because Salesforce export formats follow the user's locale settings and the person running the export this month might not be the one who ran it last month. Standardize company name formatting. One column schema across every file.
 
-For example: Before normalization these are treaded as two records:
+For example: Before normalization these are treated as two records:
 <code>
 jane.doe@acme.com  | Acme Corp | 08/01/2026
 Jane.Doe@ACME.COM  | ACME CORP | 2026-08-01 
@@ -83,29 +83,25 @@ Here's how to get there.
 </ol>
 <h3>Using the above two Jane Doe records as an example:</h3>
 
-**Email address, lowercase and trimmed of stray spaces:
-**
+**Email address, lowercase and trimmed of stray spaces:**
 <code>=TRIM(LOWER(A2))</code>
 
-**Company name, same treatment:
-**
+**Company name, trimmed and in all caps:**
 <code>=TRIM(UPPER(B2))</code>
 
 Dates are the fiddly one, because it depends on whether Excel parsed the export as a real date or left it as text. Click the cell and look at how it sits. Dates right-align, text left-aligns.
 
-**If it's a real date:
-**
+**If it's a real date:**
 <code>=TEXT(C2,"yyyy-mm-dd")</code>
 
-**If it's text:
-**
+**If it's text:**
 <code>=TEXT(DATEVALUE(C2),"yyyy-mm-dd")</code>
 
 Then select your helper columns, copy, and Paste Special > Values over the originals. **Do this before the merge, not after**, because a formula referencing a column you're about to delete will break in a way that's tedious to unpick.
 
-I can hear you wail: But Molly, data cleaning is boring - I want to get to the fun stuff! Yes yes, I understand. However, skip normalization and those two rows survive the merge as separate records. Your record count is now one too high for that person, so any per-person count you report are all overstated by however many duplicates you carried in. You'll also have two rows with conflicting company name and date values for the same address, and whichever one happens to sort first is the one that ends up in your summary. Which is a dedup problem, and dedup in MCAE has a wrinkle worth its own section below.
+I can hear you wail: But Molly, data cleaning is boring - I want to get to the fun stuff! Yes yes, I understand. However, skip normalization and those two rows survive the merge as separate records. Your record count is now one too high for that person, so any per-person counts you report are overstated by however many duplicates you carried in. You'll also have two rows with conflicting company name and date values for the same address, and whichever one happens to sort first is the one that ends up in your summary. Which is a dedup problem, and dedup in MCAE has a wrinkle worth its own section below.
 
-While you're at it, carry a source system column and campaign name on every row from the very beginning. Works great when you're most of a year into a dataset, somebody questions a single number in a leadership meeting, and you need to explain the data without re-pulling everything. If you don't or your intrepid leader asks follow up questions, repeat after me: "I don't have that data ready at the moment. I will follow up with you on that."
+While you're at it, carry a source system column and campaign name on every row from the very beginning. Works great when you're most of a year into a dataset, somebody questions a single number in a leadership meeting, and you need to explain the data without re-pulling everything. If you don't, or your intrepid leader asks follow-up questions, repeat after me: "I don't have that data ready at the moment. I will follow up with you on that."
 
 <h2>Where AI helps, and where it doesn't</h2>
 I do use AI in this workflow. Not the way most tutorials describe it.
@@ -115,7 +111,7 @@ Email addresses are personal data. Whether moving them into a given tool is allo
 
 Aggregating first gets you most of the way out of the problem. Send-level and campaign-level rows carry no individual records: campaign name, date, sent, delivered, bounces, unique opens, unique clicks, opt-outs, complaints. Almost every reporting question you have can be answered at that grain, which is good, because that grain is also the safe one.
 
-Most of the way, though, not all of it. Aggregating reduces identifiability without automatically eliminating it. The ICO (Information Commissioner's Office [UK GDPR enforcement])treats identifiability as a spectrum and applies a "motivated intruder" test, asking whether a determined person with resources could work out who's in the data. A row summarizing the open rate of an email sent to a list of 40,000 prospects is fine by anyone's reading. A row summarizing a send to eleven named accounts in one territory is a different conversation. Use judgment at the small end.
+Most of the way, though, not all of it. Aggregating reduces identifiability without automatically eliminating it. The ICO (Information Commissioner's Office [UK GDPR enforcement]) treats identifiability as a spectrum and applies a "motivated intruder" test, asking whether a determined person with resources could work out who's in the data. A row summarizing the open rate of an email sent to a list of 40,000 prospects is fine by anyone's reading. A row summarizing a send to eleven named accounts in one territory is a different conversation. Use judgment at the small end.
 
 <h3>Don't use a model as your extraction or math layer. </h3>
 Asking a model to read several thousand rows and hand back structured output with correct numbers is asking it to do the thing it's worst at, and the output looks right either way.

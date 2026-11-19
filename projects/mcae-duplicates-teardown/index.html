@@ -1,5 +1,5 @@
 ---
-title: "Three ways to deal with duplicates between MCAE and Salesforce*"
+title: "Three ways to deal with duplicates between MCAE and Salesforce"
 layout: default
 permalink: "/projects/mcae-duplicates-teardown/"
 description: "A Marketing Ops teardown of how MCAE and Salesforce each define a duplicate: why duplicates show up, three ways to handle them, and the connector setting that is unavailable where you need it most."
@@ -8,7 +8,7 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
 <div class="container mt-4 mb-5" style="max-width: 860px;">
 
   <p class="mb-1" style="letter-spacing: .12em; font-weight: 700; font-size: .85rem; color: #1D3557;">MARKETING OPS TEARDOWN &middot; OCTOBER 2026</p>
-  <h1 class="font-weight-bold title">Three ways to deal with duplicates between MCAE and Salesforce*</h1>
+  <h1 class="font-weight-bold title">Three ways to deal with duplicates between MCAE and Salesforce</h1>
 
   <p class="lead">
     A map I drew from Salesforce's own documentation, plus two notes from my own experience. The short version: MCAE and Salesforce don't agree on what counts as a duplicate.
@@ -60,7 +60,7 @@ image: "/assets/images/mcae-duplicates-teardown-og.jpg"
     <strong>Watch out:</strong> MCAE has a connector setting that copies the losing prospect's activities, tags and lists onto the winner, and it isn't available when AMPSEA is on. The AMPSEA docs don't say whether that history moves at all. A prospect with no CRM ID doesn't exist in Salesforce, so no Salesforce tool can see it.
   </p>
   <p>
-    <strong>From experience:</strong> <em>business decision makers guard the CRM far more closely than MCAE, because opportunities are considered more valuable* for revenue reporting than campaigns built in MCAE. I have yet to see a company welcome a third-party app that needs edit access to CRM records just to dedupe prospects, especially when the CRM is the org's source of truth and the Admins and Dev team trust the duplicate and matching rules they already run in Salesforce.</em>
+    <strong>From experience:</strong> <em>business decision-makers guard the CRM far more closely than MCAE, because opportunities are considered more valuable for revenue reporting than campaigns built in MCAE. I have yet to see a company welcome a third-party app that needs edit access to CRM records just to dedupe prospects, especially when the CRM is the org's source of truth and the admins and dev team trust the duplicate and matching rules they already run in Salesforce.</em>
   </p>
 
   <h2 class="mt-4">The tell</h2>
